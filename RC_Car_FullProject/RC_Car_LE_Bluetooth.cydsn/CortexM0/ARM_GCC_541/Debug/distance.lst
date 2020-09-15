@@ -1,0 +1,1849 @@
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"distance.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.print,"ax",%progbits
+  20              		.align	2
+  21              		.global	print
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	print, %function
+  25              	print:
+  26              	.LFB35:
+  27              		.file 1 "distance.c"
+   1:distance.c    **** /* ========================================
+   2:distance.c    ****  *
+   3:distance.c    ****  * Copyright YOUR COMPANY, THE YEAR
+   4:distance.c    ****  * All Rights Reserved
+   5:distance.c    ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:distance.c    ****  *
+   7:distance.c    ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:distance.c    ****  * WHICH IS THE PROPERTY OF your company.
+   9:distance.c    ****  *
+  10:distance.c    ****  * ========================================
+  11:distance.c    **** */
+  12:distance.c    **** 
+  13:distance.c    **** /* [] END OF FILE */
+  14:distance.c    **** 
+  15:distance.c    **** #include "project.h"
+  16:distance.c    **** #include "stdlib.h"
+  17:distance.c    **** #include "distance.h"
+  18:distance.c    **** 
+  19:distance.c    **** void print()
+  20:distance.c    **** {
+  28              		.loc 1 20 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  21:distance.c    ****         UART_UartPutString(" Afstand links = "); 
+  36              		.loc 1 21 0
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 2
+
+
+  37 0002 1348     		ldr	r0, .L2
+  38 0004 FFF7FEFF 		bl	UART_UartPutString
+  39              	.LVL0:
+  22:distance.c    ****         UART_UartPutString(afstand_links);
+  40              		.loc 1 22 0
+  41 0008 1248     		ldr	r0, .L2+4
+  42 000a FFF7FEFF 		bl	UART_UartPutString
+  43              	.LVL1:
+  23:distance.c    ****         UART_UartPutString(" cm ");  
+  44              		.loc 1 23 0
+  45 000e 124C     		ldr	r4, .L2+8
+  46 0010 2000     		movs	r0, r4
+  47 0012 FFF7FEFF 		bl	UART_UartPutString
+  48              	.LVL2:
+  24:distance.c    ****         
+  25:distance.c    ****         UART_UartPutChar('\t');
+  49              		.loc 1 25 0
+  50 0016 0920     		movs	r0, #9
+  51 0018 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  52              	.LVL3:
+  26:distance.c    ****         
+  27:distance.c    ****         UART_UartPutString(" Afstand midden = "); 
+  53              		.loc 1 27 0
+  54 001c 0F48     		ldr	r0, .L2+12
+  55 001e FFF7FEFF 		bl	UART_UartPutString
+  56              	.LVL4:
+  28:distance.c    ****         UART_UartPutString(afstand_midden);
+  57              		.loc 1 28 0
+  58 0022 0F48     		ldr	r0, .L2+16
+  59 0024 FFF7FEFF 		bl	UART_UartPutString
+  60              	.LVL5:
+  29:distance.c    ****         UART_UartPutString(" cm ");  
+  61              		.loc 1 29 0
+  62 0028 2000     		movs	r0, r4
+  63 002a FFF7FEFF 		bl	UART_UartPutString
+  64              	.LVL6:
+  30:distance.c    ****         
+  31:distance.c    ****         UART_UartPutChar('\t');
+  65              		.loc 1 31 0
+  66 002e 0920     		movs	r0, #9
+  67 0030 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  68              	.LVL7:
+  32:distance.c    ****         
+  33:distance.c    ****         UART_UartPutString(" Afstand rechts = "); 
+  69              		.loc 1 33 0
+  70 0034 0B48     		ldr	r0, .L2+20
+  71 0036 FFF7FEFF 		bl	UART_UartPutString
+  72              	.LVL8:
+  34:distance.c    ****         UART_UartPutString(afstand_rechts);
+  73              		.loc 1 34 0
+  74 003a 0B48     		ldr	r0, .L2+24
+  75 003c FFF7FEFF 		bl	UART_UartPutString
+  76              	.LVL9:
+  35:distance.c    ****         UART_UartPutString(" cm ");              
+  77              		.loc 1 35 0
+  78 0040 2000     		movs	r0, r4
+  79 0042 FFF7FEFF 		bl	UART_UartPutString
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 3
+
+
+  80              	.LVL10:
+  36:distance.c    ****         
+  37:distance.c    ****         UART_UartPutCRLF(0u);
+  81              		.loc 1 37 0
+  82 0046 0020     		movs	r0, #0
+  83 0048 FFF7FEFF 		bl	UART_UartPutCRLF
+  84              	.LVL11:
+  38:distance.c    **** }
+  85              		.loc 1 38 0
+  86              		@ sp needed
+  87 004c 10BD     		pop	{r4, pc}
+  88              	.L3:
+  89 004e C046     		.align	2
+  90              	.L2:
+  91 0050 00000000 		.word	.LC0
+  92 0054 00000000 		.word	afstand_links
+  93 0058 14000000 		.word	.LC3
+  94 005c 1C000000 		.word	.LC5
+  95 0060 00000000 		.word	afstand_midden
+  96 0064 30000000 		.word	.LC8
+  97 0068 00000000 		.word	afstand_rechts
+  98              		.cfi_endproc
+  99              	.LFE35:
+ 100              		.size	print, .-print
+ 101              		.section	.text.switchToString,"ax",%progbits
+ 102              		.align	2
+ 103              		.global	switchToString
+ 104              		.code	16
+ 105              		.thumb_func
+ 106              		.type	switchToString, %function
+ 107              	switchToString:
+ 108              	.LFB36:
+  39:distance.c    **** 
+  40:distance.c    **** void switchToString()
+  41:distance.c    **** {
+ 109              		.loc 1 41 0
+ 110              		.cfi_startproc
+ 111              		@ args = 0, pretend = 0, frame = 0
+ 112              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113 0000 10B5     		push	{r4, lr}
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 4, -8
+ 116              		.cfi_offset 14, -4
+  42:distance.c    ****         itoa(a_rechts,afstand_rechts,10);
+ 117              		.loc 1 42 0
+ 118 0002 084C     		ldr	r4, .L5
+ 119 0004 0A22     		movs	r2, #10
+ 120 0006 0849     		ldr	r1, .L5+4
+ 121 0008 2068     		ldr	r0, [r4]
+ 122 000a FFF7FEFF 		bl	itoa
+ 123              	.LVL12:
+  43:distance.c    ****         itoa(a_midden,afstand_midden,10); 
+ 124              		.loc 1 43 0
+ 125 000e 0A22     		movs	r2, #10
+ 126 0010 0649     		ldr	r1, .L5+8
+ 127 0012 6068     		ldr	r0, [r4, #4]
+ 128 0014 FFF7FEFF 		bl	itoa
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 4
+
+
+ 129              	.LVL13:
+  44:distance.c    ****         itoa(a_links, afstand_links,10);
+ 130              		.loc 1 44 0
+ 131 0018 A068     		ldr	r0, [r4, #8]
+ 132 001a 0A22     		movs	r2, #10
+ 133 001c 0449     		ldr	r1, .L5+12
+ 134 001e FFF7FEFF 		bl	itoa
+ 135              	.LVL14:
+  45:distance.c    **** }
+ 136              		.loc 1 45 0
+ 137              		@ sp needed
+ 138 0022 10BD     		pop	{r4, pc}
+ 139              	.L6:
+ 140              		.align	2
+ 141              	.L5:
+ 142 0024 00000000 		.word	.LANCHOR0
+ 143 0028 00000000 		.word	afstand_rechts
+ 144 002c 00000000 		.word	afstand_midden
+ 145 0030 00000000 		.word	afstand_links
+ 146              		.cfi_endproc
+ 147              	.LFE36:
+ 148              		.size	switchToString, .-switchToString
+ 149              		.section	.text.getDistance,"ax",%progbits
+ 150              		.align	2
+ 151              		.global	getDistance
+ 152              		.code	16
+ 153              		.thumb_func
+ 154              		.type	getDistance, %function
+ 155              	getDistance:
+ 156              	.LFB37:
+  46:distance.c    **** 
+  47:distance.c    **** void getDistance()
+  48:distance.c    **** {
+ 157              		.loc 1 48 0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161 0000 10B5     		push	{r4, lr}
+ 162              		.cfi_def_cfa_offset 8
+ 163              		.cfi_offset 4, -8
+ 164              		.cfi_offset 14, -4
+  49:distance.c    ****         a_links  = UltraSoon_Links_ReadCompare(); 
+ 165              		.loc 1 49 0
+ 166 0002 FFF7FEFF 		bl	UltraSoon_Links_ReadCompare
+ 167              	.LVL15:
+ 168 0006 044C     		ldr	r4, .L8
+ 169 0008 A060     		str	r0, [r4, #8]
+  50:distance.c    ****         a_midden = UltraSoon_Midden_ReadCompare();  
+ 170              		.loc 1 50 0
+ 171 000a FFF7FEFF 		bl	UltraSoon_Midden_ReadCompare
+ 172              	.LVL16:
+ 173 000e 6060     		str	r0, [r4, #4]
+  51:distance.c    ****         a_rechts = UltraSoon_Rechts_ReadCompare();
+ 174              		.loc 1 51 0
+ 175 0010 FFF7FEFF 		bl	UltraSoon_Rechts_ReadCompare
+ 176              	.LVL17:
+ 177 0014 2060     		str	r0, [r4]
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 5
+
+
+  52:distance.c    ****         //MaxAndMin();
+  53:distance.c    **** }
+ 178              		.loc 1 53 0
+ 179              		@ sp needed
+ 180 0016 10BD     		pop	{r4, pc}
+ 181              	.L9:
+ 182              		.align	2
+ 183              	.L8:
+ 184 0018 00000000 		.word	.LANCHOR0
+ 185              		.cfi_endproc
+ 186              	.LFE37:
+ 187              		.size	getDistance, .-getDistance
+ 188              		.global	a_links
+ 189              		.global	a_midden
+ 190              		.global	a_rechts
+ 191              		.comm	afstand_links,1,4
+ 192              		.comm	afstand_midden,1,4
+ 193              		.comm	afstand_rechts,1,4
+ 194              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 195              		.align	2
+ 196              	.LC0:
+ 197 0000 20416673 		.ascii	" Afstand links = \000"
+ 197      74616E64 
+ 197      206C696E 
+ 197      6B73203D 
+ 197      2000
+ 198 0012 0000     		.space	2
+ 199              	.LC3:
+ 200 0014 20636D20 		.ascii	" cm \000"
+ 200      00
+ 201 0019 000000   		.space	3
+ 202              	.LC5:
+ 203 001c 20416673 		.ascii	" Afstand midden = \000"
+ 203      74616E64 
+ 203      206D6964 
+ 203      64656E20 
+ 203      3D2000
+ 204 002f 00       		.space	1
+ 205              	.LC8:
+ 206 0030 20416673 		.ascii	" Afstand rechts = \000"
+ 206      74616E64 
+ 206      20726563 
+ 206      68747320 
+ 206      3D2000
+ 207              		.bss
+ 208              		.align	2
+ 209              		.set	.LANCHOR0,. + 0
+ 210              		.type	a_rechts, %object
+ 211              		.size	a_rechts, 4
+ 212              	a_rechts:
+ 213 0000 00000000 		.space	4
+ 214              		.type	a_midden, %object
+ 215              		.size	a_midden, 4
+ 216              	a_midden:
+ 217 0004 00000000 		.space	4
+ 218              		.type	a_links, %object
+ 219              		.size	a_links, 4
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 6
+
+
+ 220              	a_links:
+ 221 0008 00000000 		.space	4
+ 222              		.text
+ 223              	.Letext0:
+ 224              		.file 2 "distance.h"
+ 225              		.file 3 "Generated_Source\\PSoC4/UART_SPI_UART.h"
+ 226              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 227              		.file 5 "Generated_Source\\PSoC4/UltraSoon_Links.h"
+ 228              		.file 6 "Generated_Source\\PSoC4/UltraSoon_Midden.h"
+ 229              		.file 7 "Generated_Source\\PSoC4/UltraSoon_Rechts.h"
+ 230              		.file 8 "Generated_Source\\PSoC4/cytypes.h"
+ 231              		.file 9 "Generated_Source\\PSoC4/BLE_Stack.h"
+ 232              		.section	.debug_info,"",%progbits
+ 233              	.Ldebug_info0:
+ 234 0000 C6040000 		.4byte	0x4c6
+ 235 0004 0400     		.2byte	0x4
+ 236 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 237 000a 04       		.byte	0x4
+ 238 000b 01       		.uleb128 0x1
+ 239 000c 3A020000 		.4byte	.LASF102
+ 240 0010 0C       		.byte	0xc
+ 241 0011 DA070000 		.4byte	.LASF103
+ 242 0015 C8080000 		.4byte	.LASF104
+ 243 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 244 001d 00000000 		.4byte	0
+ 245 0021 00000000 		.4byte	.Ldebug_line0
+ 246 0025 02       		.uleb128 0x2
+ 247 0026 01       		.byte	0x1
+ 248 0027 06       		.byte	0x6
+ 249 0028 05060000 		.4byte	.LASF0
+ 250 002c 02       		.uleb128 0x2
+ 251 002d 01       		.byte	0x1
+ 252 002e 08       		.byte	0x8
+ 253 002f 9B050000 		.4byte	.LASF1
+ 254 0033 02       		.uleb128 0x2
+ 255 0034 02       		.byte	0x2
+ 256 0035 05       		.byte	0x5
+ 257 0036 E5000000 		.4byte	.LASF2
+ 258 003a 02       		.uleb128 0x2
+ 259 003b 02       		.byte	0x2
+ 260 003c 07       		.byte	0x7
+ 261 003d 3E070000 		.4byte	.LASF3
+ 262 0041 02       		.uleb128 0x2
+ 263 0042 04       		.byte	0x4
+ 264 0043 05       		.byte	0x5
+ 265 0044 45040000 		.4byte	.LASF4
+ 266 0048 02       		.uleb128 0x2
+ 267 0049 04       		.byte	0x4
+ 268 004a 07       		.byte	0x7
+ 269 004b 9C060000 		.4byte	.LASF5
+ 270 004f 02       		.uleb128 0x2
+ 271 0050 08       		.byte	0x8
+ 272 0051 05       		.byte	0x5
+ 273 0052 66010000 		.4byte	.LASF6
+ 274 0056 02       		.uleb128 0x2
+ 275 0057 08       		.byte	0x8
+ 276 0058 07       		.byte	0x7
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 7
+
+
+ 277 0059 FE030000 		.4byte	.LASF7
+ 278 005d 03       		.uleb128 0x3
+ 279 005e 04       		.byte	0x4
+ 280 005f 05       		.byte	0x5
+ 281 0060 696E7400 		.ascii	"int\000"
+ 282 0064 02       		.uleb128 0x2
+ 283 0065 04       		.byte	0x4
+ 284 0066 07       		.byte	0x7
+ 285 0067 74060000 		.4byte	.LASF8
+ 286 006b 04       		.uleb128 0x4
+ 287 006c 22080000 		.4byte	.LASF105
+ 288 0070 08       		.byte	0x8
+ 289 0071 E601     		.2byte	0x1e6
+ 290 0073 48000000 		.4byte	0x48
+ 291 0077 02       		.uleb128 0x2
+ 292 0078 04       		.byte	0x4
+ 293 0079 04       		.byte	0x4
+ 294 007a 95030000 		.4byte	.LASF9
+ 295 007e 02       		.uleb128 0x2
+ 296 007f 08       		.byte	0x8
+ 297 0080 04       		.byte	0x4
+ 298 0081 73080000 		.4byte	.LASF10
+ 299 0085 02       		.uleb128 0x2
+ 300 0086 01       		.byte	0x1
+ 301 0087 08       		.byte	0x8
+ 302 0088 B9070000 		.4byte	.LASF11
+ 303 008c 02       		.uleb128 0x2
+ 304 008d 08       		.byte	0x8
+ 305 008e 04       		.byte	0x4
+ 306 008f 64050000 		.4byte	.LASF12
+ 307 0093 02       		.uleb128 0x2
+ 308 0094 04       		.byte	0x4
+ 309 0095 07       		.byte	0x7
+ 310 0096 27010000 		.4byte	.LASF13
+ 311 009a 05       		.uleb128 0x5
+ 312 009b 01       		.byte	0x1
+ 313 009c 2C000000 		.4byte	0x2c
+ 314 00a0 09       		.byte	0x9
+ 315 00a1 3501     		.2byte	0x135
+ 316 00a3 58020000 		.4byte	0x258
+ 317 00a7 06       		.uleb128 0x6
+ 318 00a8 3F030000 		.4byte	.LASF14
+ 319 00ac 00       		.byte	0
+ 320 00ad 06       		.uleb128 0x6
+ 321 00ae D4010000 		.4byte	.LASF15
+ 322 00b2 01       		.byte	0x1
+ 323 00b3 06       		.uleb128 0x6
+ 324 00b4 110A0000 		.4byte	.LASF16
+ 325 00b8 02       		.byte	0x2
+ 326 00b9 06       		.uleb128 0x6
+ 327 00ba 2C090000 		.4byte	.LASF17
+ 328 00be 03       		.byte	0x3
+ 329 00bf 06       		.uleb128 0x6
+ 330 00c0 51010000 		.4byte	.LASF18
+ 331 00c4 04       		.byte	0x4
+ 332 00c5 06       		.uleb128 0x6
+ 333 00c6 E0040000 		.4byte	.LASF19
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 8
+
+
+ 334 00ca 05       		.byte	0x5
+ 335 00cb 06       		.uleb128 0x6
+ 336 00cc 50000000 		.4byte	.LASF20
+ 337 00d0 06       		.byte	0x6
+ 338 00d1 06       		.uleb128 0x6
+ 339 00d2 8A090000 		.4byte	.LASF21
+ 340 00d6 20       		.byte	0x20
+ 341 00d7 06       		.uleb128 0x6
+ 342 00d8 AE060000 		.4byte	.LASF22
+ 343 00dc 21       		.byte	0x21
+ 344 00dd 06       		.uleb128 0x6
+ 345 00de 00000000 		.4byte	.LASF23
+ 346 00e2 22       		.byte	0x22
+ 347 00e3 06       		.uleb128 0x6
+ 348 00e4 FC040000 		.4byte	.LASF24
+ 349 00e8 23       		.byte	0x23
+ 350 00e9 06       		.uleb128 0x6
+ 351 00ea 58060000 		.4byte	.LASF25
+ 352 00ee 24       		.byte	0x24
+ 353 00ef 06       		.uleb128 0x6
+ 354 00f0 EF000000 		.4byte	.LASF26
+ 355 00f4 25       		.byte	0x25
+ 356 00f5 06       		.uleb128 0x6
+ 357 00f6 97040000 		.4byte	.LASF27
+ 358 00fa 26       		.byte	0x26
+ 359 00fb 06       		.uleb128 0x6
+ 360 00fc 78040000 		.4byte	.LASF28
+ 361 0100 27       		.byte	0x27
+ 362 0101 06       		.uleb128 0x6
+ 363 0102 9F000000 		.4byte	.LASF29
+ 364 0106 28       		.byte	0x28
+ 365 0107 06       		.uleb128 0x6
+ 366 0108 E6060000 		.4byte	.LASF30
+ 367 010c 29       		.byte	0x29
+ 368 010d 06       		.uleb128 0x6
+ 369 010e 69070000 		.4byte	.LASF31
+ 370 0112 2A       		.byte	0x2a
+ 371 0113 06       		.uleb128 0x6
+ 372 0114 530A0000 		.4byte	.LASF32
+ 373 0118 2B       		.byte	0x2b
+ 374 0119 06       		.uleb128 0x6
+ 375 011a DB020000 		.4byte	.LASF33
+ 376 011e 2C       		.byte	0x2c
+ 377 011f 06       		.uleb128 0x6
+ 378 0120 B4030000 		.4byte	.LASF34
+ 379 0124 2D       		.byte	0x2d
+ 380 0125 06       		.uleb128 0x6
+ 381 0126 C1000000 		.4byte	.LASF35
+ 382 012a 2E       		.byte	0x2e
+ 383 012b 06       		.uleb128 0x6
+ 384 012c 580B0000 		.4byte	.LASF36
+ 385 0130 2F       		.byte	0x2f
+ 386 0131 06       		.uleb128 0x6
+ 387 0132 30010000 		.4byte	.LASF37
+ 388 0136 30       		.byte	0x30
+ 389 0137 06       		.uleb128 0x6
+ 390 0138 40050000 		.4byte	.LASF38
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 9
+
+
+ 391 013c 31       		.byte	0x31
+ 392 013d 06       		.uleb128 0x6
+ 393 013e DD030000 		.4byte	.LASF39
+ 394 0142 32       		.byte	0x32
+ 395 0143 06       		.uleb128 0x6
+ 396 0144 92070000 		.4byte	.LASF40
+ 397 0148 33       		.byte	0x33
+ 398 0149 06       		.uleb128 0x6
+ 399 014a 03070000 		.4byte	.LASF41
+ 400 014e 34       		.byte	0x34
+ 401 014f 06       		.uleb128 0x6
+ 402 0150 AB080000 		.4byte	.LASF42
+ 403 0154 35       		.byte	0x35
+ 404 0155 06       		.uleb128 0x6
+ 405 0156 24040000 		.4byte	.LASF43
+ 406 015a 36       		.byte	0x36
+ 407 015b 06       		.uleb128 0x6
+ 408 015c E7010000 		.4byte	.LASF44
+ 409 0160 37       		.byte	0x37
+ 410 0161 06       		.uleb128 0x6
+ 411 0162 69000000 		.4byte	.LASF45
+ 412 0166 40       		.byte	0x40
+ 413 0167 06       		.uleb128 0x6
+ 414 0168 81060000 		.4byte	.LASF46
+ 415 016c 41       		.byte	0x41
+ 416 016d 06       		.uleb128 0x6
+ 417 016e 09010000 		.4byte	.LASF47
+ 418 0172 42       		.byte	0x42
+ 419 0173 06       		.uleb128 0x6
+ 420 0174 1C020000 		.4byte	.LASF48
+ 421 0178 43       		.byte	0x43
+ 422 0179 06       		.uleb128 0x6
+ 423 017a F3090000 		.4byte	.LASF49
+ 424 017e 44       		.byte	0x44
+ 425 017f 06       		.uleb128 0x6
+ 426 0180 AE090000 		.4byte	.LASF50
+ 427 0184 45       		.byte	0x45
+ 428 0185 06       		.uleb128 0x6
+ 429 0186 96010000 		.4byte	.LASF51
+ 430 018a 46       		.byte	0x46
+ 431 018b 06       		.uleb128 0x6
+ 432 018c E7050000 		.4byte	.LASF52
+ 433 0190 47       		.byte	0x47
+ 434 0191 06       		.uleb128 0x6
+ 435 0192 31060000 		.4byte	.LASF53
+ 436 0196 48       		.byte	0x48
+ 437 0197 06       		.uleb128 0x6
+ 438 0198 9B030000 		.4byte	.LASF54
+ 439 019c 49       		.byte	0x49
+ 440 019d 06       		.uleb128 0x6
+ 441 019e E5070000 		.4byte	.LASF55
+ 442 01a2 4A       		.byte	0x4a
+ 443 01a3 06       		.uleb128 0x6
+ 444 01a4 FF020000 		.4byte	.LASF56
+ 445 01a8 4B       		.byte	0x4b
+ 446 01a9 06       		.uleb128 0x6
+ 447 01aa 11060000 		.4byte	.LASF57
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 10
+
+
+ 448 01ae 4C       		.byte	0x4c
+ 449 01af 06       		.uleb128 0x6
+ 450 01b0 7C010000 		.4byte	.LASF58
+ 451 01b4 4D       		.byte	0x4d
+ 452 01b5 06       		.uleb128 0x6
+ 453 01b6 D5090000 		.4byte	.LASF59
+ 454 01ba 4E       		.byte	0x4e
+ 455 01bb 06       		.uleb128 0x6
+ 456 01bc A9050000 		.4byte	.LASF60
+ 457 01c0 4F       		.byte	0x4f
+ 458 01c1 06       		.uleb128 0x6
+ 459 01c2 DA0A0000 		.4byte	.LASF61
+ 460 01c6 50       		.byte	0x50
+ 461 01c7 06       		.uleb128 0x6
+ 462 01c8 03080000 		.4byte	.LASF62
+ 463 01cc 51       		.byte	0x51
+ 464 01cd 06       		.uleb128 0x6
+ 465 01ce BF040000 		.4byte	.LASF63
+ 466 01d2 52       		.byte	0x52
+ 467 01d3 06       		.uleb128 0x6
+ 468 01d4 57040000 		.4byte	.LASF64
+ 469 01d8 53       		.byte	0x53
+ 470 01d9 06       		.uleb128 0x6
+ 471 01da 1E030000 		.4byte	.LASF65
+ 472 01de 54       		.byte	0x54
+ 473 01df 06       		.uleb128 0x6
+ 474 01e0 110B0000 		.4byte	.LASF66
+ 475 01e4 55       		.byte	0x55
+ 476 01e5 06       		.uleb128 0x6
+ 477 01e6 A90A0000 		.4byte	.LASF67
+ 478 01ea 56       		.byte	0x56
+ 479 01eb 06       		.uleb128 0x6
+ 480 01ec 800A0000 		.4byte	.LASF68
+ 481 01f0 57       		.byte	0x57
+ 482 01f1 06       		.uleb128 0x6
+ 483 01f2 1B070000 		.4byte	.LASF69
+ 484 01f6 58       		.byte	0x58
+ 485 01f7 06       		.uleb128 0x6
+ 486 01f8 75050000 		.4byte	.LASF70
+ 487 01fc 70       		.byte	0x70
+ 488 01fd 06       		.uleb128 0x6
+ 489 01fe 64090000 		.4byte	.LASF71
+ 490 0202 71       		.byte	0x71
+ 491 0203 06       		.uleb128 0x6
+ 492 0204 BE070000 		.4byte	.LASF72
+ 493 0208 72       		.byte	0x72
+ 494 0209 06       		.uleb128 0x6
+ 495 020a 56030000 		.4byte	.LASF73
+ 496 020e 73       		.byte	0x73
+ 497 020f 06       		.uleb128 0x6
+ 498 0210 22050000 		.4byte	.LASF74
+ 499 0214 74       		.byte	0x74
+ 500 0215 06       		.uleb128 0x6
+ 501 0216 C5060000 		.4byte	.LASF75
+ 502 021a 75       		.byte	0x75
+ 503 021b 06       		.uleb128 0x6
+ 504 021c 74030000 		.4byte	.LASF76
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 11
+
+
+ 505 0220 76       		.byte	0x76
+ 506 0221 06       		.uleb128 0x6
+ 507 0222 45090000 		.4byte	.LASF77
+ 508 0226 77       		.byte	0x77
+ 509 0227 06       		.uleb128 0x6
+ 510 0228 47080000 		.4byte	.LASF78
+ 511 022c 78       		.byte	0x78
+ 512 022d 06       		.uleb128 0x6
+ 513 022e 88080000 		.4byte	.LASF79
+ 514 0232 79       		.byte	0x79
+ 515 0233 06       		.uleb128 0x6
+ 516 0234 2F0A0000 		.4byte	.LASF80
+ 517 0238 7A       		.byte	0x7a
+ 518 0239 06       		.uleb128 0x6
+ 519 023a 29080000 		.4byte	.LASF81
+ 520 023e FA       		.byte	0xfa
+ 521 023f 06       		.uleb128 0x6
+ 522 0240 C8050000 		.4byte	.LASF82
+ 523 0244 FB       		.byte	0xfb
+ 524 0245 06       		.uleb128 0x6
+ 525 0246 350B0000 		.4byte	.LASF83
+ 526 024a FC       		.byte	0xfc
+ 527 024b 06       		.uleb128 0x6
+ 528 024c 51070000 		.4byte	.LASF84
+ 529 0250 FD       		.byte	0xfd
+ 530 0251 06       		.uleb128 0x6
+ 531 0252 720A0000 		.4byte	.LASF85
+ 532 0256 FF       		.byte	0xff
+ 533 0257 00       		.byte	0
+ 534 0258 07       		.uleb128 0x7
+ 535 0259 2B060000 		.4byte	.LASF86
+ 536 025d 01       		.byte	0x1
+ 537 025e 13       		.byte	0x13
+ 538 025f 00000000 		.4byte	.LFB35
+ 539 0263 6C000000 		.4byte	.LFE35-.LFB35
+ 540 0267 01       		.uleb128 0x1
+ 541 0268 9C       		.byte	0x9c
+ 542 0269 69030000 		.4byte	0x369
+ 543 026d 08       		.uleb128 0x8
+ 544 026e 08000000 		.4byte	.LVL0
+ 545 0272 76040000 		.4byte	0x476
+ 546 0276 84020000 		.4byte	0x284
+ 547 027a 09       		.uleb128 0x9
+ 548 027b 01       		.uleb128 0x1
+ 549 027c 50       		.byte	0x50
+ 550 027d 05       		.uleb128 0x5
+ 551 027e 03       		.byte	0x3
+ 552 027f 00000000 		.4byte	.LC0
+ 553 0283 00       		.byte	0
+ 554 0284 08       		.uleb128 0x8
+ 555 0285 0E000000 		.4byte	.LVL1
+ 556 0289 76040000 		.4byte	0x476
+ 557 028d 9B020000 		.4byte	0x29b
+ 558 0291 09       		.uleb128 0x9
+ 559 0292 01       		.uleb128 0x1
+ 560 0293 50       		.byte	0x50
+ 561 0294 05       		.uleb128 0x5
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 12
+
+
+ 562 0295 03       		.byte	0x3
+ 563 0296 00000000 		.4byte	afstand_links
+ 564 029a 00       		.byte	0
+ 565 029b 08       		.uleb128 0x8
+ 566 029c 16000000 		.4byte	.LVL2
+ 567 02a0 76040000 		.4byte	0x476
+ 568 02a4 AF020000 		.4byte	0x2af
+ 569 02a8 09       		.uleb128 0x9
+ 570 02a9 01       		.uleb128 0x1
+ 571 02aa 50       		.byte	0x50
+ 572 02ab 02       		.uleb128 0x2
+ 573 02ac 74       		.byte	0x74
+ 574 02ad 00       		.sleb128 0
+ 575 02ae 00       		.byte	0
+ 576 02af 08       		.uleb128 0x8
+ 577 02b0 1C000000 		.4byte	.LVL3
+ 578 02b4 82040000 		.4byte	0x482
+ 579 02b8 C2020000 		.4byte	0x2c2
+ 580 02bc 09       		.uleb128 0x9
+ 581 02bd 01       		.uleb128 0x1
+ 582 02be 50       		.byte	0x50
+ 583 02bf 01       		.uleb128 0x1
+ 584 02c0 39       		.byte	0x39
+ 585 02c1 00       		.byte	0
+ 586 02c2 08       		.uleb128 0x8
+ 587 02c3 22000000 		.4byte	.LVL4
+ 588 02c7 76040000 		.4byte	0x476
+ 589 02cb D9020000 		.4byte	0x2d9
+ 590 02cf 09       		.uleb128 0x9
+ 591 02d0 01       		.uleb128 0x1
+ 592 02d1 50       		.byte	0x50
+ 593 02d2 05       		.uleb128 0x5
+ 594 02d3 03       		.byte	0x3
+ 595 02d4 1C000000 		.4byte	.LC5
+ 596 02d8 00       		.byte	0
+ 597 02d9 08       		.uleb128 0x8
+ 598 02da 28000000 		.4byte	.LVL5
+ 599 02de 76040000 		.4byte	0x476
+ 600 02e2 F0020000 		.4byte	0x2f0
+ 601 02e6 09       		.uleb128 0x9
+ 602 02e7 01       		.uleb128 0x1
+ 603 02e8 50       		.byte	0x50
+ 604 02e9 05       		.uleb128 0x5
+ 605 02ea 03       		.byte	0x3
+ 606 02eb 00000000 		.4byte	afstand_midden
+ 607 02ef 00       		.byte	0
+ 608 02f0 08       		.uleb128 0x8
+ 609 02f1 2E000000 		.4byte	.LVL6
+ 610 02f5 76040000 		.4byte	0x476
+ 611 02f9 04030000 		.4byte	0x304
+ 612 02fd 09       		.uleb128 0x9
+ 613 02fe 01       		.uleb128 0x1
+ 614 02ff 50       		.byte	0x50
+ 615 0300 02       		.uleb128 0x2
+ 616 0301 74       		.byte	0x74
+ 617 0302 00       		.sleb128 0
+ 618 0303 00       		.byte	0
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 13
+
+
+ 619 0304 08       		.uleb128 0x8
+ 620 0305 34000000 		.4byte	.LVL7
+ 621 0309 82040000 		.4byte	0x482
+ 622 030d 17030000 		.4byte	0x317
+ 623 0311 09       		.uleb128 0x9
+ 624 0312 01       		.uleb128 0x1
+ 625 0313 50       		.byte	0x50
+ 626 0314 01       		.uleb128 0x1
+ 627 0315 39       		.byte	0x39
+ 628 0316 00       		.byte	0
+ 629 0317 08       		.uleb128 0x8
+ 630 0318 3A000000 		.4byte	.LVL8
+ 631 031c 76040000 		.4byte	0x476
+ 632 0320 2E030000 		.4byte	0x32e
+ 633 0324 09       		.uleb128 0x9
+ 634 0325 01       		.uleb128 0x1
+ 635 0326 50       		.byte	0x50
+ 636 0327 05       		.uleb128 0x5
+ 637 0328 03       		.byte	0x3
+ 638 0329 30000000 		.4byte	.LC8
+ 639 032d 00       		.byte	0
+ 640 032e 08       		.uleb128 0x8
+ 641 032f 40000000 		.4byte	.LVL9
+ 642 0333 76040000 		.4byte	0x476
+ 643 0337 45030000 		.4byte	0x345
+ 644 033b 09       		.uleb128 0x9
+ 645 033c 01       		.uleb128 0x1
+ 646 033d 50       		.byte	0x50
+ 647 033e 05       		.uleb128 0x5
+ 648 033f 03       		.byte	0x3
+ 649 0340 00000000 		.4byte	afstand_rechts
+ 650 0344 00       		.byte	0
+ 651 0345 08       		.uleb128 0x8
+ 652 0346 46000000 		.4byte	.LVL10
+ 653 034a 76040000 		.4byte	0x476
+ 654 034e 59030000 		.4byte	0x359
+ 655 0352 09       		.uleb128 0x9
+ 656 0353 01       		.uleb128 0x1
+ 657 0354 50       		.byte	0x50
+ 658 0355 02       		.uleb128 0x2
+ 659 0356 74       		.byte	0x74
+ 660 0357 00       		.sleb128 0
+ 661 0358 00       		.byte	0
+ 662 0359 0A       		.uleb128 0xa
+ 663 035a 4C000000 		.4byte	.LVL11
+ 664 035e 8E040000 		.4byte	0x48e
+ 665 0362 09       		.uleb128 0x9
+ 666 0363 01       		.uleb128 0x1
+ 667 0364 50       		.byte	0x50
+ 668 0365 01       		.uleb128 0x1
+ 669 0366 30       		.byte	0x30
+ 670 0367 00       		.byte	0
+ 671 0368 00       		.byte	0
+ 672 0369 07       		.uleb128 0x7
+ 673 036a 15040000 		.4byte	.LASF87
+ 674 036e 01       		.byte	0x1
+ 675 036f 28       		.byte	0x28
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 14
+
+
+ 676 0370 00000000 		.4byte	.LFB36
+ 677 0374 34000000 		.4byte	.LFE36-.LFB36
+ 678 0378 01       		.uleb128 0x1
+ 679 0379 9C       		.byte	0x9c
+ 680 037a CF030000 		.4byte	0x3cf
+ 681 037e 08       		.uleb128 0x8
+ 682 037f 0E000000 		.4byte	.LVL12
+ 683 0383 9A040000 		.4byte	0x49a
+ 684 0387 9A030000 		.4byte	0x39a
+ 685 038b 09       		.uleb128 0x9
+ 686 038c 01       		.uleb128 0x1
+ 687 038d 51       		.byte	0x51
+ 688 038e 05       		.uleb128 0x5
+ 689 038f 03       		.byte	0x3
+ 690 0390 00000000 		.4byte	afstand_rechts
+ 691 0394 09       		.uleb128 0x9
+ 692 0395 01       		.uleb128 0x1
+ 693 0396 52       		.byte	0x52
+ 694 0397 01       		.uleb128 0x1
+ 695 0398 3A       		.byte	0x3a
+ 696 0399 00       		.byte	0
+ 697 039a 08       		.uleb128 0x8
+ 698 039b 18000000 		.4byte	.LVL13
+ 699 039f 9A040000 		.4byte	0x49a
+ 700 03a3 B6030000 		.4byte	0x3b6
+ 701 03a7 09       		.uleb128 0x9
+ 702 03a8 01       		.uleb128 0x1
+ 703 03a9 51       		.byte	0x51
+ 704 03aa 05       		.uleb128 0x5
+ 705 03ab 03       		.byte	0x3
+ 706 03ac 00000000 		.4byte	afstand_midden
+ 707 03b0 09       		.uleb128 0x9
+ 708 03b1 01       		.uleb128 0x1
+ 709 03b2 52       		.byte	0x52
+ 710 03b3 01       		.uleb128 0x1
+ 711 03b4 3A       		.byte	0x3a
+ 712 03b5 00       		.byte	0
+ 713 03b6 0A       		.uleb128 0xa
+ 714 03b7 22000000 		.4byte	.LVL14
+ 715 03bb 9A040000 		.4byte	0x49a
+ 716 03bf 09       		.uleb128 0x9
+ 717 03c0 01       		.uleb128 0x1
+ 718 03c1 51       		.byte	0x51
+ 719 03c2 05       		.uleb128 0x5
+ 720 03c3 03       		.byte	0x3
+ 721 03c4 00000000 		.4byte	afstand_links
+ 722 03c8 09       		.uleb128 0x9
+ 723 03c9 01       		.uleb128 0x1
+ 724 03ca 52       		.byte	0x52
+ 725 03cb 01       		.uleb128 0x1
+ 726 03cc 3A       		.byte	0x3a
+ 727 03cd 00       		.byte	0
+ 728 03ce 00       		.byte	0
+ 729 03cf 07       		.uleb128 0x7
+ 730 03d0 230A0000 		.4byte	.LASF88
+ 731 03d4 01       		.byte	0x1
+ 732 03d5 2F       		.byte	0x2f
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 15
+
+
+ 733 03d6 00000000 		.4byte	.LFB37
+ 734 03da 1C000000 		.4byte	.LFE37-.LFB37
+ 735 03de 01       		.uleb128 0x1
+ 736 03df 9C       		.byte	0x9c
+ 737 03e0 00040000 		.4byte	0x400
+ 738 03e4 0B       		.uleb128 0xb
+ 739 03e5 06000000 		.4byte	.LVL15
+ 740 03e9 A5040000 		.4byte	0x4a5
+ 741 03ed 0B       		.uleb128 0xb
+ 742 03ee 0E000000 		.4byte	.LVL16
+ 743 03f2 B1040000 		.4byte	0x4b1
+ 744 03f6 0B       		.uleb128 0xb
+ 745 03f7 14000000 		.4byte	.LVL17
+ 746 03fb BD040000 		.4byte	0x4bd
+ 747 03ff 00       		.byte	0
+ 748 0400 0C       		.uleb128 0xc
+ 749 0401 85000000 		.4byte	0x85
+ 750 0405 10040000 		.4byte	0x410
+ 751 0409 0D       		.uleb128 0xd
+ 752 040a 93000000 		.4byte	0x93
+ 753 040e 00       		.byte	0
+ 754 040f 00       		.byte	0
+ 755 0410 0E       		.uleb128 0xe
+ 756 0411 CB0A0000 		.4byte	.LASF89
+ 757 0415 02       		.byte	0x2
+ 758 0416 13       		.byte	0x13
+ 759 0417 00040000 		.4byte	0x400
+ 760 041b 05       		.uleb128 0x5
+ 761 041c 03       		.byte	0x3
+ 762 041d 00000000 		.4byte	afstand_rechts
+ 763 0421 0E       		.uleb128 0xe
+ 764 0422 41000000 		.4byte	.LASF90
+ 765 0426 02       		.byte	0x2
+ 766 0427 14       		.byte	0x14
+ 767 0428 00040000 		.4byte	0x400
+ 768 042c 05       		.uleb128 0x5
+ 769 042d 03       		.byte	0x3
+ 770 042e 00000000 		.4byte	afstand_midden
+ 771 0432 0E       		.uleb128 0xe
+ 772 0433 7A080000 		.4byte	.LASF91
+ 773 0437 02       		.byte	0x2
+ 774 0438 15       		.byte	0x15
+ 775 0439 00040000 		.4byte	0x400
+ 776 043d 05       		.uleb128 0x5
+ 777 043e 03       		.byte	0x3
+ 778 043f 00000000 		.4byte	afstand_links
+ 779 0443 0E       		.uleb128 0xe
+ 780 0444 6A080000 		.4byte	.LASF92
+ 781 0448 02       		.byte	0x2
+ 782 0449 18       		.byte	0x18
+ 783 044a 5D000000 		.4byte	0x5d
+ 784 044e 05       		.uleb128 0x5
+ 785 044f 03       		.byte	0x3
+ 786 0450 00000000 		.4byte	a_rechts
+ 787 0454 0E       		.uleb128 0xe
+ 788 0455 4E040000 		.4byte	.LASF93
+ 789 0459 02       		.byte	0x2
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 16
+
+
+ 790 045a 19       		.byte	0x19
+ 791 045b 5D000000 		.4byte	0x5d
+ 792 045f 05       		.uleb128 0x5
+ 793 0460 03       		.byte	0x3
+ 794 0461 00000000 		.4byte	a_midden
+ 795 0465 0E       		.uleb128 0xe
+ 796 0466 74010000 		.4byte	.LASF94
+ 797 046a 02       		.byte	0x2
+ 798 046b 1A       		.byte	0x1a
+ 799 046c 5D000000 		.4byte	0x5d
+ 800 0470 05       		.uleb128 0x5
+ 801 0471 03       		.byte	0x3
+ 802 0472 00000000 		.4byte	a_links
+ 803 0476 0F       		.uleb128 0xf
+ 804 0477 C8020000 		.4byte	.LASF95
+ 805 047b C8020000 		.4byte	.LASF95
+ 806 047f 03       		.byte	0x3
+ 807 0480 2A03     		.2byte	0x32a
+ 808 0482 0F       		.uleb128 0xf
+ 809 0483 F90A0000 		.4byte	.LASF96
+ 810 0487 F90A0000 		.4byte	.LASF96
+ 811 048b 03       		.byte	0x3
+ 812 048c 4403     		.2byte	0x344
+ 813 048e 0F       		.uleb128 0xf
+ 814 048f 470B0000 		.4byte	.LASF97
+ 815 0493 470B0000 		.4byte	.LASF97
+ 816 0497 03       		.byte	0x3
+ 817 0498 2B03     		.2byte	0x32b
+ 818 049a 10       		.uleb128 0x10
+ 819 049b 70050000 		.4byte	.LASF98
+ 820 049f 70050000 		.4byte	.LASF98
+ 821 04a3 04       		.byte	0x4
+ 822 04a4 CB       		.byte	0xcb
+ 823 04a5 0F       		.uleb128 0xf
+ 824 04a6 83000000 		.4byte	.LASF99
+ 825 04aa 83000000 		.4byte	.LASF99
+ 826 04ae 05       		.byte	0x5
+ 827 04af 5601     		.2byte	0x156
+ 828 04b1 0F       		.uleb128 0xf
+ 829 04b2 24000000 		.4byte	.LASF100
+ 830 04b6 24000000 		.4byte	.LASF100
+ 831 04ba 06       		.byte	0x6
+ 832 04bb 5601     		.2byte	0x156
+ 833 04bd 0F       		.uleb128 0xf
+ 834 04be B7010000 		.4byte	.LASF101
+ 835 04c2 B7010000 		.4byte	.LASF101
+ 836 04c6 07       		.byte	0x7
+ 837 04c7 5601     		.2byte	0x156
+ 838 04c9 00       		.byte	0
+ 839              		.section	.debug_abbrev,"",%progbits
+ 840              	.Ldebug_abbrev0:
+ 841 0000 01       		.uleb128 0x1
+ 842 0001 11       		.uleb128 0x11
+ 843 0002 01       		.byte	0x1
+ 844 0003 25       		.uleb128 0x25
+ 845 0004 0E       		.uleb128 0xe
+ 846 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 17
+
+
+ 847 0006 0B       		.uleb128 0xb
+ 848 0007 03       		.uleb128 0x3
+ 849 0008 0E       		.uleb128 0xe
+ 850 0009 1B       		.uleb128 0x1b
+ 851 000a 0E       		.uleb128 0xe
+ 852 000b 55       		.uleb128 0x55
+ 853 000c 17       		.uleb128 0x17
+ 854 000d 11       		.uleb128 0x11
+ 855 000e 01       		.uleb128 0x1
+ 856 000f 10       		.uleb128 0x10
+ 857 0010 17       		.uleb128 0x17
+ 858 0011 00       		.byte	0
+ 859 0012 00       		.byte	0
+ 860 0013 02       		.uleb128 0x2
+ 861 0014 24       		.uleb128 0x24
+ 862 0015 00       		.byte	0
+ 863 0016 0B       		.uleb128 0xb
+ 864 0017 0B       		.uleb128 0xb
+ 865 0018 3E       		.uleb128 0x3e
+ 866 0019 0B       		.uleb128 0xb
+ 867 001a 03       		.uleb128 0x3
+ 868 001b 0E       		.uleb128 0xe
+ 869 001c 00       		.byte	0
+ 870 001d 00       		.byte	0
+ 871 001e 03       		.uleb128 0x3
+ 872 001f 24       		.uleb128 0x24
+ 873 0020 00       		.byte	0
+ 874 0021 0B       		.uleb128 0xb
+ 875 0022 0B       		.uleb128 0xb
+ 876 0023 3E       		.uleb128 0x3e
+ 877 0024 0B       		.uleb128 0xb
+ 878 0025 03       		.uleb128 0x3
+ 879 0026 08       		.uleb128 0x8
+ 880 0027 00       		.byte	0
+ 881 0028 00       		.byte	0
+ 882 0029 04       		.uleb128 0x4
+ 883 002a 16       		.uleb128 0x16
+ 884 002b 00       		.byte	0
+ 885 002c 03       		.uleb128 0x3
+ 886 002d 0E       		.uleb128 0xe
+ 887 002e 3A       		.uleb128 0x3a
+ 888 002f 0B       		.uleb128 0xb
+ 889 0030 3B       		.uleb128 0x3b
+ 890 0031 05       		.uleb128 0x5
+ 891 0032 49       		.uleb128 0x49
+ 892 0033 13       		.uleb128 0x13
+ 893 0034 00       		.byte	0
+ 894 0035 00       		.byte	0
+ 895 0036 05       		.uleb128 0x5
+ 896 0037 04       		.uleb128 0x4
+ 897 0038 01       		.byte	0x1
+ 898 0039 0B       		.uleb128 0xb
+ 899 003a 0B       		.uleb128 0xb
+ 900 003b 49       		.uleb128 0x49
+ 901 003c 13       		.uleb128 0x13
+ 902 003d 3A       		.uleb128 0x3a
+ 903 003e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 18
+
+
+ 904 003f 3B       		.uleb128 0x3b
+ 905 0040 05       		.uleb128 0x5
+ 906 0041 01       		.uleb128 0x1
+ 907 0042 13       		.uleb128 0x13
+ 908 0043 00       		.byte	0
+ 909 0044 00       		.byte	0
+ 910 0045 06       		.uleb128 0x6
+ 911 0046 28       		.uleb128 0x28
+ 912 0047 00       		.byte	0
+ 913 0048 03       		.uleb128 0x3
+ 914 0049 0E       		.uleb128 0xe
+ 915 004a 1C       		.uleb128 0x1c
+ 916 004b 0B       		.uleb128 0xb
+ 917 004c 00       		.byte	0
+ 918 004d 00       		.byte	0
+ 919 004e 07       		.uleb128 0x7
+ 920 004f 2E       		.uleb128 0x2e
+ 921 0050 01       		.byte	0x1
+ 922 0051 3F       		.uleb128 0x3f
+ 923 0052 19       		.uleb128 0x19
+ 924 0053 03       		.uleb128 0x3
+ 925 0054 0E       		.uleb128 0xe
+ 926 0055 3A       		.uleb128 0x3a
+ 927 0056 0B       		.uleb128 0xb
+ 928 0057 3B       		.uleb128 0x3b
+ 929 0058 0B       		.uleb128 0xb
+ 930 0059 11       		.uleb128 0x11
+ 931 005a 01       		.uleb128 0x1
+ 932 005b 12       		.uleb128 0x12
+ 933 005c 06       		.uleb128 0x6
+ 934 005d 40       		.uleb128 0x40
+ 935 005e 18       		.uleb128 0x18
+ 936 005f 9742     		.uleb128 0x2117
+ 937 0061 19       		.uleb128 0x19
+ 938 0062 01       		.uleb128 0x1
+ 939 0063 13       		.uleb128 0x13
+ 940 0064 00       		.byte	0
+ 941 0065 00       		.byte	0
+ 942 0066 08       		.uleb128 0x8
+ 943 0067 898201   		.uleb128 0x4109
+ 944 006a 01       		.byte	0x1
+ 945 006b 11       		.uleb128 0x11
+ 946 006c 01       		.uleb128 0x1
+ 947 006d 31       		.uleb128 0x31
+ 948 006e 13       		.uleb128 0x13
+ 949 006f 01       		.uleb128 0x1
+ 950 0070 13       		.uleb128 0x13
+ 951 0071 00       		.byte	0
+ 952 0072 00       		.byte	0
+ 953 0073 09       		.uleb128 0x9
+ 954 0074 8A8201   		.uleb128 0x410a
+ 955 0077 00       		.byte	0
+ 956 0078 02       		.uleb128 0x2
+ 957 0079 18       		.uleb128 0x18
+ 958 007a 9142     		.uleb128 0x2111
+ 959 007c 18       		.uleb128 0x18
+ 960 007d 00       		.byte	0
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 19
+
+
+ 961 007e 00       		.byte	0
+ 962 007f 0A       		.uleb128 0xa
+ 963 0080 898201   		.uleb128 0x4109
+ 964 0083 01       		.byte	0x1
+ 965 0084 11       		.uleb128 0x11
+ 966 0085 01       		.uleb128 0x1
+ 967 0086 31       		.uleb128 0x31
+ 968 0087 13       		.uleb128 0x13
+ 969 0088 00       		.byte	0
+ 970 0089 00       		.byte	0
+ 971 008a 0B       		.uleb128 0xb
+ 972 008b 898201   		.uleb128 0x4109
+ 973 008e 00       		.byte	0
+ 974 008f 11       		.uleb128 0x11
+ 975 0090 01       		.uleb128 0x1
+ 976 0091 31       		.uleb128 0x31
+ 977 0092 13       		.uleb128 0x13
+ 978 0093 00       		.byte	0
+ 979 0094 00       		.byte	0
+ 980 0095 0C       		.uleb128 0xc
+ 981 0096 01       		.uleb128 0x1
+ 982 0097 01       		.byte	0x1
+ 983 0098 49       		.uleb128 0x49
+ 984 0099 13       		.uleb128 0x13
+ 985 009a 01       		.uleb128 0x1
+ 986 009b 13       		.uleb128 0x13
+ 987 009c 00       		.byte	0
+ 988 009d 00       		.byte	0
+ 989 009e 0D       		.uleb128 0xd
+ 990 009f 21       		.uleb128 0x21
+ 991 00a0 00       		.byte	0
+ 992 00a1 49       		.uleb128 0x49
+ 993 00a2 13       		.uleb128 0x13
+ 994 00a3 2F       		.uleb128 0x2f
+ 995 00a4 0B       		.uleb128 0xb
+ 996 00a5 00       		.byte	0
+ 997 00a6 00       		.byte	0
+ 998 00a7 0E       		.uleb128 0xe
+ 999 00a8 34       		.uleb128 0x34
+ 1000 00a9 00       		.byte	0
+ 1001 00aa 03       		.uleb128 0x3
+ 1002 00ab 0E       		.uleb128 0xe
+ 1003 00ac 3A       		.uleb128 0x3a
+ 1004 00ad 0B       		.uleb128 0xb
+ 1005 00ae 3B       		.uleb128 0x3b
+ 1006 00af 0B       		.uleb128 0xb
+ 1007 00b0 49       		.uleb128 0x49
+ 1008 00b1 13       		.uleb128 0x13
+ 1009 00b2 3F       		.uleb128 0x3f
+ 1010 00b3 19       		.uleb128 0x19
+ 1011 00b4 02       		.uleb128 0x2
+ 1012 00b5 18       		.uleb128 0x18
+ 1013 00b6 00       		.byte	0
+ 1014 00b7 00       		.byte	0
+ 1015 00b8 0F       		.uleb128 0xf
+ 1016 00b9 2E       		.uleb128 0x2e
+ 1017 00ba 00       		.byte	0
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 20
+
+
+ 1018 00bb 3F       		.uleb128 0x3f
+ 1019 00bc 19       		.uleb128 0x19
+ 1020 00bd 3C       		.uleb128 0x3c
+ 1021 00be 19       		.uleb128 0x19
+ 1022 00bf 6E       		.uleb128 0x6e
+ 1023 00c0 0E       		.uleb128 0xe
+ 1024 00c1 03       		.uleb128 0x3
+ 1025 00c2 0E       		.uleb128 0xe
+ 1026 00c3 3A       		.uleb128 0x3a
+ 1027 00c4 0B       		.uleb128 0xb
+ 1028 00c5 3B       		.uleb128 0x3b
+ 1029 00c6 05       		.uleb128 0x5
+ 1030 00c7 00       		.byte	0
+ 1031 00c8 00       		.byte	0
+ 1032 00c9 10       		.uleb128 0x10
+ 1033 00ca 2E       		.uleb128 0x2e
+ 1034 00cb 00       		.byte	0
+ 1035 00cc 3F       		.uleb128 0x3f
+ 1036 00cd 19       		.uleb128 0x19
+ 1037 00ce 3C       		.uleb128 0x3c
+ 1038 00cf 19       		.uleb128 0x19
+ 1039 00d0 6E       		.uleb128 0x6e
+ 1040 00d1 0E       		.uleb128 0xe
+ 1041 00d2 03       		.uleb128 0x3
+ 1042 00d3 0E       		.uleb128 0xe
+ 1043 00d4 3A       		.uleb128 0x3a
+ 1044 00d5 0B       		.uleb128 0xb
+ 1045 00d6 3B       		.uleb128 0x3b
+ 1046 00d7 0B       		.uleb128 0xb
+ 1047 00d8 00       		.byte	0
+ 1048 00d9 00       		.byte	0
+ 1049 00da 00       		.byte	0
+ 1050              		.section	.debug_aranges,"",%progbits
+ 1051 0000 2C000000 		.4byte	0x2c
+ 1052 0004 0200     		.2byte	0x2
+ 1053 0006 00000000 		.4byte	.Ldebug_info0
+ 1054 000a 04       		.byte	0x4
+ 1055 000b 00       		.byte	0
+ 1056 000c 0000     		.2byte	0
+ 1057 000e 0000     		.2byte	0
+ 1058 0010 00000000 		.4byte	.LFB35
+ 1059 0014 6C000000 		.4byte	.LFE35-.LFB35
+ 1060 0018 00000000 		.4byte	.LFB36
+ 1061 001c 34000000 		.4byte	.LFE36-.LFB36
+ 1062 0020 00000000 		.4byte	.LFB37
+ 1063 0024 1C000000 		.4byte	.LFE37-.LFB37
+ 1064 0028 00000000 		.4byte	0
+ 1065 002c 00000000 		.4byte	0
+ 1066              		.section	.debug_ranges,"",%progbits
+ 1067              	.Ldebug_ranges0:
+ 1068 0000 00000000 		.4byte	.LFB35
+ 1069 0004 6C000000 		.4byte	.LFE35
+ 1070 0008 00000000 		.4byte	.LFB36
+ 1071 000c 34000000 		.4byte	.LFE36
+ 1072 0010 00000000 		.4byte	.LFB37
+ 1073 0014 1C000000 		.4byte	.LFE37
+ 1074 0018 00000000 		.4byte	0
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 21
+
+
+ 1075 001c 00000000 		.4byte	0
+ 1076              		.section	.debug_line,"",%progbits
+ 1077              	.Ldebug_line0:
+ 1078 0000 72010000 		.section	.debug_str,"MS",%progbits,1
+ 1078      02002A01 
+ 1078      00000201 
+ 1078      FB0E0D00 
+ 1078      01010101 
+ 1079              	.LASF23:
+ 1080 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 1080      455F4556 
+ 1080      545F4741 
+ 1080      505F5041 
+ 1080      53534B45 
+ 1081              	.LASF100:
+ 1082 0024 556C7472 		.ascii	"UltraSoon_Midden_ReadCompare\000"
+ 1082      61536F6F 
+ 1082      6E5F4D69 
+ 1082      6464656E 
+ 1082      5F526561 
+ 1083              	.LASF90:
+ 1084 0041 61667374 		.ascii	"afstand_midden\000"
+ 1084      616E645F 
+ 1084      6D696464 
+ 1084      656E00
+ 1085              	.LASF20:
+ 1086 0050 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
+ 1086      455F4556 
+ 1086      545F4D45 
+ 1086      4D4F5259 
+ 1086      5F524551 
+ 1087              	.LASF45:
+ 1088 0069 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
+ 1088      455F4556 
+ 1088      545F4741 
+ 1088      5454435F 
+ 1088      4552524F 
+ 1089              	.LASF99:
+ 1090 0083 556C7472 		.ascii	"UltraSoon_Links_ReadCompare\000"
+ 1090      61536F6F 
+ 1090      6E5F4C69 
+ 1090      6E6B735F 
+ 1090      52656164 
+ 1091              	.LASF29:
+ 1092 009f 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
+ 1092      455F4556 
+ 1092      545F4741 
+ 1092      505F4445 
+ 1092      56494345 
+ 1093              	.LASF35:
+ 1094 00c1 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 1094      455F4556 
+ 1094      545F4741 
+ 1094      505F4B45 
+ 1094      59505245 
+ 1095              	.LASF2:
+ 1096 00e5 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 22
+
+
+ 1096      7420696E 
+ 1096      7400
+ 1097              	.LASF26:
+ 1098 00ef 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
+ 1098      455F4556 
+ 1098      545F4741 
+ 1098      505F4155 
+ 1098      54485F46 
+ 1099              	.LASF47:
+ 1100 0109 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 1100      455F4556 
+ 1100      545F4741 
+ 1100      54545F44 
+ 1100      4953434F 
+ 1101              	.LASF13:
+ 1102 0127 73697A65 		.ascii	"sizetype\000"
+ 1102      74797065 
+ 1102      00
+ 1103              	.LASF37:
+ 1104 0130 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
+ 1104      455F4556 
+ 1104      545F4741 
+ 1104      505F4441 
+ 1104      54415F4C 
+ 1105              	.LASF18:
+ 1106 0151 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
+ 1106      455F4556 
+ 1106      545F4843 
+ 1106      495F5354 
+ 1106      41545553 
+ 1107              	.LASF6:
+ 1108 0166 6C6F6E67 		.ascii	"long long int\000"
+ 1108      206C6F6E 
+ 1108      6720696E 
+ 1108      7400
+ 1109              	.LASF94:
+ 1110 0174 615F6C69 		.ascii	"a_links\000"
+ 1110      6E6B7300 
+ 1111              	.LASF58:
+ 1112 017c 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 1112      455F4556 
+ 1112      545F4741 
+ 1112      5454435F 
+ 1112      57524954 
+ 1113              	.LASF51:
+ 1114 0196 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 1114      455F4556 
+ 1114      545F4741 
+ 1114      5454435F 
+ 1114      52454144 
+ 1115              	.LASF101:
+ 1116 01b7 556C7472 		.ascii	"UltraSoon_Rechts_ReadCompare\000"
+ 1116      61536F6F 
+ 1116      6E5F5265 
+ 1116      63687473 
+ 1116      5F526561 
+ 1117              	.LASF15:
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 23
+
+
+ 1118 01d4 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
+ 1118      455F4556 
+ 1118      545F5354 
+ 1118      41434B5F 
+ 1118      4F4E00
+ 1119              	.LASF44:
+ 1120 01e7 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
+ 1120      455F4556 
+ 1120      545F4741 
+ 1120      505F534D 
+ 1120      505F4C4F 
+ 1121 021a 4500     		.ascii	"E\000"
+ 1122              	.LASF48:
+ 1123 021c 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 1123      455F4556 
+ 1123      545F4741 
+ 1123      5454535F 
+ 1123      58434E48 
+ 1124              	.LASF102:
+ 1125 023a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1125      43313120 
+ 1125      352E342E 
+ 1125      31203230 
+ 1125      31363036 
+ 1126 026d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1126      20726576 
+ 1126      6973696F 
+ 1126      6E203233 
+ 1126      37373135 
+ 1127 02a0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1127      66756E63 
+ 1127      74696F6E 
+ 1127      2D736563 
+ 1127      74696F6E 
+ 1128              	.LASF95:
+ 1129 02c8 55415254 		.ascii	"UART_UartPutString\000"
+ 1129      5F556172 
+ 1129      74507574 
+ 1129      53747269 
+ 1129      6E6700
+ 1130              	.LASF33:
+ 1131 02db 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 1131      455F4556 
+ 1131      545F4741 
+ 1131      505F4B45 
+ 1131      59494E46 
+ 1132              	.LASF56:
+ 1133 02ff 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 1133      455F4556 
+ 1133      545F4741 
+ 1133      5454435F 
+ 1133      52454144 
+ 1134              	.LASF65:
+ 1135 031e 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
+ 1135      455F4556 
+ 1135      545F4741 
+ 1135      5454535F 
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 24
+
+
+ 1135      48414E44 
+ 1136              	.LASF14:
+ 1137 033f 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 1137      455F4556 
+ 1137      545F484F 
+ 1137      53545F49 
+ 1137      4E56414C 
+ 1138              	.LASF73:
+ 1139 0356 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
+ 1139      455F4556 
+ 1139      545F4C32 
+ 1139      4341505F 
+ 1139      43424643 
+ 1140              	.LASF76:
+ 1141 0374 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
+ 1141      455F4556 
+ 1141      545F4C32 
+ 1141      4341505F 
+ 1141      43424643 
+ 1142              	.LASF9:
+ 1143 0395 666C6F61 		.ascii	"float\000"
+ 1143      7400
+ 1144              	.LASF54:
+ 1145 039b 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 1145      455F4556 
+ 1145      545F4741 
+ 1145      5454435F 
+ 1145      52454144 
+ 1146              	.LASF34:
+ 1147 03b4 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
+ 1147      455F4556 
+ 1147      545F4741 
+ 1147      505F4E55 
+ 1147      4D455249 
+ 1148              	.LASF39:
+ 1149 03dd 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
+ 1149      455F4556 
+ 1149      545F4741 
+ 1149      50435F44 
+ 1149      49524543 
+ 1150              	.LASF7:
+ 1151 03fe 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1151      206C6F6E 
+ 1151      6720756E 
+ 1151      7369676E 
+ 1151      65642069 
+ 1152              	.LASF87:
+ 1153 0415 73776974 		.ascii	"switchToString\000"
+ 1153      6368546F 
+ 1153      53747269 
+ 1153      6E6700
+ 1154              	.LASF43:
+ 1155 0424 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
+ 1155      455F4556 
+ 1155      545F4741 
+ 1155      505F4155 
+ 1155      54485F52 
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 25
+
+
+ 1156              	.LASF4:
+ 1157 0445 6C6F6E67 		.ascii	"long int\000"
+ 1157      20696E74 
+ 1157      00
+ 1158              	.LASF93:
+ 1159 044e 615F6D69 		.ascii	"a_midden\000"
+ 1159      6464656E 
+ 1159      00
+ 1160              	.LASF64:
+ 1161 0457 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
+ 1161      455F4556 
+ 1161      545F4741 
+ 1161      5454435F 
+ 1161      48414E44 
+ 1162              	.LASF28:
+ 1163 0478 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 1163      455F4556 
+ 1163      545F4741 
+ 1163      505F4445 
+ 1163      56494345 
+ 1164              	.LASF27:
+ 1165 0497 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 1165      455F4556 
+ 1165      545F4741 
+ 1165      50505F41 
+ 1165      44564552 
+ 1166              	.LASF63:
+ 1167 04bf 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
+ 1167      455F4556 
+ 1167      545F4741 
+ 1167      5454435F 
+ 1167      48414E44 
+ 1168              	.LASF19:
+ 1169 04e0 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 1169      455F4556 
+ 1169      545F5354 
+ 1169      41434B5F 
+ 1169      42555359 
+ 1170              	.LASF24:
+ 1171 04fc 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 1171      455F4556 
+ 1171      545F4741 
+ 1171      505F5041 
+ 1171      53534B45 
+ 1172              	.LASF74:
+ 1173 0522 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 1173      455F4556 
+ 1173      545F4C32 
+ 1173      4341505F 
+ 1173      43424643 
+ 1174              	.LASF38:
+ 1175 0540 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
+ 1175      455F4556 
+ 1175      545F4741 
+ 1175      505F454E 
+ 1175      48414E43 
+ 1176              	.LASF12:
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 26
+
+
+ 1177 0564 6C6F6E67 		.ascii	"long double\000"
+ 1177      20646F75 
+ 1177      626C6500 
+ 1178              	.LASF98:
+ 1179 0570 69746F61 		.ascii	"itoa\000"
+ 1179      00
+ 1180              	.LASF70:
+ 1181 0575 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 1181      455F4556 
+ 1181      545F4C32 
+ 1181      4341505F 
+ 1181      434F4E4E 
+ 1182              	.LASF1:
+ 1183 059b 756E7369 		.ascii	"unsigned char\000"
+ 1183      676E6564 
+ 1183      20636861 
+ 1183      7200
+ 1184              	.LASF60:
+ 1185 05a9 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
+ 1185      455F4556 
+ 1185      545F4741 
+ 1185      5454535F 
+ 1185      50524550 
+ 1186              	.LASF82:
+ 1187 05c8 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 1187      455F4556 
+ 1187      545F4C45 
+ 1187      5F50494E 
+ 1187      475F4155 
+ 1188              	.LASF52:
+ 1189 05e7 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 1189      455F4556 
+ 1189      545F4741 
+ 1189      5454435F 
+ 1189      46494E44 
+ 1190              	.LASF0:
+ 1191 0605 7369676E 		.ascii	"signed char\000"
+ 1191      65642063 
+ 1191      68617200 
+ 1192              	.LASF57:
+ 1193 0611 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 1193      455F4556 
+ 1193      545F4741 
+ 1193      5454535F 
+ 1193      57524954 
+ 1194              	.LASF86:
+ 1195 062b 7072696E 		.ascii	"print\000"
+ 1195      7400
+ 1196              	.LASF53:
+ 1197 0631 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ 1197      455F4556 
+ 1197      545F4741 
+ 1197      5454435F 
+ 1197      46494E44 
+ 1198              	.LASF25:
+ 1199 0658 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
+ 1199      455F4556 
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 27
+
+
+ 1199      545F4741 
+ 1199      505F4155 
+ 1199      54485F43 
+ 1200              	.LASF8:
+ 1201 0674 756E7369 		.ascii	"unsigned int\000"
+ 1201      676E6564 
+ 1201      20696E74 
+ 1201      00
+ 1202              	.LASF46:
+ 1203 0681 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 1203      455F4556 
+ 1203      545F4741 
+ 1203      54545F43 
+ 1203      4F4E4E45 
+ 1204              	.LASF5:
+ 1205 069c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1205      20756E73 
+ 1205      69676E65 
+ 1205      6420696E 
+ 1205      7400
+ 1206              	.LASF22:
+ 1207 06ae 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 1207      455F4556 
+ 1207      545F4741 
+ 1207      505F4155 
+ 1207      54485F52 
+ 1208              	.LASF75:
+ 1209 06c5 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 1209      455F4556 
+ 1209      545F4C32 
+ 1209      4341505F 
+ 1209      43424643 
+ 1210              	.LASF30:
+ 1211 06e6 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
+ 1211      455F4556 
+ 1211      545F4741 
+ 1211      505F454E 
+ 1211      43525950 
+ 1212              	.LASF41:
+ 1213 0703 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
+ 1213      455F4556 
+ 1213      545F4741 
+ 1213      505F434F 
+ 1213      4E4E5F45 
+ 1214              	.LASF69:
+ 1215 071b 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ 1215      455F4556 
+ 1215      545F4741 
+ 1215      5454435F 
+ 1215      4C4F4E47 
+ 1216              	.LASF3:
+ 1217 073e 73686F72 		.ascii	"short unsigned int\000"
+ 1217      7420756E 
+ 1217      7369676E 
+ 1217      65642069 
+ 1217      6E7400
+ 1218              	.LASF84:
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 28
+
+
+ 1219 0751 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
+ 1219      455F4556 
+ 1219      545F464C 
+ 1219      4153485F 
+ 1219      434F5252 
+ 1220              	.LASF31:
+ 1221 0769 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 1221      455F4556 
+ 1221      545F4741 
+ 1221      505F434F 
+ 1221      4E4E4543 
+ 1222              	.LASF40:
+ 1223 0792 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ 1223      455F4556 
+ 1223      545F4741 
+ 1223      505F534D 
+ 1223      505F4E45 
+ 1224              	.LASF11:
+ 1225 07b9 63686172 		.ascii	"char\000"
+ 1225      00
+ 1226              	.LASF72:
+ 1227 07be 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 1227      455F4556 
+ 1227      545F4C32 
+ 1227      4341505F 
+ 1227      434F4D4D 
+ 1228              	.LASF103:
+ 1229 07da 64697374 		.ascii	"distance.c\000"
+ 1229      616E6365 
+ 1229      2E6300
+ 1230              	.LASF55:
+ 1231 07e5 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 1231      455F4556 
+ 1231      545F4741 
+ 1231      5454435F 
+ 1231      52454144 
+ 1232              	.LASF62:
+ 1233 0803 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 1233      455F4556 
+ 1233      545F4741 
+ 1233      5454435F 
+ 1233      45584543 
+ 1234              	.LASF105:
+ 1235 0822 75696E74 		.ascii	"uint32\000"
+ 1235      333200
+ 1236              	.LASF81:
+ 1237 0829 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 1237      455F4556 
+ 1237      545F5045 
+ 1237      4E44494E 
+ 1237      475F464C 
+ 1238              	.LASF78:
+ 1239 0847 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ 1239      455F4556 
+ 1239      545F4C32 
+ 1239      4341505F 
+ 1239      43424643 
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 29
+
+
+ 1240              	.LASF92:
+ 1241 086a 615F7265 		.ascii	"a_rechts\000"
+ 1241      63687473 
+ 1241      00
+ 1242              	.LASF10:
+ 1243 0873 646F7562 		.ascii	"double\000"
+ 1243      6C6500
+ 1244              	.LASF91:
+ 1245 087a 61667374 		.ascii	"afstand_links\000"
+ 1245      616E645F 
+ 1245      6C696E6B 
+ 1245      7300
+ 1246              	.LASF79:
+ 1247 0888 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 1247      455F4556 
+ 1247      545F4C32 
+ 1247      4341505F 
+ 1247      43424643 
+ 1248              	.LASF42:
+ 1249 08ab 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
+ 1249      455F4556 
+ 1249      545F4741 
+ 1249      505F5343 
+ 1249      414E5F52 
+ 1250              	.LASF104:
+ 1251 08c8 433A5C55 		.ascii	"C:\\Users\\11800025\\Documents\\GitHub\\Rc_Car_Full"
+ 1251      73657273 
+ 1251      5C313138 
+ 1251      30303032 
+ 1251      355C446F 
+ 1252 08f6 5F50726F 		.ascii	"_Project\\RC_Car_FullProject\\RC_Car_LE_Bluetooth.c"
+ 1252      6A656374 
+ 1252      5C52435F 
+ 1252      4361725F 
+ 1252      46756C6C 
+ 1253 0927 7964736E 		.ascii	"ydsn\000"
+ 1253      00
+ 1254              	.LASF17:
+ 1255 092c 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 1255      455F4556 
+ 1255      545F4841 
+ 1255      52445741 
+ 1255      52455F45 
+ 1256              	.LASF77:
+ 1257 0945 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
+ 1257      455F4556 
+ 1257      545F4C32 
+ 1257      4341505F 
+ 1257      43424643 
+ 1258              	.LASF71:
+ 1259 0964 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 1259      455F4556 
+ 1259      545F4C32 
+ 1259      4341505F 
+ 1259      434F4E4E 
+ 1260              	.LASF21:
+ 1261 098a 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 30
+
+
+ 1261      455F4556 
+ 1261      545F4741 
+ 1261      50435F53 
+ 1261      43414E5F 
+ 1262              	.LASF50:
+ 1263 09ae 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 1263      455F4556 
+ 1263      545F4741 
+ 1263      5454435F 
+ 1263      52454144 
+ 1264              	.LASF59:
+ 1265 09d5 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 1265      455F4556 
+ 1265      545F4741 
+ 1265      5454535F 
+ 1265      57524954 
+ 1266              	.LASF49:
+ 1267 09f3 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 1267      455F4556 
+ 1267      545F4741 
+ 1267      5454435F 
+ 1267      5843484E 
+ 1268              	.LASF16:
+ 1269 0a11 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 1269      455F4556 
+ 1269      545F5449 
+ 1269      4D454F55 
+ 1269      5400
+ 1270              	.LASF88:
+ 1271 0a23 67657444 		.ascii	"getDistance\000"
+ 1271      69737461 
+ 1271      6E636500 
+ 1272              	.LASF80:
+ 1273 0a2f 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 1273      455F4556 
+ 1273      545F4C32 
+ 1273      4341505F 
+ 1273      43424643 
+ 1274              	.LASF32:
+ 1275 0a53 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 1275      455F4556 
+ 1275      545F4741 
+ 1275      50435F53 
+ 1275      43414E5F 
+ 1276              	.LASF85:
+ 1277 0a72 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ 1277      455F4556 
+ 1277      545F4D41 
+ 1277      5800
+ 1278              	.LASF68:
+ 1279 0a80 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 1279      455F4556 
+ 1279      545F4741 
+ 1279      5454535F 
+ 1279      52454144 
+ 1280              	.LASF67:
+ 1281 0aa9 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cceROKYh.s 			page 31
+
+
+ 1281      455F4556 
+ 1281      545F4741 
+ 1281      5454435F 
+ 1281      53544F50 
+ 1282              	.LASF89:
+ 1283 0acb 61667374 		.ascii	"afstand_rechts\000"
+ 1283      616E645F 
+ 1283      72656368 
+ 1283      747300
+ 1284              	.LASF61:
+ 1285 0ada 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 1285      455F4556 
+ 1285      545F4741 
+ 1285      5454535F 
+ 1285      45584543 
+ 1286              	.LASF96:
+ 1287 0af9 55415254 		.ascii	"UART_SpiUartWriteTxData\000"
+ 1287      5F537069 
+ 1287      55617274 
+ 1287      57726974 
+ 1287      65547844 
+ 1288              	.LASF66:
+ 1289 0b11 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 1289      455F4556 
+ 1289      545F4741 
+ 1289      5454535F 
+ 1289      44415441 
+ 1290              	.LASF83:
+ 1291 0b35 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
+ 1291      455F4556 
+ 1291      545F4843 
+ 1291      495F504B 
+ 1291      5400
+ 1292              	.LASF97:
+ 1293 0b47 55415254 		.ascii	"UART_UartPutCRLF\000"
+ 1293      5F556172 
+ 1293      74507574 
+ 1293      43524C46 
+ 1293      00
+ 1294              	.LASF36:
+ 1295 0b58 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
+ 1295      455F4556 
+ 1295      545F4741 
+ 1295      505F4F4F 
+ 1295      425F4745 
+ 1296              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

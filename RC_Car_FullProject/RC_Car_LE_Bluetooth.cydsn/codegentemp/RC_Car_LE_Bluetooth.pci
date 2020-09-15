@@ -1,0 +1,20 @@
+# RC_Car_LE_Bluetooth
+# 2020-09-15 19:48:16Z
+
+# IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 6
+# IO_7@[IOP=(0)][IoId=(7)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 7
+# IO_0@[IOP=(6)][IoId=(0)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 0
+# IO_1@[IOP=(6)][IoId=(1)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 1
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "\UART:tx(0)\" iocell 0 5
+set_io "\UART:rx(0)\" iocell 0 4
+set_io "Echo_rechts(0)" iocell 2 5
+set_io "Trigger_Midden(0)" iocell 2 1
+set_io "Echo_Links(0)" iocell 2 3
+set_io "Echo_Midden(0)" iocell 2 4
+set_io "Trigger_Rechts(0)" iocell 2 2
+set_io "Trigger_Links(0)" iocell 2 0
