@@ -24,39 +24,31 @@
 ***************************************/
 
 /* Maximum supported Custom Services */
-#define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x03u)
+#define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x01u)
 #define CYBLE_CUSTOMC_SERVICE_COUNT                  (0x00u)
-#define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x01u)
+#define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x03u)
 #define CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x01u)
 
 /* Below are the indexes and handles of the defined Custom Services and their characteristics */
-#define CYBLE_SENSOR1_SERVICE_INDEX   (0x00u) /* Index of Sensor1 service in the cyBle_customs array */
-#define CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_INDEX   (0x00u) /* Index of Custom Characteristic characteristic */
-#define CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
-
-#define CYBLE_SENSOR2_SERVICE_INDEX   (0x01u) /* Index of Sensor2 service in the cyBle_customs array */
-#define CYBLE_SENSOR2_CUSTOM_CHARACTERISTIC_CHAR_INDEX   (0x00u) /* Index of Custom Characteristic characteristic */
-#define CYBLE_SENSOR2_CUSTOM_CHARACTERISTIC_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
-
-#define CYBLE_SENSOR3_SERVICE_INDEX   (0x02u) /* Index of Sensor3 service in the cyBle_customs array */
-#define CYBLE_SENSOR3_CUSTOM_CHARACTERISTIC_CHAR_INDEX   (0x00u) /* Index of Custom Characteristic characteristic */
-#define CYBLE_SENSOR3_CUSTOM_CHARACTERISTIC_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CYBLE_SENSOREN_SERVICE_INDEX   (0x00u) /* Index of Sensoren service in the cyBle_customs array */
+#define CYBLE_SENSOREN_SENSOR_LINKS_CHAR_INDEX   (0x00u) /* Index of Sensor Links characteristic */
+#define CYBLE_SENSOREN_SENSOR_LINKS_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CYBLE_SENSOREN_SENSOR_MIDDEN_CHAR_INDEX   (0x01u) /* Index of Sensor Midden characteristic */
+#define CYBLE_SENSOREN_SENSOR_MIDDEN_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CYBLE_SENSOREN_SENSOR_RECHTS_CHAR_INDEX   (0x02u) /* Index of Sensor Rechts characteristic */
+#define CYBLE_SENSOREN_SENSOR_RECHTS_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
 
 
-#define CYBLE_SENSOR1_SERVICE_HANDLE   (0x000Cu) /* Handle of Sensor1 service */
-#define CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_DECL_HANDLE   (0x000Du) /* Handle of Custom Characteristic characteristic declaration */
-#define CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_HANDLE   (0x000Eu) /* Handle of Custom Characteristic characteristic */
-#define CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x000Fu) /* Handle of Custom Descriptor descriptor */
-
-#define CYBLE_SENSOR2_SERVICE_HANDLE   (0x0010u) /* Handle of Sensor2 service */
-#define CYBLE_SENSOR2_CUSTOM_CHARACTERISTIC_DECL_HANDLE   (0x0011u) /* Handle of Custom Characteristic characteristic declaration */
-#define CYBLE_SENSOR2_CUSTOM_CHARACTERISTIC_CHAR_HANDLE   (0x0012u) /* Handle of Custom Characteristic characteristic */
-#define CYBLE_SENSOR2_CUSTOM_CHARACTERISTIC_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0013u) /* Handle of Custom Descriptor descriptor */
-
-#define CYBLE_SENSOR3_SERVICE_HANDLE   (0x0014u) /* Handle of Sensor3 service */
-#define CYBLE_SENSOR3_CUSTOM_CHARACTERISTIC_DECL_HANDLE   (0x0015u) /* Handle of Custom Characteristic characteristic declaration */
-#define CYBLE_SENSOR3_CUSTOM_CHARACTERISTIC_CHAR_HANDLE   (0x0016u) /* Handle of Custom Characteristic characteristic */
-#define CYBLE_SENSOR3_CUSTOM_CHARACTERISTIC_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0017u) /* Handle of Custom Descriptor descriptor */
+#define CYBLE_SENSOREN_SERVICE_HANDLE   (0x000Cu) /* Handle of Sensoren service */
+#define CYBLE_SENSOREN_SENSOR_LINKS_DECL_HANDLE   (0x000Du) /* Handle of Sensor Links characteristic declaration */
+#define CYBLE_SENSOREN_SENSOR_LINKS_CHAR_HANDLE   (0x000Eu) /* Handle of Sensor Links characteristic */
+#define CYBLE_SENSOREN_SENSOR_LINKS_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x000Fu) /* Handle of Custom Descriptor descriptor */
+#define CYBLE_SENSOREN_SENSOR_MIDDEN_DECL_HANDLE   (0x0010u) /* Handle of Sensor Midden characteristic declaration */
+#define CYBLE_SENSOREN_SENSOR_MIDDEN_CHAR_HANDLE   (0x0011u) /* Handle of Sensor Midden characteristic */
+#define CYBLE_SENSOREN_SENSOR_MIDDEN_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0012u) /* Handle of Custom Descriptor descriptor */
+#define CYBLE_SENSOREN_SENSOR_RECHTS_DECL_HANDLE   (0x0013u) /* Handle of Sensor Rechts characteristic declaration */
+#define CYBLE_SENSOREN_SENSOR_RECHTS_CHAR_HANDLE   (0x0014u) /* Handle of Sensor Rechts characteristic */
+#define CYBLE_SENSOREN_SENSOR_RECHTS_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0015u) /* Handle of Custom Descriptor descriptor */
 
 
 

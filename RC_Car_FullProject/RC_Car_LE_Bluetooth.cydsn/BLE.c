@@ -19,7 +19,7 @@
 void StackEventHandler( uint32 eventCode, void *eventParam )
 {
     CYBLE_GATTS_WRITE_REQ_PARAM_T *wrReqParam;
-    updateCharacteristic(whatToDo);
+    updateCharacteristic();
     
     switch( eventCode )
     {
@@ -69,13 +69,13 @@ void StackEventHandler( uint32 eventCode, void *eventParam )
             wrReqParam = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;
 			
 			/* Check if the returned handle is matching to Random Data Client custom configuration*/
-            if( CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_HANDLE  == wrReqParam->handleValPair.attrHandle)
-            {
-                whatToDo = wrReqParam->handleValPair.value.val[CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_HANDLE];
+           // if( CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_HANDLE  == wrReqParam->handleValPair.attrHandle)
+           // {
+           //     whatToDo = wrReqParam->handleValPair.value.val[CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_HANDLE];
                // updateCharacteristic(whatToDo);
                 /* Set flag so that application can start sending notifications.*/
                /* started = 1; */
-			}
+			//}
             CyBle_GattsWriteRsp(connectionHandle);
             break; 
 
@@ -99,15 +99,15 @@ void updateCharacteristic()
     CYBLE_GATT_HANDLE_VALUE_PAIR_T Sensor_midden; 
     CYBLE_GATT_HANDLE_VALUE_PAIR_T Sensor_rechts; 
 
-    Sensor_links.attrHandle = CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
+    Sensor_links.attrHandle = CYBLE_SENSOREN_SENSOR_LINKS_CHAR_HANDLE;
     Sensor_links.value.val = (uint8*)&value;
     Sensor_links.value.len = 1; 
     
-    Sensor_midden.attrHandle = CYBLE_SENSOR2_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
+    Sensor_midden.attrHandle = CYBLE_SENSOREN_SENSOR_MIDDEN_CHAR_HANDLE;
     Sensor_midden.value.val = (uint8*)&value2;
     Sensor_midden.value.len = 1; 
     
-    Sensor_rechts.attrHandle = CYBLE_SENSOR3_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
+    Sensor_rechts.attrHandle = CYBLE_SENSOREN_SENSOR_RECHTS_CHAR_HANDLE;
     Sensor_rechts.value.val = (uint8*)&value3;
     Sensor_rechts.value.len = 1;    
     

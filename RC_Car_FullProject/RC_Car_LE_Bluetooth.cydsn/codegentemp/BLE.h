@@ -181,7 +181,7 @@
 #define CYBLE_ADV_PKT_INDEX_SERVICE_UUID_16   (0x0Bu)
 
 #define CYBLE_SCN_PKT_INDEX_SERVICE_UUID_16   (0x00u)
-#define CYBLE_SCN_PKT_INDEX_SERVICE_DATA_SENSOR1   (0x04u)
+#define CYBLE_SCN_PKT_INDEX_SERVICE_DATA_SENSOREN   (0x04u)
 #define CYBLE_SCN_PKT_INDEX_BLUETOOTH_DEVICE_ADDRESS   (0x08u)
 
 
@@ -212,7 +212,7 @@
 #define CYBLE_GATT_MAX_ATTR_BUFF_COUNT       ((1 > 0u) ? (1 - 1u) : 0u)
 
 /* GATT MTU Size */
-#define CYBLE_GATT_MTU                      (0x0017u)
+#define CYBLE_GATT_MTU                      (0x0200u)
 #define CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT   (CYBLE_ALIGN_TO_4(CYBLE_GATT_MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
 /* GATT Maximum attribute length */

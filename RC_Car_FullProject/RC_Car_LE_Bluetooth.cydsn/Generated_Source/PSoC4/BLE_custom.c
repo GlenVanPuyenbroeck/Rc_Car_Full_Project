@@ -23,54 +23,40 @@
 */
 /* This array contains attribute handles for the defined Custom Services and their characteristics and descriptors.
    The array index definitions are located in the CYBLE_custom.h file. */
-const CYBLE_CUSTOMS_T cyBle_customs[0x03u] = {
+const CYBLE_CUSTOMS_T cyBle_customs[0x01u] = {
 
-    /* Sensor1 service */
+    /* Sensoren service */
     {
-        0x000Cu, /* Handle of the Sensor1 service */ 
+        0x000Cu, /* Handle of the Sensoren service */ 
         {
 
-            /* Custom Characteristic characteristic */
+            /* Sensor Links characteristic */
             {
-                0x000Eu, /* Handle of the Custom Characteristic characteristic */ 
+                0x000Eu, /* Handle of the Sensor Links characteristic */ 
                 
                 /* Array of Descriptors handles */
                 {
                     0x000Fu, /* Handle of the Custom Descriptor descriptor */ 
                 }, 
             },
-        }, 
-    },
 
-    /* Sensor2 service */
-    {
-        0x0010u, /* Handle of the Sensor2 service */ 
-        {
-
-            /* Custom Characteristic characteristic */
+            /* Sensor Midden characteristic */
             {
-                0x0012u, /* Handle of the Custom Characteristic characteristic */ 
+                0x0011u, /* Handle of the Sensor Midden characteristic */ 
                 
                 /* Array of Descriptors handles */
                 {
-                    0x0013u, /* Handle of the Custom Descriptor descriptor */ 
+                    0x0012u, /* Handle of the Custom Descriptor descriptor */ 
                 }, 
             },
-        }, 
-    },
 
-    /* Sensor3 service */
-    {
-        0x0014u, /* Handle of the Sensor3 service */ 
-        {
-
-            /* Custom Characteristic characteristic */
+            /* Sensor Rechts characteristic */
             {
-                0x0016u, /* Handle of the Custom Characteristic characteristic */ 
+                0x0014u, /* Handle of the Sensor Rechts characteristic */ 
                 
                 /* Array of Descriptors handles */
                 {
-                    0x0017u, /* Handle of the Custom Descriptor descriptor */ 
+                    0x0015u, /* Handle of the Custom Descriptor descriptor */ 
                 }, 
             },
         }, 
