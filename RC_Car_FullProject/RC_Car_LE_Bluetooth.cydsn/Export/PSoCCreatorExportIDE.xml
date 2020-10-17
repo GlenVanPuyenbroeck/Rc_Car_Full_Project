@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="RC_Car_LE_Bluetooth" Path="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn" Version="5.80" Type="Normal">
+  <Project Name="RC_Car_LE_Bluetooth" Path="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn" Version="5.70" Type="Normal">
     <CMSIS_SVD_File>RC_Car_LE_Bluetooth.svd</CMSIS_SVD_File>
     <Datasheet />
     <LinkerFiles>
@@ -69,10 +69,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART_PVT.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_PVT.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_BOOT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_rechts.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_rechts.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_rechts_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_rechts_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Rechts.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Rechts.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Rechts_PM.c</File>
@@ -88,17 +84,9 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Midden.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Midden.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Midden_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_Links.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_Links.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_Links_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_Links_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Links.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Links.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UltraSoon_Links_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_Midden.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_Midden.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_Midden_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_Midden_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock_1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Trigger_Rechts.c</File>
@@ -172,21 +160,77 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_custom.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_bless_isr.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_bless_isr.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Motor_Links.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Motor_Links.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Motor_Links_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Motor_Rechts.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Motor_Rechts.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Motor_Rechts_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_R.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_R.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_R_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_R_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_L.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_L.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_L_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_L_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_M.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_M.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_M_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Echo_M_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Groen.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Groen.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Groen_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Groen_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Geel.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Geel.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Geel_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Geel_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Rood.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Rood.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Rood_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_R_Rood_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Groen.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Groen.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Groen_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Groen_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Geel.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Geel.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Geel_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Geel_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Rood.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Rood.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Rood_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\T_Motor_L_Rood_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\To_Motor_L.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\To_Motor_L.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\To_Motor_L_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\To_Motor_L_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\To_Motor_R.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\To_Motor_R.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\To_Motor_R_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\To_Motor_R_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Motors.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Motors.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Start_Switch.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Start_Switch.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Start_Switch_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Start_Switch_PM.c</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\Export\ARM_GCC_Generic\BLE_v3_66">
+      <Folder BuildType="STRICT" Path="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\Export\ARM_GCC_Generic\BLE_v3_50">
         <Files Root="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn">
-          <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\BLE_v3_66\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
+          <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\BLE_v3_50\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\Export\ARM_MDK_Generic\BLE_v3_66">
+      <Folder BuildType="STRICT" Path="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\Export\ARM_MDK_Generic\BLE_v3_50">
         <Files Root="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn">
-          <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\BLE_v3_66\mdkCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
+          <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\BLE_v3_50\mdkCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\Export\ARM_IAR_Generic\BLE_v3_66">
+      <Folder BuildType="STRICT" Path="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\Export\ARM_IAR_Generic\BLE_v3_50">
         <Files Root="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn">
-          <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\BLE_v3_66\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
+          <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\BLE_v3_50\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">

@@ -16,9 +16,11 @@
 #include <stdlib.h>
 #include "BLE.h"
 
+
 void StackEventHandler( uint32 eventCode, void *eventParam )
 {
     CYBLE_GATTS_WRITE_REQ_PARAM_T *wrReqParam;
+ 
     updateCharacteristic();
     
     switch( eventCode )
@@ -66,16 +68,28 @@ void StackEventHandler( uint32 eventCode, void *eventParam )
 			* a write command on the custom characteristic */
 			
 			/* Extract the write value from the event parameter */
-            wrReqParam = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;
-			
-			/* Check if the returned handle is matching to Random Data Client custom configuration*/
-           // if( CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_HANDLE  == wrReqParam->handleValPair.attrHandle)
-           // {
-           //     whatToDo = wrReqParam->handleValPair.value.val[CYBLE_SENSOR1_CUSTOM_CHARACTERISTIC_CHAR_HANDLE];
-               // updateCharacteristic(whatToDo);
+             wrReqParam = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;
+           // wrLinks = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;
+            
+            if( CYBLE_MOTOREN_MOTOR_LINKS_CHAR_HANDLE  == wrReqParam->handleValPair.attrHandle)
+            {  
+                M_Links = wrReqParam->handleValPair.value.val[0]; 
+                Motor_Links_WritePeriod(M_Links);
+            
                 /* Set flag so that application can start sending notifications.*/
                /* started = 1; */
-			//}
+			}      
+			
+			/* Check if the returned handle is matching to Random Data Client custom configuration*/
+            if( CYBLE_MOTOREN_MOTOR_RECHTS_CHAR_HANDLE  == wrReqParam->handleValPair.attrHandle)
+            {  
+                M_Rechts = wrReqParam->handleValPair.value.val[0];  
+                Motor_Rechts_WritePeriod(M_Rechts);
+                /* Set flag so that application can start sending notifications.*/
+               /* started = 1; */
+			}
+        
+           
             CyBle_GattsWriteRsp(connectionHandle);
             break; 
 

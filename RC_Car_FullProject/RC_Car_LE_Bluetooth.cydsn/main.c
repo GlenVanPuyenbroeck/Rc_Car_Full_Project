@@ -8,10 +8,6 @@ void switchToString();
 void print();
 void MaxAndMin();
 
-char afstand_rechts[1];
-char afstand_midden[1];
-char afstand_links[1];
-
 uint8 value = 0;
 uint8 value2 = 0;
 uint8 value3 = 0;
@@ -30,6 +26,9 @@ int main(void)
     UltraSoon_Midden_Start();
     UltraSoon_Rechts_Start();
     
+  //  Motor_Links_Start();
+  //  Motor_Rechts_Start();
+   
     CyBle_Start( StackEventHandler );
     
     for(;;)
@@ -38,7 +37,8 @@ int main(void)
         switchToString();
         print();    
         CyBle_ProcessEvents();
-        //CyDelay(500);  
+        CyDelay(500); 
+        
          if(restartAdvertisement)
         {
             restartAdvertisement = 0; 
@@ -64,9 +64,22 @@ void print()
         
         UART_UartPutString(" Afstand rechts = "); 
         UART_UartPutString(afstand_rechts);
-        UART_UartPutString(" cm ");              
+        UART_UartPutString(" cm ");   
+        
+        UART_UartPutChar('\t');
+        
+        UART_UartPutString(" Period Motor rechts = "); 
+        UART_UartPutString(motor_rechts);
+       
+        UART_UartPutChar('\t');
+        
+        UART_UartPutString(" Period Motor links = "); 
+        UART_UartPutString(motor_links);
         
         UART_UartPutCRLF(0u);
+        UART_UartPutCRLF(0u);
+        
+        CyDelay(500);
 }
 
 void switchToString()
@@ -74,6 +87,9 @@ void switchToString()
         itoa(a_rechts,afstand_rechts,10);
         itoa(a_midden,afstand_midden,10); 
         itoa(a_links, afstand_links,10);
+        
+        itoa(Motor_Links_ReadPeriod() ,motor_rechts,10);
+        itoa(Motor_Rechts_ReadPeriod(),motor_links,10);             
 }
 
 void getDistance()
@@ -81,7 +97,6 @@ void getDistance()
         a_links  = UltraSoon_Links_ReadCompare(); 
         a_midden = UltraSoon_Midden_ReadCompare();  
         a_rechts = UltraSoon_Rechts_ReadCompare();
-        MaxAndMin();
 }
 
 void MaxAndMin()
@@ -100,4 +115,7 @@ void MaxAndMin()
             a_rechts = 0;
         }
 }
+
+
+
 

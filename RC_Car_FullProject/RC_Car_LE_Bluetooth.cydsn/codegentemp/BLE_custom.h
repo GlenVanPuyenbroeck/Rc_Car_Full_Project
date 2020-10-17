@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file CYBLE_custom.h
-* \version 3.66
+* \version 3.50
 * 
 * \brief
 *  Contains the function prototypes and constants for the Custom Service.
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2020, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2018, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -24,7 +24,7 @@
 ***************************************/
 
 /* Maximum supported Custom Services */
-#define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x01u)
+#define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x02u)
 #define CYBLE_CUSTOMC_SERVICE_COUNT                  (0x00u)
 #define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x03u)
 #define CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x01u)
@@ -38,6 +38,12 @@
 #define CYBLE_SENSOREN_SENSOR_RECHTS_CHAR_INDEX   (0x02u) /* Index of Sensor Rechts characteristic */
 #define CYBLE_SENSOREN_SENSOR_RECHTS_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
 
+#define CYBLE_MOTOREN_SERVICE_INDEX   (0x01u) /* Index of Motoren service in the cyBle_customs array */
+#define CYBLE_MOTOREN_MOTOR_LINKS_CHAR_INDEX   (0x00u) /* Index of Motor Links characteristic */
+#define CYBLE_MOTOREN_MOTOR_LINKS_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CYBLE_MOTOREN_MOTOR_RECHTS_CHAR_INDEX   (0x01u) /* Index of Motor Rechts characteristic */
+#define CYBLE_MOTOREN_MOTOR_RECHTS_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+
 
 #define CYBLE_SENSOREN_SERVICE_HANDLE   (0x000Cu) /* Handle of Sensoren service */
 #define CYBLE_SENSOREN_SENSOR_LINKS_DECL_HANDLE   (0x000Du) /* Handle of Sensor Links characteristic declaration */
@@ -49,6 +55,14 @@
 #define CYBLE_SENSOREN_SENSOR_RECHTS_DECL_HANDLE   (0x0013u) /* Handle of Sensor Rechts characteristic declaration */
 #define CYBLE_SENSOREN_SENSOR_RECHTS_CHAR_HANDLE   (0x0014u) /* Handle of Sensor Rechts characteristic */
 #define CYBLE_SENSOREN_SENSOR_RECHTS_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0015u) /* Handle of Custom Descriptor descriptor */
+
+#define CYBLE_MOTOREN_SERVICE_HANDLE   (0x0016u) /* Handle of Motoren service */
+#define CYBLE_MOTOREN_MOTOR_LINKS_DECL_HANDLE   (0x0017u) /* Handle of Motor Links characteristic declaration */
+#define CYBLE_MOTOREN_MOTOR_LINKS_CHAR_HANDLE   (0x0018u) /* Handle of Motor Links characteristic */
+#define CYBLE_MOTOREN_MOTOR_LINKS_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0019u) /* Handle of Custom Descriptor descriptor */
+#define CYBLE_MOTOREN_MOTOR_RECHTS_DECL_HANDLE   (0x001Au) /* Handle of Motor Rechts characteristic declaration */
+#define CYBLE_MOTOREN_MOTOR_RECHTS_CHAR_HANDLE   (0x001Bu) /* Handle of Motor Rechts characteristic */
+#define CYBLE_MOTOREN_MOTOR_RECHTS_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x001Cu) /* Handle of Custom Descriptor descriptor */
 
 
 

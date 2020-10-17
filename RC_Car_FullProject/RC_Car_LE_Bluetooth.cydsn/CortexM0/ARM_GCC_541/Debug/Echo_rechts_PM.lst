@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 1
 
 
    1              		.syntax unified
@@ -15,161 +15,161 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
   14              		.syntax unified
-  15              		.file	"Echo_rechts_PM.c"
+  15              		.file	"Echo_Rechts_PM.c"
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.Echo_rechts_Sleep,"ax",%progbits
+  19              		.section	.text.Echo_Rechts_Sleep,"ax",%progbits
   20              		.align	2
-  21              		.global	Echo_rechts_Sleep
+  21              		.global	Echo_Rechts_Sleep
   22              		.code	16
   23              		.thumb_func
-  24              		.type	Echo_rechts_Sleep, %function
-  25              	Echo_rechts_Sleep:
+  24              		.type	Echo_Rechts_Sleep, %function
+  25              	Echo_Rechts_Sleep:
   26              	.LFB0:
-  27              		.file 1 "Generated_Source\\PSoC4\\Echo_rechts_PM.c"
-   1:Generated_Source\PSoC4/Echo_rechts_PM.c **** /*******************************************************************************
-   2:Generated_Source\PSoC4/Echo_rechts_PM.c **** * File Name: Echo_rechts.c  
-   3:Generated_Source\PSoC4/Echo_rechts_PM.c **** * Version 2.20
-   4:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-   5:Generated_Source\PSoC4/Echo_rechts_PM.c **** * Description:
-   6:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  This file contains APIs to set up the Pins component for low power modes.
-   7:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-   8:Generated_Source\PSoC4/Echo_rechts_PM.c **** * Note:
-   9:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-  10:Generated_Source\PSoC4/Echo_rechts_PM.c **** ********************************************************************************
-  11:Generated_Source\PSoC4/Echo_rechts_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
-  12:Generated_Source\PSoC4/Echo_rechts_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
-  13:Generated_Source\PSoC4/Echo_rechts_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
-  14:Generated_Source\PSoC4/Echo_rechts_PM.c **** * the software package with which this file was provided.
-  15:Generated_Source\PSoC4/Echo_rechts_PM.c **** *******************************************************************************/
-  16:Generated_Source\PSoC4/Echo_rechts_PM.c **** 
-  17:Generated_Source\PSoC4/Echo_rechts_PM.c **** #include "cytypes.h"
-  18:Generated_Source\PSoC4/Echo_rechts_PM.c **** #include "Echo_rechts.h"
-  19:Generated_Source\PSoC4/Echo_rechts_PM.c **** 
-  20:Generated_Source\PSoC4/Echo_rechts_PM.c **** static Echo_rechts_BACKUP_STRUCT  Echo_rechts_backup = {0u, 0u, 0u};
-  21:Generated_Source\PSoC4/Echo_rechts_PM.c **** 
-  22:Generated_Source\PSoC4/Echo_rechts_PM.c **** 
-  23:Generated_Source\PSoC4/Echo_rechts_PM.c **** /*******************************************************************************
-  24:Generated_Source\PSoC4/Echo_rechts_PM.c **** * Function Name: Echo_rechts_Sleep
-  25:Generated_Source\PSoC4/Echo_rechts_PM.c **** ****************************************************************************//**
-  26:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-  27:Generated_Source\PSoC4/Echo_rechts_PM.c **** * \brief Stores the pin configuration and prepares the pin for entering chip 
-  28:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  deep-sleep/hibernate modes. This function applies only to SIO and USBIO pins.
-  29:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  It should not be called for GPIO or GPIO_OVT pins.
-  30:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 2
+  27              		.file 1 "Generated_Source\\PSoC4\\Echo_Rechts_PM.c"
+   1:Generated_Source\PSoC4/Echo_Rechts_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * File Name: Echo_Rechts.c  
+   3:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * Version 2.20
+   4:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+   5:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * Description:
+   6:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  This file contains APIs to set up the Pins component for low power modes.
+   7:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+   8:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * Note:
+   9:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+  10:Generated_Source\PSoC4/Echo_Rechts_PM.c **** ********************************************************************************
+  11:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *******************************************************************************/
+  16:Generated_Source\PSoC4/Echo_Rechts_PM.c **** 
+  17:Generated_Source\PSoC4/Echo_Rechts_PM.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC4/Echo_Rechts_PM.c **** #include "Echo_Rechts.h"
+  19:Generated_Source\PSoC4/Echo_Rechts_PM.c **** 
+  20:Generated_Source\PSoC4/Echo_Rechts_PM.c **** static Echo_Rechts_BACKUP_STRUCT  Echo_Rechts_backup = {0u, 0u, 0u};
+  21:Generated_Source\PSoC4/Echo_Rechts_PM.c **** 
+  22:Generated_Source\PSoC4/Echo_Rechts_PM.c **** 
+  23:Generated_Source\PSoC4/Echo_Rechts_PM.c **** /*******************************************************************************
+  24:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * Function Name: Echo_Rechts_Sleep
+  25:Generated_Source\PSoC4/Echo_Rechts_PM.c **** ****************************************************************************//**
+  26:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+  27:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * \brief Stores the pin configuration and prepares the pin for entering chip 
+  28:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  deep-sleep/hibernate modes. This function applies only to SIO and USBIO pins.
+  29:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  It should not be called for GPIO or GPIO_OVT pins.
+  30:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 2
 
 
-  31:Generated_Source\PSoC4/Echo_rechts_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
-  32:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-  33:Generated_Source\PSoC4/Echo_rechts_PM.c **** * \return 
-  34:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  None 
-  35:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  
-  36:Generated_Source\PSoC4/Echo_rechts_PM.c **** * \sideeffect
-  37:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  For SIO pins, this function configures the pin input threshold to CMOS and
-  38:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  drive level to Vddio. This is needed for SIO pins when in device 
-  39:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  deep-sleep/hibernate modes.
-  40:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-  41:Generated_Source\PSoC4/Echo_rechts_PM.c **** * \funcusage
-  42:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  \snippet Echo_rechts_SUT.c usage_Echo_rechts_Sleep_Wakeup
-  43:Generated_Source\PSoC4/Echo_rechts_PM.c **** *******************************************************************************/
-  44:Generated_Source\PSoC4/Echo_rechts_PM.c **** void Echo_rechts_Sleep(void)
-  45:Generated_Source\PSoC4/Echo_rechts_PM.c **** {
+  31:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
+  32:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+  33:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * \return 
+  34:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  None 
+  35:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  
+  36:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * \sideeffect
+  37:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  For SIO pins, this function configures the pin input threshold to CMOS and
+  38:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  drive level to Vddio. This is needed for SIO pins when in device 
+  39:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  deep-sleep/hibernate modes.
+  40:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+  41:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * \funcusage
+  42:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  \snippet Echo_Rechts_SUT.c usage_Echo_Rechts_Sleep_Wakeup
+  43:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *******************************************************************************/
+  44:Generated_Source\PSoC4/Echo_Rechts_PM.c **** void Echo_Rechts_Sleep(void)
+  45:Generated_Source\PSoC4/Echo_Rechts_PM.c **** {
   28              		.loc 1 45 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  46:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #if defined(Echo_rechts__PC)
-  47:Generated_Source\PSoC4/Echo_rechts_PM.c ****         Echo_rechts_backup.pcState = Echo_rechts_PC;
+  46:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #if defined(Echo_Rechts__PC)
+  47:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         Echo_Rechts_backup.pcState = Echo_Rechts_PC;
   33              		.loc 1 47 0
   34 0000 024B     		ldr	r3, .L2
   35 0002 1A68     		ldr	r2, [r3]
   36 0004 024B     		ldr	r3, .L2+4
   37 0006 1A60     		str	r2, [r3]
-  48:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #else
-  49:Generated_Source\PSoC4/Echo_rechts_PM.c ****         #if (CY_PSOC4_4200L)
-  50:Generated_Source\PSoC4/Echo_rechts_PM.c ****             /* Save the regulator state and put the PHY into suspend mode */
-  51:Generated_Source\PSoC4/Echo_rechts_PM.c ****             Echo_rechts_backup.usbState = Echo_rechts_CR1_REG;
-  52:Generated_Source\PSoC4/Echo_rechts_PM.c ****             Echo_rechts_USB_POWER_REG |= Echo_rechts_USBIO_ENTER_SLEEP;
-  53:Generated_Source\PSoC4/Echo_rechts_PM.c ****             Echo_rechts_CR1_REG &= Echo_rechts_USBIO_CR1_OFF;
-  54:Generated_Source\PSoC4/Echo_rechts_PM.c ****         #endif
-  55:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #endif
-  56:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Echo_rechts__SIO)
-  57:Generated_Source\PSoC4/Echo_rechts_PM.c ****         Echo_rechts_backup.sioState = Echo_rechts_SIO_REG;
-  58:Generated_Source\PSoC4/Echo_rechts_PM.c ****         /* SIO requires unregulated output buffer and single ended input buffer */
-  59:Generated_Source\PSoC4/Echo_rechts_PM.c ****         Echo_rechts_SIO_REG &= (uint32)(~Echo_rechts_SIO_LPM_MASK);
-  60:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #endif  
-  61:Generated_Source\PSoC4/Echo_rechts_PM.c **** }
+  48:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #else
+  49:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         #if (CY_PSOC4_4200L)
+  50:Generated_Source\PSoC4/Echo_Rechts_PM.c ****             /* Save the regulator state and put the PHY into suspend mode */
+  51:Generated_Source\PSoC4/Echo_Rechts_PM.c ****             Echo_Rechts_backup.usbState = Echo_Rechts_CR1_REG;
+  52:Generated_Source\PSoC4/Echo_Rechts_PM.c ****             Echo_Rechts_USB_POWER_REG |= Echo_Rechts_USBIO_ENTER_SLEEP;
+  53:Generated_Source\PSoC4/Echo_Rechts_PM.c ****             Echo_Rechts_CR1_REG &= Echo_Rechts_USBIO_CR1_OFF;
+  54:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         #endif
+  55:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #endif
+  56:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Echo_Rechts__SIO)
+  57:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         Echo_Rechts_backup.sioState = Echo_Rechts_SIO_REG;
+  58:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         /* SIO requires unregulated output buffer and single ended input buffer */
+  59:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         Echo_Rechts_SIO_REG &= (uint32)(~Echo_Rechts_SIO_LPM_MASK);
+  60:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #endif  
+  61:Generated_Source\PSoC4/Echo_Rechts_PM.c **** }
   38              		.loc 1 61 0
   39              		@ sp needed
   40 0008 7047     		bx	lr
   41              	.L3:
   42 000a C046     		.align	2
   43              	.L2:
-  44 000c 08020440 		.word	1074004488
+  44 000c 08030440 		.word	1074004744
   45 0010 00000000 		.word	.LANCHOR0
   46              		.cfi_endproc
   47              	.LFE0:
-  48              		.size	Echo_rechts_Sleep, .-Echo_rechts_Sleep
-  49              		.section	.text.Echo_rechts_Wakeup,"ax",%progbits
+  48              		.size	Echo_Rechts_Sleep, .-Echo_Rechts_Sleep
+  49              		.section	.text.Echo_Rechts_Wakeup,"ax",%progbits
   50              		.align	2
-  51              		.global	Echo_rechts_Wakeup
+  51              		.global	Echo_Rechts_Wakeup
   52              		.code	16
   53              		.thumb_func
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 3
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 3
 
 
-  54              		.type	Echo_rechts_Wakeup, %function
-  55              	Echo_rechts_Wakeup:
+  54              		.type	Echo_Rechts_Wakeup, %function
+  55              	Echo_Rechts_Wakeup:
   56              	.LFB1:
-  62:Generated_Source\PSoC4/Echo_rechts_PM.c **** 
-  63:Generated_Source\PSoC4/Echo_rechts_PM.c **** 
-  64:Generated_Source\PSoC4/Echo_rechts_PM.c **** /*******************************************************************************
-  65:Generated_Source\PSoC4/Echo_rechts_PM.c **** * Function Name: Echo_rechts_Wakeup
-  66:Generated_Source\PSoC4/Echo_rechts_PM.c **** ****************************************************************************//**
-  67:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-  68:Generated_Source\PSoC4/Echo_rechts_PM.c **** * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
-  69:Generated_Source\PSoC4/Echo_rechts_PM.c **** * function applies only to SIO and USBIO pins. It should not be called for
-  70:Generated_Source\PSoC4/Echo_rechts_PM.c **** * GPIO or GPIO_OVT pins.
-  71:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-  72:Generated_Source\PSoC4/Echo_rechts_PM.c **** * For USBIO pins, the wakeup is only triggered for falling edge interrupts.
-  73:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-  74:Generated_Source\PSoC4/Echo_rechts_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
-  75:Generated_Source\PSoC4/Echo_rechts_PM.c **** *
-  76:Generated_Source\PSoC4/Echo_rechts_PM.c **** * \return 
-  77:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  None
-  78:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  
-  79:Generated_Source\PSoC4/Echo_rechts_PM.c **** * \funcusage
-  80:Generated_Source\PSoC4/Echo_rechts_PM.c **** *  Refer to Echo_rechts_Sleep() for an example usage.
-  81:Generated_Source\PSoC4/Echo_rechts_PM.c **** *******************************************************************************/
-  82:Generated_Source\PSoC4/Echo_rechts_PM.c **** void Echo_rechts_Wakeup(void)
-  83:Generated_Source\PSoC4/Echo_rechts_PM.c **** {
+  62:Generated_Source\PSoC4/Echo_Rechts_PM.c **** 
+  63:Generated_Source\PSoC4/Echo_Rechts_PM.c **** 
+  64:Generated_Source\PSoC4/Echo_Rechts_PM.c **** /*******************************************************************************
+  65:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * Function Name: Echo_Rechts_Wakeup
+  66:Generated_Source\PSoC4/Echo_Rechts_PM.c **** ****************************************************************************//**
+  67:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+  68:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
+  69:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * function applies only to SIO and USBIO pins. It should not be called for
+  70:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * GPIO or GPIO_OVT pins.
+  71:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+  72:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * For USBIO pins, the wakeup is only triggered for falling edge interrupts.
+  73:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+  74:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
+  75:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *
+  76:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * \return 
+  77:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  None
+  78:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  
+  79:Generated_Source\PSoC4/Echo_Rechts_PM.c **** * \funcusage
+  80:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *  Refer to Echo_Rechts_Sleep() for an example usage.
+  81:Generated_Source\PSoC4/Echo_Rechts_PM.c **** *******************************************************************************/
+  82:Generated_Source\PSoC4/Echo_Rechts_PM.c **** void Echo_Rechts_Wakeup(void)
+  83:Generated_Source\PSoC4/Echo_Rechts_PM.c **** {
   57              		.loc 1 83 0
   58              		.cfi_startproc
   59              		@ args = 0, pretend = 0, frame = 0
   60              		@ frame_needed = 0, uses_anonymous_args = 0
   61              		@ link register save eliminated.
-  84:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #if defined(Echo_rechts__PC)
-  85:Generated_Source\PSoC4/Echo_rechts_PM.c ****         Echo_rechts_PC = Echo_rechts_backup.pcState;
+  84:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #if defined(Echo_Rechts__PC)
+  85:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         Echo_Rechts_PC = Echo_Rechts_backup.pcState;
   62              		.loc 1 85 0
   63 0000 024B     		ldr	r3, .L5
   64 0002 1A68     		ldr	r2, [r3]
   65 0004 024B     		ldr	r3, .L5+4
   66 0006 1A60     		str	r2, [r3]
-  86:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #else
-  87:Generated_Source\PSoC4/Echo_rechts_PM.c ****         #if (CY_PSOC4_4200L)
-  88:Generated_Source\PSoC4/Echo_rechts_PM.c ****             /* Restore the regulator state and come out of suspend mode */
-  89:Generated_Source\PSoC4/Echo_rechts_PM.c ****             Echo_rechts_USB_POWER_REG &= Echo_rechts_USBIO_EXIT_SLEEP_PH1;
-  90:Generated_Source\PSoC4/Echo_rechts_PM.c ****             Echo_rechts_CR1_REG = Echo_rechts_backup.usbState;
-  91:Generated_Source\PSoC4/Echo_rechts_PM.c ****             Echo_rechts_USB_POWER_REG &= Echo_rechts_USBIO_EXIT_SLEEP_PH2;
-  92:Generated_Source\PSoC4/Echo_rechts_PM.c ****         #endif
-  93:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #endif
-  94:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Echo_rechts__SIO)
-  95:Generated_Source\PSoC4/Echo_rechts_PM.c ****         Echo_rechts_SIO_REG = Echo_rechts_backup.sioState;
-  96:Generated_Source\PSoC4/Echo_rechts_PM.c ****     #endif
-  97:Generated_Source\PSoC4/Echo_rechts_PM.c **** }
+  86:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #else
+  87:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         #if (CY_PSOC4_4200L)
+  88:Generated_Source\PSoC4/Echo_Rechts_PM.c ****             /* Restore the regulator state and come out of suspend mode */
+  89:Generated_Source\PSoC4/Echo_Rechts_PM.c ****             Echo_Rechts_USB_POWER_REG &= Echo_Rechts_USBIO_EXIT_SLEEP_PH1;
+  90:Generated_Source\PSoC4/Echo_Rechts_PM.c ****             Echo_Rechts_CR1_REG = Echo_Rechts_backup.usbState;
+  91:Generated_Source\PSoC4/Echo_Rechts_PM.c ****             Echo_Rechts_USB_POWER_REG &= Echo_Rechts_USBIO_EXIT_SLEEP_PH2;
+  92:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         #endif
+  93:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #endif
+  94:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Echo_Rechts__SIO)
+  95:Generated_Source\PSoC4/Echo_Rechts_PM.c ****         Echo_Rechts_SIO_REG = Echo_Rechts_backup.sioState;
+  96:Generated_Source\PSoC4/Echo_Rechts_PM.c ****     #endif
+  97:Generated_Source\PSoC4/Echo_Rechts_PM.c **** }
   67              		.loc 1 97 0
   68              		@ sp needed
   69 0008 7047     		bx	lr
@@ -177,26 +177,26 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
   71 000a C046     		.align	2
   72              	.L5:
   73 000c 00000000 		.word	.LANCHOR0
-  74 0010 08020440 		.word	1074004488
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 4
+  74 0010 08030440 		.word	1074004744
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 4
 
 
   75              		.cfi_endproc
   76              	.LFE1:
-  77              		.size	Echo_rechts_Wakeup, .-Echo_rechts_Wakeup
+  77              		.size	Echo_Rechts_Wakeup, .-Echo_Rechts_Wakeup
   78              		.bss
   79              		.align	2
   80              		.set	.LANCHOR0,. + 0
-  81              		.type	Echo_rechts_backup, %object
-  82              		.size	Echo_rechts_backup, 12
-  83              	Echo_rechts_backup:
+  81              		.type	Echo_Rechts_backup, %object
+  82              		.size	Echo_Rechts_backup, 12
+  83              	Echo_Rechts_backup:
   84 0000 00000000 		.space	12
   84      00000000 
   84      00000000 
   85              		.text
   86              	.Letext0:
   87              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
-  88              		.file 3 "Generated_Source\\PSoC4\\Echo_rechts.h"
+  88              		.file 3 "Generated_Source\\PSoC4\\Echo_Rechts.h"
   89              		.section	.debug_info,"",%progbits
   90              	.Ldebug_info0:
   91 0000 05010000 		.4byte	0x105
@@ -204,48 +204,48 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
   93 0006 00000000 		.4byte	.Ldebug_abbrev0
   94 000a 04       		.byte	0x4
   95 000b 01       		.uleb128 0x1
-  96 000c E1000000 		.4byte	.LASF20
+  96 000c A7000000 		.4byte	.LASF20
   97 0010 0C       		.byte	0xc
-  98 0011 18000000 		.4byte	.LASF21
-  99 0015 B9010000 		.4byte	.LASF22
+  98 0011 7E010000 		.4byte	.LASF21
+  99 0015 A6010000 		.4byte	.LASF22
  100 0019 00000000 		.4byte	.Ldebug_ranges0+0
  101 001d 00000000 		.4byte	0
  102 0021 00000000 		.4byte	.Ldebug_line0
  103 0025 02       		.uleb128 0x2
  104 0026 01       		.byte	0x1
  105 0027 06       		.byte	0x6
- 106 0028 1D020000 		.4byte	.LASF0
+ 106 0028 0A020000 		.4byte	.LASF0
  107 002c 02       		.uleb128 0x2
  108 002d 01       		.byte	0x1
  109 002e 08       		.byte	0x8
- 110 002f 7C000000 		.4byte	.LASF1
+ 110 002f 28000000 		.4byte	.LASF1
  111 0033 02       		.uleb128 0x2
  112 0034 02       		.byte	0x2
  113 0035 05       		.byte	0x5
- 114 0036 9E010000 		.4byte	.LASF2
+ 114 0036 63010000 		.4byte	.LASF2
  115 003a 02       		.uleb128 0x2
  116 003b 02       		.byte	0x2
  117 003c 07       		.byte	0x7
- 118 003d 9C000000 		.4byte	.LASF3
+ 118 003d 48000000 		.4byte	.LASF3
  119 0041 02       		.uleb128 0x2
  120 0042 04       		.byte	0x4
  121 0043 05       		.byte	0x5
- 122 0044 B0010000 		.4byte	.LASF4
+ 122 0044 75010000 		.4byte	.LASF4
  123 0048 02       		.uleb128 0x2
  124 0049 04       		.byte	0x4
  125 004a 07       		.byte	0x7
- 126 004b 8A000000 		.4byte	.LASF5
+ 126 004b 36000000 		.4byte	.LASF5
  127 004f 02       		.uleb128 0x2
  128 0050 08       		.byte	0x8
  129 0051 05       		.byte	0x5
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 5
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 5
 
 
- 130 0052 78010000 		.4byte	.LASF6
+ 130 0052 3E010000 		.4byte	.LASF6
  131 0056 02       		.uleb128 0x2
  132 0057 08       		.byte	0x8
  133 0058 07       		.byte	0x7
- 134 0059 CA000000 		.4byte	.LASF7
+ 134 0059 90000000 		.4byte	.LASF7
  135 005d 03       		.uleb128 0x3
  136 005e 04       		.byte	0x4
  137 005f 05       		.byte	0x5
@@ -253,26 +253,26 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  139 0064 02       		.uleb128 0x2
  140 0065 04       		.byte	0x4
  141 0066 07       		.byte	0x7
- 142 0067 BD000000 		.4byte	.LASF8
+ 142 0067 83000000 		.4byte	.LASF8
  143 006b 04       		.uleb128 0x4
- 144 006c B6000000 		.4byte	.LASF12
+ 144 006c 7C000000 		.4byte	.LASF12
  145 0070 02       		.byte	0x2
  146 0071 E601     		.2byte	0x1e6
  147 0073 48000000 		.4byte	0x48
  148 0077 02       		.uleb128 0x2
  149 0078 04       		.byte	0x4
  150 0079 04       		.byte	0x4
- 151 007a 76000000 		.4byte	.LASF9
+ 151 007a 22000000 		.4byte	.LASF9
  152 007e 02       		.uleb128 0x2
  153 007f 08       		.byte	0x8
  154 0080 04       		.byte	0x4
- 155 0081 AF000000 		.4byte	.LASF10
+ 155 0081 75000000 		.4byte	.LASF10
  156 0085 02       		.uleb128 0x2
  157 0086 01       		.byte	0x1
  158 0087 08       		.byte	0x8
- 159 0088 86010000 		.4byte	.LASF11
+ 159 0088 4C010000 		.4byte	.LASF11
  160 008c 04       		.uleb128 0x4
- 161 008d 12000000 		.4byte	.LASF13
+ 161 008d 00000000 		.4byte	.LASF13
  162 0091 02       		.byte	0x2
  163 0092 9002     		.2byte	0x290
  164 0094 98000000 		.4byte	0x98
@@ -284,21 +284,21 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  170 00a0 21       		.byte	0x21
  171 00a1 CA000000 		.4byte	0xca
  172 00a5 07       		.uleb128 0x7
- 173 00a6 A8010000 		.4byte	.LASF14
+ 173 00a6 6D010000 		.4byte	.LASF14
  174 00aa 03       		.byte	0x3
  175 00ab 23       		.byte	0x23
  176 00ac 6B000000 		.4byte	0x6b
  177 00b0 00       		.byte	0
  178 00b1 07       		.uleb128 0x7
- 179 00b2 6F010000 		.4byte	.LASF15
+ 179 00b2 35010000 		.4byte	.LASF15
  180 00b6 03       		.byte	0x3
  181 00b7 24       		.byte	0x24
  182 00b8 6B000000 		.4byte	0x6b
  183 00bc 04       		.byte	0x4
  184 00bd 07       		.uleb128 0x7
- 185 00be 40000000 		.4byte	.LASF16
+ 185 00be 06000000 		.4byte	.LASF16
  186 00c2 03       		.byte	0x3
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 6
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 6
 
 
  187 00c3 25       		.byte	0x25
@@ -306,12 +306,12 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  189 00c8 08       		.byte	0x8
  190 00c9 00       		.byte	0
  191 00ca 08       		.uleb128 0x8
- 192 00cb 5C000000 		.4byte	.LASF17
+ 192 00cb 5B000000 		.4byte	.LASF17
  193 00cf 03       		.byte	0x3
  194 00d0 26       		.byte	0x26
  195 00d1 9D000000 		.4byte	0x9d
  196 00d5 09       		.uleb128 0x9
- 197 00d6 00000000 		.4byte	.LASF18
+ 197 00d6 51010000 		.4byte	.LASF18
  198 00da 01       		.byte	0x1
  199 00db 2C       		.byte	0x2c
  200 00dc 00000000 		.4byte	.LFB0
@@ -319,7 +319,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  202 00e4 01       		.uleb128 0x1
  203 00e5 9C       		.byte	0x9c
  204 00e6 09       		.uleb128 0x9
- 205 00e7 49000000 		.4byte	.LASF19
+ 205 00e7 0F000000 		.4byte	.LASF19
  206 00eb 01       		.byte	0x1
  207 00ec 52       		.byte	0x52
  208 00ed 00000000 		.4byte	.LFB1
@@ -327,13 +327,13 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  210 00f5 01       		.uleb128 0x1
  211 00f6 9C       		.byte	0x9c
  212 00f7 0A       		.uleb128 0xa
- 213 00f8 8B010000 		.4byte	.LASF23
+ 213 00f8 16020000 		.4byte	.LASF23
  214 00fc 01       		.byte	0x1
  215 00fd 14       		.byte	0x14
  216 00fe CA000000 		.4byte	0xca
  217 0102 05       		.uleb128 0x5
  218 0103 03       		.byte	0x3
- 219 0104 00000000 		.4byte	Echo_rechts_backup
+ 219 0104 00000000 		.4byte	Echo_Rechts_backup
  220 0108 00       		.byte	0
  221              		.section	.debug_abbrev,"",%progbits
  222              	.Ldebug_abbrev0:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  241 0012 00       		.byte	0
  242 0013 02       		.uleb128 0x2
  243 0014 24       		.uleb128 0x24
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 7
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 7
 
 
  244 0015 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  298 004b 0D       		.uleb128 0xd
  299 004c 00       		.byte	0
  300 004d 03       		.uleb128 0x3
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 8
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 8
 
 
  301 004e 0E       		.uleb128 0xe
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  355 0085 3B       		.uleb128 0x3b
  356 0086 0B       		.uleb128 0xb
  357 0087 49       		.uleb128 0x49
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 9
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 9
 
 
  358 0088 13       		.uleb128 0x13
@@ -516,140 +516,140 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 1
  388      00000201 
  388      FB0E0D00 
  388      01010101 
- 389              	.LASF18:
- 390 0000 4563686F 		.ascii	"Echo_rechts_Sleep\000"
- 390      5F726563 
- 390      6874735F 
- 390      536C6565 
- 390      7000
- 391              	.LASF13:
- 392 0012 72656733 		.ascii	"reg32\000"
- 392      3200
- 393              	.LASF21:
- 394 0018 47656E65 		.ascii	"Generated_Source\\PSoC4\\Echo_rechts_PM.c\000"
- 394      72617465 
- 394      645F536F 
- 394      75726365 
- 394      5C50536F 
- 395              	.LASF16:
- 396 0040 75736253 		.ascii	"usbState\000"
- 396      74617465 
- 396      00
- 397              	.LASF19:
- 398 0049 4563686F 		.ascii	"Echo_rechts_Wakeup\000"
- 398      5F726563 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 10
+ 389              	.LASF13:
+ 390 0000 72656733 		.ascii	"reg32\000"
+ 390      3200
+ 391              	.LASF16:
+ 392 0006 75736253 		.ascii	"usbState\000"
+ 392      74617465 
+ 392      00
+ 393              	.LASF19:
+ 394 000f 4563686F 		.ascii	"Echo_Rechts_Wakeup\000"
+ 394      5F526563 
+ 394      6874735F 
+ 394      57616B65 
+ 394      757000
+ 395              	.LASF9:
+ 396 0022 666C6F61 		.ascii	"float\000"
+ 396      7400
+ 397              	.LASF1:
+ 398 0028 756E7369 		.ascii	"unsigned char\000"
+ 398      676E6564 
+ 398      20636861 
+ 398      7200
+ 399              	.LASF5:
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 10
 
 
- 398      6874735F 
- 398      57616B65 
- 398      757000
- 399              	.LASF17:
- 400 005c 4563686F 		.ascii	"Echo_rechts_BACKUP_STRUCT\000"
- 400      5F726563 
- 400      6874735F 
- 400      4241434B 
- 400      55505F53 
- 401              	.LASF9:
- 402 0076 666C6F61 		.ascii	"float\000"
- 402      7400
- 403              	.LASF1:
- 404 007c 756E7369 		.ascii	"unsigned char\000"
- 404      676E6564 
- 404      20636861 
- 404      7200
- 405              	.LASF5:
- 406 008a 6C6F6E67 		.ascii	"long unsigned int\000"
- 406      20756E73 
- 406      69676E65 
- 406      6420696E 
- 406      7400
- 407              	.LASF3:
- 408 009c 73686F72 		.ascii	"short unsigned int\000"
- 408      7420756E 
- 408      7369676E 
- 408      65642069 
- 408      6E7400
- 409              	.LASF10:
- 410 00af 646F7562 		.ascii	"double\000"
- 410      6C6500
- 411              	.LASF12:
- 412 00b6 75696E74 		.ascii	"uint32\000"
- 412      333200
- 413              	.LASF8:
- 414 00bd 756E7369 		.ascii	"unsigned int\000"
- 414      676E6564 
- 414      20696E74 
- 414      00
- 415              	.LASF7:
- 416 00ca 6C6F6E67 		.ascii	"long long unsigned int\000"
- 416      206C6F6E 
- 416      6720756E 
- 416      7369676E 
- 416      65642069 
- 417              	.LASF20:
- 418 00e1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 418      43313120 
- 418      352E342E 
- 418      31203230 
- 418      31363036 
- 419 0114 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 419      20726576 
- 419      6973696F 
- 419      6E203233 
- 419      37373135 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\ccZLrihd.s 			page 11
+ 400 0036 6C6F6E67 		.ascii	"long unsigned int\000"
+ 400      20756E73 
+ 400      69676E65 
+ 400      6420696E 
+ 400      7400
+ 401              	.LASF3:
+ 402 0048 73686F72 		.ascii	"short unsigned int\000"
+ 402      7420756E 
+ 402      7369676E 
+ 402      65642069 
+ 402      6E7400
+ 403              	.LASF17:
+ 404 005b 4563686F 		.ascii	"Echo_Rechts_BACKUP_STRUCT\000"
+ 404      5F526563 
+ 404      6874735F 
+ 404      4241434B 
+ 404      55505F53 
+ 405              	.LASF10:
+ 406 0075 646F7562 		.ascii	"double\000"
+ 406      6C6500
+ 407              	.LASF12:
+ 408 007c 75696E74 		.ascii	"uint32\000"
+ 408      333200
+ 409              	.LASF8:
+ 410 0083 756E7369 		.ascii	"unsigned int\000"
+ 410      676E6564 
+ 410      20696E74 
+ 410      00
+ 411              	.LASF7:
+ 412 0090 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 412      206C6F6E 
+ 412      6720756E 
+ 412      7369676E 
+ 412      65642069 
+ 413              	.LASF20:
+ 414 00a7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 414      43313120 
+ 414      352E342E 
+ 414      31203230 
+ 414      31363036 
+ 415 00da 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 415      20726576 
+ 415      6973696F 
+ 415      6E203233 
+ 415      37373135 
+ 416 010d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 416      66756E63 
+ 416      74696F6E 
+ 416      2D736563 
+ 416      74696F6E 
+ 417              	.LASF15:
+ 418 0135 73696F53 		.ascii	"sioState\000"
+ 418      74617465 
+ 418      00
+ 419              	.LASF6:
+ 420 013e 6C6F6E67 		.ascii	"long long int\000"
+ 420      206C6F6E 
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc3BPTmn.s 			page 11
 
 
- 420 0147 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 420      66756E63 
- 420      74696F6E 
- 420      2D736563 
- 420      74696F6E 
- 421              	.LASF15:
- 422 016f 73696F53 		.ascii	"sioState\000"
- 422      74617465 
+ 420      6720696E 
+ 420      7400
+ 421              	.LASF11:
+ 422 014c 63686172 		.ascii	"char\000"
  422      00
- 423              	.LASF6:
- 424 0178 6C6F6E67 		.ascii	"long long int\000"
- 424      206C6F6E 
- 424      6720696E 
- 424      7400
- 425              	.LASF11:
- 426 0186 63686172 		.ascii	"char\000"
- 426      00
- 427              	.LASF23:
- 428 018b 4563686F 		.ascii	"Echo_rechts_backup\000"
- 428      5F726563 
- 428      6874735F 
- 428      6261636B 
- 428      757000
- 429              	.LASF2:
- 430 019e 73686F72 		.ascii	"short int\000"
- 430      7420696E 
- 430      7400
- 431              	.LASF14:
- 432 01a8 70635374 		.ascii	"pcState\000"
- 432      61746500 
- 433              	.LASF4:
- 434 01b0 6C6F6E67 		.ascii	"long int\000"
- 434      20696E74 
- 434      00
- 435              	.LASF22:
- 436 01b9 433A5C55 		.ascii	"C:\\Users\\11800025\\Documents\\GitHub\\Rc_Car_Full"
- 436      73657273 
- 436      5C313138 
- 436      30303032 
- 436      355C446F 
- 437 01e7 5F50726F 		.ascii	"_Project\\RC_Car_FullProject\\RC_Car_LE_Bluetooth.c"
- 437      6A656374 
- 437      5C52435F 
- 437      4361725F 
- 437      46756C6C 
- 438 0218 7964736E 		.ascii	"ydsn\000"
- 438      00
- 439              	.LASF0:
- 440 021d 7369676E 		.ascii	"signed char\000"
- 440      65642063 
- 440      68617200 
+ 423              	.LASF18:
+ 424 0151 4563686F 		.ascii	"Echo_Rechts_Sleep\000"
+ 424      5F526563 
+ 424      6874735F 
+ 424      536C6565 
+ 424      7000
+ 425              	.LASF2:
+ 426 0163 73686F72 		.ascii	"short int\000"
+ 426      7420696E 
+ 426      7400
+ 427              	.LASF14:
+ 428 016d 70635374 		.ascii	"pcState\000"
+ 428      61746500 
+ 429              	.LASF4:
+ 430 0175 6C6F6E67 		.ascii	"long int\000"
+ 430      20696E74 
+ 430      00
+ 431              	.LASF21:
+ 432 017e 47656E65 		.ascii	"Generated_Source\\PSoC4\\Echo_Rechts_PM.c\000"
+ 432      72617465 
+ 432      645F536F 
+ 432      75726365 
+ 432      5C50536F 
+ 433              	.LASF22:
+ 434 01a6 433A5C55 		.ascii	"C:\\Users\\11800025\\Documents\\GitHub\\Rc_Car_Full"
+ 434      73657273 
+ 434      5C313138 
+ 434      30303032 
+ 434      355C446F 
+ 435 01d4 5F50726F 		.ascii	"_Project\\RC_Car_FullProject\\RC_Car_LE_Bluetooth.c"
+ 435      6A656374 
+ 435      5C52435F 
+ 435      4361725F 
+ 435      46756C6C 
+ 436 0205 7964736E 		.ascii	"ydsn\000"
+ 436      00
+ 437              	.LASF0:
+ 438 020a 7369676E 		.ascii	"signed char\000"
+ 438      65642063 
+ 438      68617200 
+ 439              	.LASF23:
+ 440 0216 4563686F 		.ascii	"Echo_Rechts_backup\000"
+ 440      5F526563 
+ 440      6874735F 
+ 440      6261636B 
+ 440      757000
  441              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

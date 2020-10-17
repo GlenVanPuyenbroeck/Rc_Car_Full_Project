@@ -1,544 +1,530 @@
 /*******************************************************************************
 * File Name: PWM.h
-* Version 2.10
+* Version 3.30
 *
 * Description:
-*  This file provides constants and parameter values for the PWM
-*  component.
+*  Contains the prototypes and constants for the functions available to the
+*  PWM user module.
 *
 * Note:
-*  None
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
-*******************************************************************************/
+********************************************************************************/
 
-#if !defined(CY_TCPWM_PWM_H)
-#define CY_TCPWM_PWM_H
+#if !defined(CY_PWM_PWM_H)
+#define CY_PWM_PWM_H
 
-
-#include "CyLib.h"
-#include "cytypes.h"
 #include "cyfitter.h"
+#include "cytypes.h"
+#include "CyLib.h" /* For CyEnterCriticalSection() and CyExitCriticalSection() functions */
+
+extern uint8 PWM_initVar;
 
 
-/*******************************************************************************
-* Internal Type defines
-*******************************************************************************/
+/***************************************
+* Conditional Compilation Parameters
+***************************************/
+#define PWM_Resolution                     (16u)
+#define PWM_UsingFixedFunction             (0u)
+#define PWM_DeadBandMode                   (0u)
+#define PWM_KillModeMinTime                (0u)
+#define PWM_KillMode                       (0u)
+#define PWM_PWMMode                        (0u)
+#define PWM_PWMModeIsCenterAligned         (0u)
+#define PWM_DeadBandUsed                   (0u)
+#define PWM_DeadBand2_4                    (0u)
 
-/* Structure to save state before go to sleep */
+#if !defined(PWM_PWMUDB_genblk8_stsreg__REMOVED)
+    #define PWM_UseStatus                  (1u)
+#else
+    #define PWM_UseStatus                  (0u)
+#endif /* !defined(PWM_PWMUDB_genblk8_stsreg__REMOVED) */
+
+#if !defined(PWM_PWMUDB_genblk1_ctrlreg__REMOVED)
+    #define PWM_UseControl                 (1u)
+#else
+    #define PWM_UseControl                 (0u)
+#endif /* !defined(PWM_PWMUDB_genblk1_ctrlreg__REMOVED) */
+
+#define PWM_UseOneCompareMode              (1u)
+#define PWM_MinimumKillTime                (1u)
+#define PWM_EnableMode                     (0u)
+
+#define PWM_CompareMode1SW                 (0u)
+#define PWM_CompareMode2SW                 (0u)
+
+/* Check to see if required defines such as CY_PSOC5LP are available */
+/* They are defined starting with cy_boot v3.0 */
+#if !defined (CY_PSOC5LP)
+    #error Component PWM_v3_30 requires cy_boot v3.0 or later
+#endif /* (CY_ PSOC5LP) */
+
+/* Use Kill Mode Enumerated Types */
+#define PWM__B_PWM__DISABLED 0
+#define PWM__B_PWM__ASYNCHRONOUS 1
+#define PWM__B_PWM__SINGLECYCLE 2
+#define PWM__B_PWM__LATCHED 3
+#define PWM__B_PWM__MINTIME 4
+
+
+/* Use Dead Band Mode Enumerated Types */
+#define PWM__B_PWM__DBMDISABLED 0
+#define PWM__B_PWM__DBM_2_4_CLOCKS 1
+#define PWM__B_PWM__DBM_256_CLOCKS 2
+
+
+/* Used PWM Mode Enumerated Types */
+#define PWM__B_PWM__ONE_OUTPUT 0
+#define PWM__B_PWM__TWO_OUTPUTS 1
+#define PWM__B_PWM__DUAL_EDGE 2
+#define PWM__B_PWM__CENTER_ALIGN 3
+#define PWM__B_PWM__DITHER 5
+#define PWM__B_PWM__HARDWARESELECT 4
+
+
+/* Used PWM Compare Mode Enumerated Types */
+#define PWM__B_PWM__LESS_THAN 1
+#define PWM__B_PWM__LESS_THAN_OR_EQUAL 2
+#define PWM__B_PWM__GREATER_THAN 3
+#define PWM__B_PWM__GREATER_THAN_OR_EQUAL_TO 4
+#define PWM__B_PWM__EQUAL 0
+#define PWM__B_PWM__FIRMWARE 5
+
+
+
+/***************************************
+* Data Struct Definition
+***************************************/
+
+
+/**************************************************************************
+ * Sleep Wakeup Backup structure for PWM Component
+ *************************************************************************/
 typedef struct
 {
-    uint8  enableState;
-} PWM_BACKUP_STRUCT;
 
+    uint8 PWMEnableState;
 
-/*******************************************************************************
-* Variables
-*******************************************************************************/
-extern uint8  PWM_initVar;
+    #if(!PWM_UsingFixedFunction)
+        uint16 PWMUdb;               /* PWM Current Counter value  */
+        #if(!PWM_PWMModeIsCenterAligned)
+            uint16 PWMPeriod;
+        #endif /* (!PWM_PWMModeIsCenterAligned) */
+        #if (PWM_UseStatus)
+            uint8 InterruptMaskValue;   /* PWM Current Interrupt Mask */
+        #endif /* (PWM_UseStatus) */
 
+        /* Backup for Deadband parameters */
+        #if(PWM_DeadBandMode == PWM__B_PWM__DBM_256_CLOCKS || \
+            PWM_DeadBandMode == PWM__B_PWM__DBM_2_4_CLOCKS)
+            uint8 PWMdeadBandValue; /* Dead Band Counter Current Value */
+        #endif /* deadband count is either 2-4 clocks or 256 clocks */
 
-/***************************************
-*   Conditional Compilation Parameters
-****************************************/
+        /* Backup Kill Mode Counter*/
+        #if(PWM_KillModeMinTime)
+            uint8 PWMKillCounterPeriod; /* Kill Mode period value */
+        #endif /* (PWM_KillModeMinTime) */
 
-#define PWM_CY_TCPWM_V2                    (CYIPBLOCK_m0s8tcpwm_VERSION == 2u)
-#define PWM_CY_TCPWM_4000                  (CY_PSOC4_4000)
+        /* Backup control register */
+        #if(PWM_UseControl)
+            uint8 PWMControlRegister; /* PWM Control Register value */
+        #endif /* (PWM_UseControl) */
 
-/* TCPWM Configuration */
-#define PWM_CONFIG                         (7lu)
+    #endif /* (!PWM_UsingFixedFunction) */
 
-/* Quad Mode */
-/* Parameters */
-#define PWM_QUAD_ENCODING_MODES            (0lu)
-#define PWM_QUAD_AUTO_START                (1lu)
-
-/* Signal modes */
-#define PWM_QUAD_INDEX_SIGNAL_MODE         (0lu)
-#define PWM_QUAD_PHIA_SIGNAL_MODE          (3lu)
-#define PWM_QUAD_PHIB_SIGNAL_MODE          (3lu)
-#define PWM_QUAD_STOP_SIGNAL_MODE          (0lu)
-
-/* Signal present */
-#define PWM_QUAD_INDEX_SIGNAL_PRESENT      (0lu)
-#define PWM_QUAD_STOP_SIGNAL_PRESENT       (0lu)
-
-/* Interrupt Mask */
-#define PWM_QUAD_INTERRUPT_MASK            (1lu)
-
-/* Timer/Counter Mode */
-/* Parameters */
-#define PWM_TC_RUN_MODE                    (0lu)
-#define PWM_TC_COUNTER_MODE                (0lu)
-#define PWM_TC_COMP_CAP_MODE               (2lu)
-#define PWM_TC_PRESCALER                   (0lu)
-
-/* Signal modes */
-#define PWM_TC_RELOAD_SIGNAL_MODE          (0lu)
-#define PWM_TC_COUNT_SIGNAL_MODE           (3lu)
-#define PWM_TC_START_SIGNAL_MODE           (0lu)
-#define PWM_TC_STOP_SIGNAL_MODE            (0lu)
-#define PWM_TC_CAPTURE_SIGNAL_MODE         (0lu)
-
-/* Signal present */
-#define PWM_TC_RELOAD_SIGNAL_PRESENT       (0lu)
-#define PWM_TC_COUNT_SIGNAL_PRESENT        (0lu)
-#define PWM_TC_START_SIGNAL_PRESENT        (0lu)
-#define PWM_TC_STOP_SIGNAL_PRESENT         (0lu)
-#define PWM_TC_CAPTURE_SIGNAL_PRESENT      (0lu)
-
-/* Interrupt Mask */
-#define PWM_TC_INTERRUPT_MASK              (1lu)
-
-/* PWM Mode */
-/* Parameters */
-#define PWM_PWM_KILL_EVENT                 (0lu)
-#define PWM_PWM_STOP_EVENT                 (0lu)
-#define PWM_PWM_MODE                       (4lu)
-#define PWM_PWM_OUT_N_INVERT               (0lu)
-#define PWM_PWM_OUT_INVERT                 (0lu)
-#define PWM_PWM_ALIGN                      (0lu)
-#define PWM_PWM_RUN_MODE                   (0lu)
-#define PWM_PWM_DEAD_TIME_CYCLE            (0lu)
-#define PWM_PWM_PRESCALER                  (0lu)
-
-/* Signal modes */
-#define PWM_PWM_RELOAD_SIGNAL_MODE         (0lu)
-#define PWM_PWM_COUNT_SIGNAL_MODE          (3lu)
-#define PWM_PWM_START_SIGNAL_MODE          (0lu)
-#define PWM_PWM_STOP_SIGNAL_MODE           (0lu)
-#define PWM_PWM_SWITCH_SIGNAL_MODE         (0lu)
-
-/* Signal present */
-#define PWM_PWM_RELOAD_SIGNAL_PRESENT      (0lu)
-#define PWM_PWM_COUNT_SIGNAL_PRESENT       (0lu)
-#define PWM_PWM_START_SIGNAL_PRESENT       (0lu)
-#define PWM_PWM_STOP_SIGNAL_PRESENT        (0lu)
-#define PWM_PWM_SWITCH_SIGNAL_PRESENT      (0lu)
-
-/* Interrupt Mask */
-#define PWM_PWM_INTERRUPT_MASK             (1lu)
-
-
-/***************************************
-*    Initial Parameter Constants
-***************************************/
-
-/* Timer/Counter Mode */
-#define PWM_TC_PERIOD_VALUE                (65535lu)
-#define PWM_TC_COMPARE_VALUE               (65535lu)
-#define PWM_TC_COMPARE_BUF_VALUE           (65535lu)
-#define PWM_TC_COMPARE_SWAP                (0lu)
-
-/* PWM Mode */
-#define PWM_PWM_PERIOD_VALUE               (5000lu)
-#define PWM_PWM_PERIOD_BUF_VALUE           (65535lu)
-#define PWM_PWM_PERIOD_SWAP                (0lu)
-#define PWM_PWM_COMPARE_VALUE              (1lu)
-#define PWM_PWM_COMPARE_BUF_VALUE          (65535lu)
-#define PWM_PWM_COMPARE_SWAP               (0lu)
-
-
-/***************************************
-*    Enumerated Types and Parameters
-***************************************/
-
-#define PWM__LEFT 0
-#define PWM__RIGHT 1
-#define PWM__CENTER 2
-#define PWM__ASYMMETRIC 3
-
-#define PWM__X1 0
-#define PWM__X2 1
-#define PWM__X4 2
-
-#define PWM__PWM 4
-#define PWM__PWM_DT 5
-#define PWM__PWM_PR 6
-
-#define PWM__INVERSE 1
-#define PWM__DIRECT 0
-
-#define PWM__CAPTURE 2
-#define PWM__COMPARE 0
-
-#define PWM__TRIG_LEVEL 3
-#define PWM__TRIG_RISING 0
-#define PWM__TRIG_FALLING 1
-#define PWM__TRIG_BOTH 2
-
-#define PWM__INTR_MASK_TC 1
-#define PWM__INTR_MASK_CC_MATCH 2
-#define PWM__INTR_MASK_NONE 0
-#define PWM__INTR_MASK_TC_CC 3
-
-#define PWM__UNCONFIG 8
-#define PWM__TIMER 1
-#define PWM__QUAD 3
-#define PWM__PWM_SEL 7
-
-#define PWM__COUNT_UP 0
-#define PWM__COUNT_DOWN 1
-#define PWM__COUNT_UPDOWN0 2
-#define PWM__COUNT_UPDOWN1 3
-
-
-/* Prescaler */
-#define PWM_PRESCALE_DIVBY1                ((uint32)(0u << PWM_PRESCALER_SHIFT))
-#define PWM_PRESCALE_DIVBY2                ((uint32)(1u << PWM_PRESCALER_SHIFT))
-#define PWM_PRESCALE_DIVBY4                ((uint32)(2u << PWM_PRESCALER_SHIFT))
-#define PWM_PRESCALE_DIVBY8                ((uint32)(3u << PWM_PRESCALER_SHIFT))
-#define PWM_PRESCALE_DIVBY16               ((uint32)(4u << PWM_PRESCALER_SHIFT))
-#define PWM_PRESCALE_DIVBY32               ((uint32)(5u << PWM_PRESCALER_SHIFT))
-#define PWM_PRESCALE_DIVBY64               ((uint32)(6u << PWM_PRESCALER_SHIFT))
-#define PWM_PRESCALE_DIVBY128              ((uint32)(7u << PWM_PRESCALER_SHIFT))
-
-/* TCPWM set modes */
-#define PWM_MODE_TIMER_COMPARE             ((uint32)(PWM__COMPARE         <<  \
-                                                                  PWM_MODE_SHIFT))
-#define PWM_MODE_TIMER_CAPTURE             ((uint32)(PWM__CAPTURE         <<  \
-                                                                  PWM_MODE_SHIFT))
-#define PWM_MODE_QUAD                      ((uint32)(PWM__QUAD            <<  \
-                                                                  PWM_MODE_SHIFT))
-#define PWM_MODE_PWM                       ((uint32)(PWM__PWM             <<  \
-                                                                  PWM_MODE_SHIFT))
-#define PWM_MODE_PWM_DT                    ((uint32)(PWM__PWM_DT          <<  \
-                                                                  PWM_MODE_SHIFT))
-#define PWM_MODE_PWM_PR                    ((uint32)(PWM__PWM_PR          <<  \
-                                                                  PWM_MODE_SHIFT))
-
-/* Quad Modes */
-#define PWM_MODE_X1                        ((uint32)(PWM__X1              <<  \
-                                                                  PWM_QUAD_MODE_SHIFT))
-#define PWM_MODE_X2                        ((uint32)(PWM__X2              <<  \
-                                                                  PWM_QUAD_MODE_SHIFT))
-#define PWM_MODE_X4                        ((uint32)(PWM__X4              <<  \
-                                                                  PWM_QUAD_MODE_SHIFT))
-
-/* Counter modes */
-#define PWM_COUNT_UP                       ((uint32)(PWM__COUNT_UP        <<  \
-                                                                  PWM_UPDOWN_SHIFT))
-#define PWM_COUNT_DOWN                     ((uint32)(PWM__COUNT_DOWN      <<  \
-                                                                  PWM_UPDOWN_SHIFT))
-#define PWM_COUNT_UPDOWN0                  ((uint32)(PWM__COUNT_UPDOWN0   <<  \
-                                                                  PWM_UPDOWN_SHIFT))
-#define PWM_COUNT_UPDOWN1                  ((uint32)(PWM__COUNT_UPDOWN1   <<  \
-                                                                  PWM_UPDOWN_SHIFT))
-
-/* PWM output invert */
-#define PWM_INVERT_LINE                    ((uint32)(PWM__INVERSE         <<  \
-                                                                  PWM_INV_OUT_SHIFT))
-#define PWM_INVERT_LINE_N                  ((uint32)(PWM__INVERSE         <<  \
-                                                                  PWM_INV_COMPL_OUT_SHIFT))
-
-/* Trigger modes */
-#define PWM_TRIG_RISING                    ((uint32)PWM__TRIG_RISING)
-#define PWM_TRIG_FALLING                   ((uint32)PWM__TRIG_FALLING)
-#define PWM_TRIG_BOTH                      ((uint32)PWM__TRIG_BOTH)
-#define PWM_TRIG_LEVEL                     ((uint32)PWM__TRIG_LEVEL)
-
-/* Interrupt mask */
-#define PWM_INTR_MASK_TC                   ((uint32)PWM__INTR_MASK_TC)
-#define PWM_INTR_MASK_CC_MATCH             ((uint32)PWM__INTR_MASK_CC_MATCH)
-
-/* PWM Output Controls */
-#define PWM_CC_MATCH_SET                   (0x00u)
-#define PWM_CC_MATCH_CLEAR                 (0x01u)
-#define PWM_CC_MATCH_INVERT                (0x02u)
-#define PWM_CC_MATCH_NO_CHANGE             (0x03u)
-#define PWM_OVERLOW_SET                    (0x00u)
-#define PWM_OVERLOW_CLEAR                  (0x04u)
-#define PWM_OVERLOW_INVERT                 (0x08u)
-#define PWM_OVERLOW_NO_CHANGE              (0x0Cu)
-#define PWM_UNDERFLOW_SET                  (0x00u)
-#define PWM_UNDERFLOW_CLEAR                (0x10u)
-#define PWM_UNDERFLOW_INVERT               (0x20u)
-#define PWM_UNDERFLOW_NO_CHANGE            (0x30u)
-
-/* PWM Align */
-#define PWM_PWM_MODE_LEFT                  (PWM_CC_MATCH_CLEAR        |   \
-                                                         PWM_OVERLOW_SET           |   \
-                                                         PWM_UNDERFLOW_NO_CHANGE)
-#define PWM_PWM_MODE_RIGHT                 (PWM_CC_MATCH_SET          |   \
-                                                         PWM_OVERLOW_NO_CHANGE     |   \
-                                                         PWM_UNDERFLOW_CLEAR)
-#define PWM_PWM_MODE_ASYM                  (PWM_CC_MATCH_INVERT       |   \
-                                                         PWM_OVERLOW_SET           |   \
-                                                         PWM_UNDERFLOW_CLEAR)
-
-#if (PWM_CY_TCPWM_V2)
-    #if(PWM_CY_TCPWM_4000)
-        #define PWM_PWM_MODE_CENTER                (PWM_CC_MATCH_INVERT       |   \
-                                                                 PWM_OVERLOW_NO_CHANGE     |   \
-                                                                 PWM_UNDERFLOW_CLEAR)
-    #else
-        #define PWM_PWM_MODE_CENTER                (PWM_CC_MATCH_INVERT       |   \
-                                                                 PWM_OVERLOW_SET           |   \
-                                                                 PWM_UNDERFLOW_CLEAR)
-    #endif /* (PWM_CY_TCPWM_4000) */
-#else
-    #define PWM_PWM_MODE_CENTER                (PWM_CC_MATCH_INVERT       |   \
-                                                             PWM_OVERLOW_NO_CHANGE     |   \
-                                                             PWM_UNDERFLOW_CLEAR)
-#endif /* (PWM_CY_TCPWM_NEW) */
-
-/* Command operations without condition */
-#define PWM_CMD_CAPTURE                    (0u)
-#define PWM_CMD_RELOAD                     (8u)
-#define PWM_CMD_STOP                       (16u)
-#define PWM_CMD_START                      (24u)
-
-/* Status */
-#define PWM_STATUS_DOWN                    (1u)
-#define PWM_STATUS_RUNNING                 (2u)
+}PWM_backupStruct;
 
 
 /***************************************
 *        Function Prototypes
-****************************************/
+ **************************************/
 
-void   PWM_Init(void);
-void   PWM_Enable(void);
-void   PWM_Start(void);
-void   PWM_Stop(void);
+void    PWM_Start(void) ;
+void    PWM_Stop(void) ;
 
-void   PWM_SetMode(uint32 mode);
-void   PWM_SetCounterMode(uint32 counterMode);
-void   PWM_SetPWMMode(uint32 modeMask);
-void   PWM_SetQDMode(uint32 qdMode);
+#if (PWM_UseStatus || PWM_UsingFixedFunction)
+    void  PWM_SetInterruptMode(uint8 interruptMode) ;
+    uint8 PWM_ReadStatusRegister(void) ;
+#endif /* (PWM_UseStatus || PWM_UsingFixedFunction) */
 
-void   PWM_SetPrescaler(uint32 prescaler);
-void   PWM_TriggerCommand(uint32 mask, uint32 command);
-void   PWM_SetOneShot(uint32 oneShotEnable);
-uint32 PWM_ReadStatus(void);
+#define PWM_GetInterruptSource() PWM_ReadStatusRegister()
 
-void   PWM_SetPWMSyncKill(uint32 syncKillEnable);
-void   PWM_SetPWMStopOnKill(uint32 stopOnKillEnable);
-void   PWM_SetPWMDeadTime(uint32 deadTime);
-void   PWM_SetPWMInvert(uint32 mask);
+#if (PWM_UseControl)
+    uint8 PWM_ReadControlRegister(void) ;
+    void  PWM_WriteControlRegister(uint8 control)
+          ;
+#endif /* (PWM_UseControl) */
 
-void   PWM_SetInterruptMode(uint32 interruptMask);
-uint32 PWM_GetInterruptSourceMasked(void);
-uint32 PWM_GetInterruptSource(void);
-void   PWM_ClearInterrupt(uint32 interruptMask);
-void   PWM_SetInterrupt(uint32 interruptMask);
+#if (PWM_UseOneCompareMode)
+   #if (PWM_CompareMode1SW)
+       void    PWM_SetCompareMode(uint8 comparemode)
+               ;
+   #endif /* (PWM_CompareMode1SW) */
+#else
+    #if (PWM_CompareMode1SW)
+        void    PWM_SetCompareMode1(uint8 comparemode)
+                ;
+    #endif /* (PWM_CompareMode1SW) */
+    #if (PWM_CompareMode2SW)
+        void    PWM_SetCompareMode2(uint8 comparemode)
+                ;
+    #endif /* (PWM_CompareMode2SW) */
+#endif /* (PWM_UseOneCompareMode) */
 
-void   PWM_WriteCounter(uint32 count);
-uint32 PWM_ReadCounter(void);
+#if (!PWM_UsingFixedFunction)
+    uint16   PWM_ReadCounter(void) ;
+    uint16 PWM_ReadCapture(void) ;
 
-uint32 PWM_ReadCapture(void);
-uint32 PWM_ReadCaptureBuf(void);
+    #if (PWM_UseStatus)
+            void PWM_ClearFIFO(void) ;
+    #endif /* (PWM_UseStatus) */
 
-void   PWM_WritePeriod(uint32 period);
-uint32 PWM_ReadPeriod(void);
-void   PWM_WritePeriodBuf(uint32 periodBuf);
-uint32 PWM_ReadPeriodBuf(void);
+    void    PWM_WriteCounter(uint16 counter)
+            ;
+#endif /* (!PWM_UsingFixedFunction) */
 
-void   PWM_WriteCompare(uint32 compare);
-uint32 PWM_ReadCompare(void);
-void   PWM_WriteCompareBuf(uint32 compareBuf);
-uint32 PWM_ReadCompareBuf(void);
+void    PWM_WritePeriod(uint16 period)
+        ;
+uint16 PWM_ReadPeriod(void) ;
 
-void   PWM_SetPeriodSwap(uint32 swapEnable);
-void   PWM_SetCompareSwap(uint32 swapEnable);
-
-void   PWM_SetCaptureMode(uint32 triggerMode);
-void   PWM_SetReloadMode(uint32 triggerMode);
-void   PWM_SetStartMode(uint32 triggerMode);
-void   PWM_SetStopMode(uint32 triggerMode);
-void   PWM_SetCountMode(uint32 triggerMode);
-
-void   PWM_SaveConfig(void);
-void   PWM_RestoreConfig(void);
-void   PWM_Sleep(void);
-void   PWM_Wakeup(void);
+#if (PWM_UseOneCompareMode)
+    void    PWM_WriteCompare(uint16 compare)
+            ;
+    uint16 PWM_ReadCompare(void) ;
+#else
+    void    PWM_WriteCompare1(uint16 compare)
+            ;
+    uint16 PWM_ReadCompare1(void) ;
+    void    PWM_WriteCompare2(uint16 compare)
+            ;
+    uint16 PWM_ReadCompare2(void) ;
+#endif /* (PWM_UseOneCompareMode) */
 
 
-/***************************************
-*             Registers
-***************************************/
+#if (PWM_DeadBandUsed)
+    void    PWM_WriteDeadTime(uint8 deadtime) ;
+    uint8   PWM_ReadDeadTime(void) ;
+#endif /* (PWM_DeadBandUsed) */
 
-#define PWM_BLOCK_CONTROL_REG              (*(reg32 *) PWM_cy_m0s8_tcpwm_1__TCPWM_CTRL )
-#define PWM_BLOCK_CONTROL_PTR              ( (reg32 *) PWM_cy_m0s8_tcpwm_1__TCPWM_CTRL )
-#define PWM_COMMAND_REG                    (*(reg32 *) PWM_cy_m0s8_tcpwm_1__TCPWM_CMD )
-#define PWM_COMMAND_PTR                    ( (reg32 *) PWM_cy_m0s8_tcpwm_1__TCPWM_CMD )
-#define PWM_INTRRUPT_CAUSE_REG             (*(reg32 *) PWM_cy_m0s8_tcpwm_1__TCPWM_INTR_CAUSE )
-#define PWM_INTRRUPT_CAUSE_PTR             ( (reg32 *) PWM_cy_m0s8_tcpwm_1__TCPWM_INTR_CAUSE )
-#define PWM_CONTROL_REG                    (*(reg32 *) PWM_cy_m0s8_tcpwm_1__CTRL )
-#define PWM_CONTROL_PTR                    ( (reg32 *) PWM_cy_m0s8_tcpwm_1__CTRL )
-#define PWM_STATUS_REG                     (*(reg32 *) PWM_cy_m0s8_tcpwm_1__STATUS )
-#define PWM_STATUS_PTR                     ( (reg32 *) PWM_cy_m0s8_tcpwm_1__STATUS )
-#define PWM_COUNTER_REG                    (*(reg32 *) PWM_cy_m0s8_tcpwm_1__COUNTER )
-#define PWM_COUNTER_PTR                    ( (reg32 *) PWM_cy_m0s8_tcpwm_1__COUNTER )
-#define PWM_COMP_CAP_REG                   (*(reg32 *) PWM_cy_m0s8_tcpwm_1__CC )
-#define PWM_COMP_CAP_PTR                   ( (reg32 *) PWM_cy_m0s8_tcpwm_1__CC )
-#define PWM_COMP_CAP_BUF_REG               (*(reg32 *) PWM_cy_m0s8_tcpwm_1__CC_BUFF )
-#define PWM_COMP_CAP_BUF_PTR               ( (reg32 *) PWM_cy_m0s8_tcpwm_1__CC_BUFF )
-#define PWM_PERIOD_REG                     (*(reg32 *) PWM_cy_m0s8_tcpwm_1__PERIOD )
-#define PWM_PERIOD_PTR                     ( (reg32 *) PWM_cy_m0s8_tcpwm_1__PERIOD )
-#define PWM_PERIOD_BUF_REG                 (*(reg32 *) PWM_cy_m0s8_tcpwm_1__PERIOD_BUFF )
-#define PWM_PERIOD_BUF_PTR                 ( (reg32 *) PWM_cy_m0s8_tcpwm_1__PERIOD_BUFF )
-#define PWM_TRIG_CONTROL0_REG              (*(reg32 *) PWM_cy_m0s8_tcpwm_1__TR_CTRL0 )
-#define PWM_TRIG_CONTROL0_PTR              ( (reg32 *) PWM_cy_m0s8_tcpwm_1__TR_CTRL0 )
-#define PWM_TRIG_CONTROL1_REG              (*(reg32 *) PWM_cy_m0s8_tcpwm_1__TR_CTRL1 )
-#define PWM_TRIG_CONTROL1_PTR              ( (reg32 *) PWM_cy_m0s8_tcpwm_1__TR_CTRL1 )
-#define PWM_TRIG_CONTROL2_REG              (*(reg32 *) PWM_cy_m0s8_tcpwm_1__TR_CTRL2 )
-#define PWM_TRIG_CONTROL2_PTR              ( (reg32 *) PWM_cy_m0s8_tcpwm_1__TR_CTRL2 )
-#define PWM_INTERRUPT_REQ_REG              (*(reg32 *) PWM_cy_m0s8_tcpwm_1__INTR )
-#define PWM_INTERRUPT_REQ_PTR              ( (reg32 *) PWM_cy_m0s8_tcpwm_1__INTR )
-#define PWM_INTERRUPT_SET_REG              (*(reg32 *) PWM_cy_m0s8_tcpwm_1__INTR_SET )
-#define PWM_INTERRUPT_SET_PTR              ( (reg32 *) PWM_cy_m0s8_tcpwm_1__INTR_SET )
-#define PWM_INTERRUPT_MASK_REG             (*(reg32 *) PWM_cy_m0s8_tcpwm_1__INTR_MASK )
-#define PWM_INTERRUPT_MASK_PTR             ( (reg32 *) PWM_cy_m0s8_tcpwm_1__INTR_MASK )
-#define PWM_INTERRUPT_MASKED_REG           (*(reg32 *) PWM_cy_m0s8_tcpwm_1__INTR_MASKED )
-#define PWM_INTERRUPT_MASKED_PTR           ( (reg32 *) PWM_cy_m0s8_tcpwm_1__INTR_MASKED )
+#if ( PWM_KillModeMinTime)
+    void PWM_WriteKillTime(uint8 killtime) ;
+    uint8 PWM_ReadKillTime(void) ;
+#endif /* ( PWM_KillModeMinTime) */
+
+void PWM_Init(void) ;
+void PWM_Enable(void) ;
+void PWM_Sleep(void) ;
+void PWM_Wakeup(void) ;
+void PWM_SaveConfig(void) ;
+void PWM_RestoreConfig(void) ;
 
 
 /***************************************
-*       Registers Constants
-***************************************/
-
-/* Mask */
-#define PWM_MASK                           ((uint32)PWM_cy_m0s8_tcpwm_1__TCPWM_CTRL_MASK)
-
-/* Shift constants for control register */
-#define PWM_RELOAD_CC_SHIFT                (0u)
-#define PWM_RELOAD_PERIOD_SHIFT            (1u)
-#define PWM_PWM_SYNC_KILL_SHIFT            (2u)
-#define PWM_PWM_STOP_KILL_SHIFT            (3u)
-#define PWM_PRESCALER_SHIFT                (8u)
-#define PWM_UPDOWN_SHIFT                   (16u)
-#define PWM_ONESHOT_SHIFT                  (18u)
-#define PWM_QUAD_MODE_SHIFT                (20u)
-#define PWM_INV_OUT_SHIFT                  (20u)
-#define PWM_INV_COMPL_OUT_SHIFT            (21u)
-#define PWM_MODE_SHIFT                     (24u)
-
-/* Mask constants for control register */
-#define PWM_RELOAD_CC_MASK                 ((uint32)(PWM_1BIT_MASK        <<  \
-                                                                            PWM_RELOAD_CC_SHIFT))
-#define PWM_RELOAD_PERIOD_MASK             ((uint32)(PWM_1BIT_MASK        <<  \
-                                                                            PWM_RELOAD_PERIOD_SHIFT))
-#define PWM_PWM_SYNC_KILL_MASK             ((uint32)(PWM_1BIT_MASK        <<  \
-                                                                            PWM_PWM_SYNC_KILL_SHIFT))
-#define PWM_PWM_STOP_KILL_MASK             ((uint32)(PWM_1BIT_MASK        <<  \
-                                                                            PWM_PWM_STOP_KILL_SHIFT))
-#define PWM_PRESCALER_MASK                 ((uint32)(PWM_8BIT_MASK        <<  \
-                                                                            PWM_PRESCALER_SHIFT))
-#define PWM_UPDOWN_MASK                    ((uint32)(PWM_2BIT_MASK        <<  \
-                                                                            PWM_UPDOWN_SHIFT))
-#define PWM_ONESHOT_MASK                   ((uint32)(PWM_1BIT_MASK        <<  \
-                                                                            PWM_ONESHOT_SHIFT))
-#define PWM_QUAD_MODE_MASK                 ((uint32)(PWM_3BIT_MASK        <<  \
-                                                                            PWM_QUAD_MODE_SHIFT))
-#define PWM_INV_OUT_MASK                   ((uint32)(PWM_2BIT_MASK        <<  \
-                                                                            PWM_INV_OUT_SHIFT))
-#define PWM_MODE_MASK                      ((uint32)(PWM_3BIT_MASK        <<  \
-                                                                            PWM_MODE_SHIFT))
-
-/* Shift constants for trigger control register 1 */
-#define PWM_CAPTURE_SHIFT                  (0u)
-#define PWM_COUNT_SHIFT                    (2u)
-#define PWM_RELOAD_SHIFT                   (4u)
-#define PWM_STOP_SHIFT                     (6u)
-#define PWM_START_SHIFT                    (8u)
-
-/* Mask constants for trigger control register 1 */
-#define PWM_CAPTURE_MASK                   ((uint32)(PWM_2BIT_MASK        <<  \
-                                                                  PWM_CAPTURE_SHIFT))
-#define PWM_COUNT_MASK                     ((uint32)(PWM_2BIT_MASK        <<  \
-                                                                  PWM_COUNT_SHIFT))
-#define PWM_RELOAD_MASK                    ((uint32)(PWM_2BIT_MASK        <<  \
-                                                                  PWM_RELOAD_SHIFT))
-#define PWM_STOP_MASK                      ((uint32)(PWM_2BIT_MASK        <<  \
-                                                                  PWM_STOP_SHIFT))
-#define PWM_START_MASK                     ((uint32)(PWM_2BIT_MASK        <<  \
-                                                                  PWM_START_SHIFT))
-
-/* MASK */
-#define PWM_1BIT_MASK                      ((uint32)0x01u)
-#define PWM_2BIT_MASK                      ((uint32)0x03u)
-#define PWM_3BIT_MASK                      ((uint32)0x07u)
-#define PWM_6BIT_MASK                      ((uint32)0x3Fu)
-#define PWM_8BIT_MASK                      ((uint32)0xFFu)
-#define PWM_16BIT_MASK                     ((uint32)0xFFFFu)
-
-/* Shift constant for status register */
-#define PWM_RUNNING_STATUS_SHIFT           (30u)
+*         Initialization Values
+**************************************/
+#define PWM_INIT_PERIOD_VALUE          (5000u)
+#define PWM_INIT_COMPARE_VALUE1        (1u)
+#define PWM_INIT_COMPARE_VALUE2        (63u)
+#define PWM_INIT_INTERRUPTS_MODE       (uint8)(((uint8)(0u <<   \
+                                                    PWM_STATUS_TC_INT_EN_MASK_SHIFT)) | \
+                                                    (uint8)((uint8)(0u <<  \
+                                                    PWM_STATUS_CMP2_INT_EN_MASK_SHIFT)) | \
+                                                    (uint8)((uint8)(0u <<  \
+                                                    PWM_STATUS_CMP1_INT_EN_MASK_SHIFT )) | \
+                                                    (uint8)((uint8)(0u <<  \
+                                                    PWM_STATUS_KILL_INT_EN_MASK_SHIFT )))
+#define PWM_DEFAULT_COMPARE2_MODE      (uint8)((uint8)1u <<  PWM_CTRL_CMPMODE2_SHIFT)
+#define PWM_DEFAULT_COMPARE1_MODE      (uint8)((uint8)1u <<  PWM_CTRL_CMPMODE1_SHIFT)
+#define PWM_INIT_DEAD_TIME             (1u)
 
 
-/***************************************
-*    Initial Constants
-***************************************/
+/********************************
+*         Registers
+******************************** */
 
-#define PWM_CTRL_QUAD_BASE_CONFIG                                                          \
-        (((uint32)(PWM_QUAD_ENCODING_MODES     << PWM_QUAD_MODE_SHIFT))       |\
-         ((uint32)(PWM_CONFIG                  << PWM_MODE_SHIFT)))
+#if (PWM_UsingFixedFunction)
+   #define PWM_PERIOD_LSB              (*(reg16 *) PWM_PWMHW__PER0)
+   #define PWM_PERIOD_LSB_PTR          ( (reg16 *) PWM_PWMHW__PER0)
+   #define PWM_COMPARE1_LSB            (*(reg16 *) PWM_PWMHW__CNT_CMP0)
+   #define PWM_COMPARE1_LSB_PTR        ( (reg16 *) PWM_PWMHW__CNT_CMP0)
+   #define PWM_COMPARE2_LSB            (0x00u)
+   #define PWM_COMPARE2_LSB_PTR        (0x00u)
+   #define PWM_COUNTER_LSB             (*(reg16 *) PWM_PWMHW__CNT_CMP0)
+   #define PWM_COUNTER_LSB_PTR         ( (reg16 *) PWM_PWMHW__CNT_CMP0)
+   #define PWM_CAPTURE_LSB             (*(reg16 *) PWM_PWMHW__CAP0)
+   #define PWM_CAPTURE_LSB_PTR         ( (reg16 *) PWM_PWMHW__CAP0)
+   #define PWM_RT1                     (*(reg8 *)  PWM_PWMHW__RT1)
+   #define PWM_RT1_PTR                 ( (reg8 *)  PWM_PWMHW__RT1)
 
-#define PWM_CTRL_PWM_BASE_CONFIG                                                           \
-        (((uint32)(PWM_PWM_STOP_EVENT          << PWM_PWM_STOP_KILL_SHIFT))   |\
-         ((uint32)(PWM_PWM_OUT_INVERT          << PWM_INV_OUT_SHIFT))         |\
-         ((uint32)(PWM_PWM_OUT_N_INVERT        << PWM_INV_COMPL_OUT_SHIFT))   |\
-         ((uint32)(PWM_PWM_MODE                << PWM_MODE_SHIFT)))
+#else
+   #if (PWM_Resolution == 8u) /* 8bit - PWM */
 
-#define PWM_CTRL_PWM_RUN_MODE                                                              \
-            ((uint32)(PWM_PWM_RUN_MODE         << PWM_ONESHOT_SHIFT))
-            
-#define PWM_CTRL_PWM_ALIGN                                                                 \
-            ((uint32)(PWM_PWM_ALIGN            << PWM_UPDOWN_SHIFT))
+       #if(PWM_PWMModeIsCenterAligned)
+           #define PWM_PERIOD_LSB      (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__D1_REG)
+           #define PWM_PERIOD_LSB_PTR  ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u0__D1_REG)
+       #else
+           #define PWM_PERIOD_LSB      (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__F0_REG)
+           #define PWM_PERIOD_LSB_PTR  ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u0__F0_REG)
+       #endif /* (PWM_PWMModeIsCenterAligned) */
 
-#define PWM_CTRL_PWM_KILL_EVENT                                                            \
-             ((uint32)(PWM_PWM_KILL_EVENT      << PWM_PWM_SYNC_KILL_SHIFT))
+       #define PWM_COMPARE1_LSB        (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__D0_REG)
+       #define PWM_COMPARE1_LSB_PTR    ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u0__D0_REG)
+       #define PWM_COMPARE2_LSB        (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__D1_REG)
+       #define PWM_COMPARE2_LSB_PTR    ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u0__D1_REG)
+       #define PWM_COUNTERCAP_LSB      (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__A1_REG)
+       #define PWM_COUNTERCAP_LSB_PTR  ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u0__A1_REG)
+       #define PWM_COUNTER_LSB         (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__A0_REG)
+       #define PWM_COUNTER_LSB_PTR     ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u0__A0_REG)
+       #define PWM_CAPTURE_LSB         (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__F1_REG)
+       #define PWM_CAPTURE_LSB_PTR     ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u0__F1_REG)
 
-#define PWM_CTRL_PWM_DEAD_TIME_CYCLE                                                       \
-            ((uint32)(PWM_PWM_DEAD_TIME_CYCLE  << PWM_PRESCALER_SHIFT))
+   #else
+        #if(CY_PSOC3) /* 8-bit address space */
+            #if(PWM_PWMModeIsCenterAligned)
+               #define PWM_PERIOD_LSB      (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__D1_REG)
+               #define PWM_PERIOD_LSB_PTR  ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__D1_REG)
+            #else
+               #define PWM_PERIOD_LSB      (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__F0_REG)
+               #define PWM_PERIOD_LSB_PTR  ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__F0_REG)
+            #endif /* (PWM_PWMModeIsCenterAligned) */
 
-#define PWM_CTRL_PWM_PRESCALER                                                             \
-            ((uint32)(PWM_PWM_PRESCALER        << PWM_PRESCALER_SHIFT))
+            #define PWM_COMPARE1_LSB       (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__D0_REG)
+            #define PWM_COMPARE1_LSB_PTR   ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__D0_REG)
+            #define PWM_COMPARE2_LSB       (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__D1_REG)
+            #define PWM_COMPARE2_LSB_PTR   ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__D1_REG)
+            #define PWM_COUNTERCAP_LSB     (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__A1_REG)
+            #define PWM_COUNTERCAP_LSB_PTR ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__A1_REG)
+            #define PWM_COUNTER_LSB        (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__A0_REG)
+            #define PWM_COUNTER_LSB_PTR    ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__A0_REG)
+            #define PWM_CAPTURE_LSB        (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__F1_REG)
+            #define PWM_CAPTURE_LSB_PTR    ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__F1_REG)
+        #else
+            #if(PWM_PWMModeIsCenterAligned)
+               #define PWM_PERIOD_LSB      (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__16BIT_D1_REG)
+               #define PWM_PERIOD_LSB_PTR  ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__16BIT_D1_REG)
+            #else
+               #define PWM_PERIOD_LSB      (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__16BIT_F0_REG)
+               #define PWM_PERIOD_LSB_PTR  ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__16BIT_F0_REG)
+            #endif /* (PWM_PWMModeIsCenterAligned) */
 
-#define PWM_CTRL_TIMER_BASE_CONFIG                                                         \
-        (((uint32)(PWM_TC_PRESCALER            << PWM_PRESCALER_SHIFT))       |\
-         ((uint32)(PWM_TC_COUNTER_MODE         << PWM_UPDOWN_SHIFT))          |\
-         ((uint32)(PWM_TC_RUN_MODE             << PWM_ONESHOT_SHIFT))         |\
-         ((uint32)(PWM_TC_COMP_CAP_MODE        << PWM_MODE_SHIFT)))
-        
-#define PWM_QUAD_SIGNALS_MODES                                                             \
-        (((uint32)(PWM_QUAD_PHIA_SIGNAL_MODE   << PWM_COUNT_SHIFT))           |\
-         ((uint32)(PWM_QUAD_INDEX_SIGNAL_MODE  << PWM_RELOAD_SHIFT))          |\
-         ((uint32)(PWM_QUAD_STOP_SIGNAL_MODE   << PWM_STOP_SHIFT))            |\
-         ((uint32)(PWM_QUAD_PHIB_SIGNAL_MODE   << PWM_START_SHIFT)))
+            #define PWM_COMPARE1_LSB       (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__16BIT_D0_REG)
+            #define PWM_COMPARE1_LSB_PTR   ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__16BIT_D0_REG)
+            #define PWM_COMPARE2_LSB       (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__16BIT_D1_REG)
+            #define PWM_COMPARE2_LSB_PTR   ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__16BIT_D1_REG)
+            #define PWM_COUNTERCAP_LSB     (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__16BIT_A1_REG)
+            #define PWM_COUNTERCAP_LSB_PTR ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__16BIT_A1_REG)
+            #define PWM_COUNTER_LSB        (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__16BIT_A0_REG)
+            #define PWM_COUNTER_LSB_PTR    ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__16BIT_A0_REG)
+            #define PWM_CAPTURE_LSB        (*(reg16 *) PWM_PWMUDB_sP16_pwmdp_u0__16BIT_F1_REG)
+            #define PWM_CAPTURE_LSB_PTR    ((reg16 *)  PWM_PWMUDB_sP16_pwmdp_u0__16BIT_F1_REG)
+        #endif /* (CY_PSOC3) */
 
-#define PWM_PWM_SIGNALS_MODES                                                              \
-        (((uint32)(PWM_PWM_SWITCH_SIGNAL_MODE  << PWM_CAPTURE_SHIFT))         |\
-         ((uint32)(PWM_PWM_COUNT_SIGNAL_MODE   << PWM_COUNT_SHIFT))           |\
-         ((uint32)(PWM_PWM_RELOAD_SIGNAL_MODE  << PWM_RELOAD_SHIFT))          |\
-         ((uint32)(PWM_PWM_STOP_SIGNAL_MODE    << PWM_STOP_SHIFT))            |\
-         ((uint32)(PWM_PWM_START_SIGNAL_MODE   << PWM_START_SHIFT)))
+       #define PWM_AUX_CONTROLDP1          (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u1__DP_AUX_CTL_REG)
+       #define PWM_AUX_CONTROLDP1_PTR      ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u1__DP_AUX_CTL_REG)
 
-#define PWM_TIMER_SIGNALS_MODES                                                            \
-        (((uint32)(PWM_TC_CAPTURE_SIGNAL_MODE  << PWM_CAPTURE_SHIFT))         |\
-         ((uint32)(PWM_TC_COUNT_SIGNAL_MODE    << PWM_COUNT_SHIFT))           |\
-         ((uint32)(PWM_TC_RELOAD_SIGNAL_MODE   << PWM_RELOAD_SHIFT))          |\
-         ((uint32)(PWM_TC_STOP_SIGNAL_MODE     << PWM_STOP_SHIFT))            |\
-         ((uint32)(PWM_TC_START_SIGNAL_MODE    << PWM_START_SHIFT)))
-        
-#define PWM_TIMER_UPDOWN_CNT_USED                                                          \
-                ((PWM__COUNT_UPDOWN0 == PWM_TC_COUNTER_MODE)                  ||\
-                 (PWM__COUNT_UPDOWN1 == PWM_TC_COUNTER_MODE))
+   #endif /* (PWM_Resolution == 8) */
 
-#define PWM_PWM_UPDOWN_CNT_USED                                                            \
-                ((PWM__CENTER == PWM_PWM_ALIGN)                               ||\
-                 (PWM__ASYMMETRIC == PWM_PWM_ALIGN))               
-        
-#define PWM_PWM_PR_INIT_VALUE              (1u)
-#define PWM_QUAD_PERIOD_INIT_VALUE         (0x8000u)
+   #define PWM_COUNTERCAP_LSB_PTR_8BIT ( (reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__A1_REG)
+   #define PWM_AUX_CONTROLDP0          (*(reg8 *)  PWM_PWMUDB_sP16_pwmdp_u0__DP_AUX_CTL_REG)
+   #define PWM_AUX_CONTROLDP0_PTR      ((reg8 *)   PWM_PWMUDB_sP16_pwmdp_u0__DP_AUX_CTL_REG)
+
+#endif /* (PWM_UsingFixedFunction) */
+
+#if(PWM_KillModeMinTime )
+    #define PWM_KILLMODEMINTIME        (*(reg8 *)  PWM_PWMUDB_sKM_killmodecounterdp_u0__D0_REG)
+    #define PWM_KILLMODEMINTIME_PTR    ((reg8 *)   PWM_PWMUDB_sKM_killmodecounterdp_u0__D0_REG)
+    /* Fixed Function Block has no Kill Mode parameters because it is Asynchronous only */
+#endif /* (PWM_KillModeMinTime ) */
+
+#if(PWM_DeadBandMode == PWM__B_PWM__DBM_256_CLOCKS)
+    #define PWM_DEADBAND_COUNT         (*(reg8 *)  PWM_PWMUDB_sDB255_deadbandcounterdp_u0__D0_REG)
+    #define PWM_DEADBAND_COUNT_PTR     ((reg8 *)   PWM_PWMUDB_sDB255_deadbandcounterdp_u0__D0_REG)
+    #define PWM_DEADBAND_LSB_PTR       ((reg8 *)   PWM_PWMUDB_sDB255_deadbandcounterdp_u0__A0_REG)
+    #define PWM_DEADBAND_LSB           (*(reg8 *)  PWM_PWMUDB_sDB255_deadbandcounterdp_u0__A0_REG)
+#elif(PWM_DeadBandMode == PWM__B_PWM__DBM_2_4_CLOCKS)
+    
+    /* In Fixed Function Block these bits are in the control blocks control register */
+    #if (PWM_UsingFixedFunction)
+        #define PWM_DEADBAND_COUNT         (*(reg8 *)  PWM_PWMHW__CFG0)
+        #define PWM_DEADBAND_COUNT_PTR     ((reg8 *)   PWM_PWMHW__CFG0)
+        #define PWM_DEADBAND_COUNT_MASK    (uint8)((uint8)0x03u << PWM_DEADBAND_COUNT_SHIFT)
+
+        /* As defined by the Register Map as DEADBAND_PERIOD[1:0] in CFG0 */
+        #define PWM_DEADBAND_COUNT_SHIFT   (0x06u)
+    #else
+        /* Lower two bits of the added control register define the count 1-3 */
+        #define PWM_DEADBAND_COUNT         (*(reg8 *)  PWM_PWMUDB_genblk7_dbctrlreg__CONTROL_REG)
+        #define PWM_DEADBAND_COUNT_PTR     ((reg8 *)   PWM_PWMUDB_genblk7_dbctrlreg__CONTROL_REG)
+        #define PWM_DEADBAND_COUNT_MASK    (uint8)((uint8)0x03u << PWM_DEADBAND_COUNT_SHIFT)
+
+        /* As defined by the verilog implementation of the Control Register */
+        #define PWM_DEADBAND_COUNT_SHIFT   (0x00u)
+    #endif /* (PWM_UsingFixedFunction) */
+#endif /* (PWM_DeadBandMode == PWM__B_PWM__DBM_256_CLOCKS) */
 
 
 
-#endif /* End CY_TCPWM_PWM_H */
+#if (PWM_UsingFixedFunction)
+    #define PWM_STATUS                 (*(reg8 *) PWM_PWMHW__SR0)
+    #define PWM_STATUS_PTR             ((reg8 *) PWM_PWMHW__SR0)
+    #define PWM_STATUS_MASK            (*(reg8 *) PWM_PWMHW__SR0)
+    #define PWM_STATUS_MASK_PTR        ((reg8 *) PWM_PWMHW__SR0)
+    #define PWM_CONTROL                (*(reg8 *) PWM_PWMHW__CFG0)
+    #define PWM_CONTROL_PTR            ((reg8 *) PWM_PWMHW__CFG0)
+    #define PWM_CONTROL2               (*(reg8 *) PWM_PWMHW__CFG1)
+    #define PWM_CONTROL3               (*(reg8 *) PWM_PWMHW__CFG2)
+    #define PWM_GLOBAL_ENABLE          (*(reg8 *) PWM_PWMHW__PM_ACT_CFG)
+    #define PWM_GLOBAL_ENABLE_PTR      ( (reg8 *) PWM_PWMHW__PM_ACT_CFG)
+    #define PWM_GLOBAL_STBY_ENABLE     (*(reg8 *) PWM_PWMHW__PM_STBY_CFG)
+    #define PWM_GLOBAL_STBY_ENABLE_PTR ( (reg8 *) PWM_PWMHW__PM_STBY_CFG)
+
+
+    /***********************************
+    *          Constants
+    ***********************************/
+
+    /* Fixed Function Block Chosen */
+    #define PWM_BLOCK_EN_MASK          (PWM_PWMHW__PM_ACT_MSK)
+    #define PWM_BLOCK_STBY_EN_MASK     (PWM_PWMHW__PM_STBY_MSK)
+    
+    /* Control Register definitions */
+    #define PWM_CTRL_ENABLE_SHIFT      (0x00u)
+
+    /* As defined by Register map as MODE_CFG bits in CFG2*/
+    #define PWM_CTRL_CMPMODE1_SHIFT    (0x04u)
+
+    /* As defined by Register map */
+    #define PWM_CTRL_DEAD_TIME_SHIFT   (0x06u)  
+
+    /* Fixed Function Block Only CFG register bit definitions */
+    /*  Set to compare mode */
+    #define PWM_CFG0_MODE              (0x02u)   
+
+    /* Enable the block to run */
+    #define PWM_CFG0_ENABLE            (0x01u)   
+    
+    /* As defined by Register map as DB bit in CFG0 */
+    #define PWM_CFG0_DB                (0x20u)   
+
+    /* Control Register Bit Masks */
+    #define PWM_CTRL_ENABLE            (uint8)((uint8)0x01u << PWM_CTRL_ENABLE_SHIFT)
+    #define PWM_CTRL_RESET             (uint8)((uint8)0x01u << PWM_CTRL_RESET_SHIFT)
+    #define PWM_CTRL_CMPMODE2_MASK     (uint8)((uint8)0x07u << PWM_CTRL_CMPMODE2_SHIFT)
+    #define PWM_CTRL_CMPMODE1_MASK     (uint8)((uint8)0x07u << PWM_CTRL_CMPMODE1_SHIFT)
+
+    /* Control2 Register Bit Masks */
+    /* As defined in Register Map, Part of the TMRX_CFG1 register */
+    #define PWM_CTRL2_IRQ_SEL_SHIFT    (0x00u)
+    #define PWM_CTRL2_IRQ_SEL          (uint8)((uint8)0x01u << PWM_CTRL2_IRQ_SEL_SHIFT)
+
+    /* Status Register Bit Locations */
+    /* As defined by Register map as TC in SR0 */
+    #define PWM_STATUS_TC_SHIFT        (0x07u)   
+    
+    /* As defined by the Register map as CAP_CMP in SR0 */
+    #define PWM_STATUS_CMP1_SHIFT      (0x06u)   
+
+    /* Status Register Interrupt Enable Bit Locations */
+    #define PWM_STATUS_KILL_INT_EN_MASK_SHIFT          (0x00u)
+    #define PWM_STATUS_TC_INT_EN_MASK_SHIFT            (PWM_STATUS_TC_SHIFT - 4u)
+    #define PWM_STATUS_CMP2_INT_EN_MASK_SHIFT          (0x00u)
+    #define PWM_STATUS_CMP1_INT_EN_MASK_SHIFT          (PWM_STATUS_CMP1_SHIFT - 4u)
+
+    /* Status Register Bit Masks */
+    #define PWM_STATUS_TC              (uint8)((uint8)0x01u << PWM_STATUS_TC_SHIFT)
+    #define PWM_STATUS_CMP1            (uint8)((uint8)0x01u << PWM_STATUS_CMP1_SHIFT)
+
+    /* Status Register Interrupt Bit Masks */
+    #define PWM_STATUS_TC_INT_EN_MASK              (uint8)((uint8)PWM_STATUS_TC >> 4u)
+    #define PWM_STATUS_CMP1_INT_EN_MASK            (uint8)((uint8)PWM_STATUS_CMP1 >> 4u)
+
+    /*RT1 Synch Constants */
+    #define PWM_RT1_SHIFT             (0x04u)
+
+    /* Sync TC and CMP bit masks */
+    #define PWM_RT1_MASK              (uint8)((uint8)0x03u << PWM_RT1_SHIFT)
+    #define PWM_SYNC                  (uint8)((uint8)0x03u << PWM_RT1_SHIFT)
+    #define PWM_SYNCDSI_SHIFT         (0x00u)
+
+    /* Sync all DSI inputs */
+    #define PWM_SYNCDSI_MASK          (uint8)((uint8)0x0Fu << PWM_SYNCDSI_SHIFT)
+
+    /* Sync all DSI inputs */
+    #define PWM_SYNCDSI_EN            (uint8)((uint8)0x0Fu << PWM_SYNCDSI_SHIFT)
+
+
+#else
+    #define PWM_STATUS                (*(reg8 *)   PWM_PWMUDB_genblk8_stsreg__STATUS_REG )
+    #define PWM_STATUS_PTR            ((reg8 *)    PWM_PWMUDB_genblk8_stsreg__STATUS_REG )
+    #define PWM_STATUS_MASK           (*(reg8 *)   PWM_PWMUDB_genblk8_stsreg__MASK_REG)
+    #define PWM_STATUS_MASK_PTR       ((reg8 *)    PWM_PWMUDB_genblk8_stsreg__MASK_REG)
+    #define PWM_STATUS_AUX_CTRL       (*(reg8 *)   PWM_PWMUDB_genblk8_stsreg__STATUS_AUX_CTL_REG)
+    #define PWM_CONTROL               (*(reg8 *)   PWM_PWMUDB_genblk1_ctrlreg__CONTROL_REG)
+    #define PWM_CONTROL_PTR           ((reg8 *)    PWM_PWMUDB_genblk1_ctrlreg__CONTROL_REG)
+
+
+    /***********************************
+    *          Constants
+    ***********************************/
+
+    /* Control Register bit definitions */
+    #define PWM_CTRL_ENABLE_SHIFT      (0x07u)
+    #define PWM_CTRL_RESET_SHIFT       (0x06u)
+    #define PWM_CTRL_CMPMODE2_SHIFT    (0x03u)
+    #define PWM_CTRL_CMPMODE1_SHIFT    (0x00u)
+    #define PWM_CTRL_DEAD_TIME_SHIFT   (0x00u)   /* No Shift Needed for UDB block */
+    
+    /* Control Register Bit Masks */
+    #define PWM_CTRL_ENABLE            (uint8)((uint8)0x01u << PWM_CTRL_ENABLE_SHIFT)
+    #define PWM_CTRL_RESET             (uint8)((uint8)0x01u << PWM_CTRL_RESET_SHIFT)
+    #define PWM_CTRL_CMPMODE2_MASK     (uint8)((uint8)0x07u << PWM_CTRL_CMPMODE2_SHIFT)
+    #define PWM_CTRL_CMPMODE1_MASK     (uint8)((uint8)0x07u << PWM_CTRL_CMPMODE1_SHIFT)
+
+    /* Status Register Bit Locations */
+    #define PWM_STATUS_KILL_SHIFT          (0x05u)
+    #define PWM_STATUS_FIFONEMPTY_SHIFT    (0x04u)
+    #define PWM_STATUS_FIFOFULL_SHIFT      (0x03u)
+    #define PWM_STATUS_TC_SHIFT            (0x02u)
+    #define PWM_STATUS_CMP2_SHIFT          (0x01u)
+    #define PWM_STATUS_CMP1_SHIFT          (0x00u)
+
+    /* Status Register Interrupt Enable Bit Locations - UDB Status Interrupt Mask match Status Bit Locations*/
+    #define PWM_STATUS_KILL_INT_EN_MASK_SHIFT          (PWM_STATUS_KILL_SHIFT)
+    #define PWM_STATUS_FIFONEMPTY_INT_EN_MASK_SHIFT    (PWM_STATUS_FIFONEMPTY_SHIFT)
+    #define PWM_STATUS_FIFOFULL_INT_EN_MASK_SHIFT      (PWM_STATUS_FIFOFULL_SHIFT)
+    #define PWM_STATUS_TC_INT_EN_MASK_SHIFT            (PWM_STATUS_TC_SHIFT)
+    #define PWM_STATUS_CMP2_INT_EN_MASK_SHIFT          (PWM_STATUS_CMP2_SHIFT)
+    #define PWM_STATUS_CMP1_INT_EN_MASK_SHIFT          (PWM_STATUS_CMP1_SHIFT)
+
+    /* Status Register Bit Masks */
+    #define PWM_STATUS_KILL            (uint8)((uint8)0x00u << PWM_STATUS_KILL_SHIFT )
+    #define PWM_STATUS_FIFOFULL        (uint8)((uint8)0x01u << PWM_STATUS_FIFOFULL_SHIFT)
+    #define PWM_STATUS_FIFONEMPTY      (uint8)((uint8)0x01u << PWM_STATUS_FIFONEMPTY_SHIFT)
+    #define PWM_STATUS_TC              (uint8)((uint8)0x01u << PWM_STATUS_TC_SHIFT)
+    #define PWM_STATUS_CMP2            (uint8)((uint8)0x01u << PWM_STATUS_CMP2_SHIFT)
+    #define PWM_STATUS_CMP1            (uint8)((uint8)0x01u << PWM_STATUS_CMP1_SHIFT)
+
+    /* Status Register Interrupt Bit Masks  - UDB Status Interrupt Mask match Status Bit Locations */
+    #define PWM_STATUS_KILL_INT_EN_MASK            (PWM_STATUS_KILL)
+    #define PWM_STATUS_FIFOFULL_INT_EN_MASK        (PWM_STATUS_FIFOFULL)
+    #define PWM_STATUS_FIFONEMPTY_INT_EN_MASK      (PWM_STATUS_FIFONEMPTY)
+    #define PWM_STATUS_TC_INT_EN_MASK              (PWM_STATUS_TC)
+    #define PWM_STATUS_CMP2_INT_EN_MASK            (PWM_STATUS_CMP2)
+    #define PWM_STATUS_CMP1_INT_EN_MASK            (PWM_STATUS_CMP1)
+
+    /* Datapath Auxillary Control Register bit definitions */
+    #define PWM_AUX_CTRL_FIFO0_CLR         (0x01u)
+    #define PWM_AUX_CTRL_FIFO1_CLR         (0x02u)
+    #define PWM_AUX_CTRL_FIFO0_LVL         (0x04u)
+    #define PWM_AUX_CTRL_FIFO1_LVL         (0x08u)
+    #define PWM_STATUS_ACTL_INT_EN_MASK    (0x10u) /* As defined for the ACTL Register */
+#endif /* PWM_UsingFixedFunction */
+
+#endif  /* CY_PWM_PWM_H */
+
 
 /* [] END OF FILE */

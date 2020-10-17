@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Echo_rechts.c  
+* File Name: Echo_Rechts.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Echo_rechts.h"
+#include "Echo_Rechts.h"
 
 
-#if defined(Echo_rechts__PC)
-    #define Echo_rechts_SetP4PinDriveMode(shift, mode)  \
+#if defined(Echo_Rechts__PC)
+    #define Echo_Rechts_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Echo_rechts_PC =   (Echo_rechts_PC & \
-                                (uint32)(~(uint32)(Echo_rechts_DRIVE_MODE_IND_MASK << \
-                                (Echo_rechts_DRIVE_MODE_BITS * (shift))))) | \
+        Echo_Rechts_PC =   (Echo_Rechts_PC & \
+                                (uint32)(~(uint32)(Echo_Rechts_DRIVE_MODE_IND_MASK << \
+                                (Echo_Rechts_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Echo_rechts_DRIVE_MODE_BITS * (shift))); \
+                                (Echo_Rechts_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Echo_rechts_SetP4PinDriveMode(shift, mode)  \
+        #define Echo_Rechts_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Echo_rechts_USBIO_CTRL_REG = (Echo_rechts_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Echo_rechts_DRIVE_MODE_IND_MASK << \
-                                    (Echo_rechts_DRIVE_MODE_BITS * (shift))))) | \
+            Echo_Rechts_USBIO_CTRL_REG = (Echo_Rechts_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Echo_Rechts_DRIVE_MODE_IND_MASK << \
+                                    (Echo_Rechts_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Echo_rechts_DRIVE_MODE_BITS * (shift))); \
+                                    (Echo_Rechts_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Echo_rechts__PC) || (CY_PSOC4_4200L) 
+#if defined(Echo_Rechts__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Echo_rechts_SetDriveMode
+    * Function Name: Echo_Rechts_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Echo_rechts_SUT.c usage_Echo_rechts_SetDriveMode
+    *  \snippet Echo_Rechts_SUT.c usage_Echo_Rechts_SetDriveMode
     *******************************************************************************/
-    void Echo_rechts_SetDriveMode(uint8 mode)
+    void Echo_Rechts_SetDriveMode(uint8 mode)
     {
-		Echo_rechts_SetP4PinDriveMode(Echo_rechts__0__SHIFT, mode);
+		Echo_Rechts_SetP4PinDriveMode(Echo_Rechts__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Echo_rechts_Write
+* Function Name: Echo_Rechts_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Echo_rechts_SUT.c usage_Echo_rechts_Write
+*  \snippet Echo_Rechts_SUT.c usage_Echo_Rechts_Write
 *******************************************************************************/
-void Echo_rechts_Write(uint8 value)
+void Echo_Rechts_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Echo_rechts_DR & (uint8)(~Echo_rechts_MASK));
-    drVal = (drVal | ((uint8)(value << Echo_rechts_SHIFT) & Echo_rechts_MASK));
-    Echo_rechts_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Echo_Rechts_DR & (uint8)(~Echo_Rechts_MASK));
+    drVal = (drVal | ((uint8)(value << Echo_Rechts_SHIFT) & Echo_Rechts_MASK));
+    Echo_Rechts_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Echo_rechts_Read
+* Function Name: Echo_Rechts_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void Echo_rechts_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Echo_rechts_SUT.c usage_Echo_rechts_Read  
+*  \snippet Echo_Rechts_SUT.c usage_Echo_Rechts_Read  
 *******************************************************************************/
-uint8 Echo_rechts_Read(void)
+uint8 Echo_Rechts_Read(void)
 {
-    return (uint8)((Echo_rechts_PS & Echo_rechts_MASK) >> Echo_rechts_SHIFT);
+    return (uint8)((Echo_Rechts_PS & Echo_Rechts_MASK) >> Echo_Rechts_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Echo_rechts_ReadDataReg
+* Function Name: Echo_Rechts_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 Echo_rechts_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Echo_rechts_Read() API because the 
-* Echo_rechts_ReadDataReg() reads the data register instead of the status 
+* preferred Echo_Rechts_Read() API because the 
+* Echo_Rechts_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 Echo_rechts_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Echo_rechts_SUT.c usage_Echo_rechts_ReadDataReg 
+*  \snippet Echo_Rechts_SUT.c usage_Echo_Rechts_ReadDataReg 
 *******************************************************************************/
-uint8 Echo_rechts_ReadDataReg(void)
+uint8 Echo_Rechts_ReadDataReg(void)
 {
-    return (uint8)((Echo_rechts_DR & Echo_rechts_MASK) >> Echo_rechts_SHIFT);
+    return (uint8)((Echo_Rechts_DR & Echo_Rechts_MASK) >> Echo_Rechts_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Echo_rechts_SetInterruptMode
+* Function Name: Echo_Rechts_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 Echo_rechts_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Echo_rechts_INTR_ALL to configure the
+*  component. Or you may use Echo_Rechts_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Echo_rechts_0_INTR       (First pin in the list)
-*  - Echo_rechts_1_INTR       (Second pin in the list)
+*  - Echo_Rechts_0_INTR       (First pin in the list)
+*  - Echo_Rechts_1_INTR       (Second pin in the list)
 *  - ...
-*  - Echo_rechts_INTR_ALL     (All pins in Pins component)
+*  - Echo_Rechts_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 Echo_rechts_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Echo_rechts_SUT.c usage_Echo_rechts_SetInterruptMode
+*  \snippet Echo_Rechts_SUT.c usage_Echo_Rechts_SetInterruptMode
 *******************************************************************************/
-void Echo_rechts_SetInterruptMode(uint16 position, uint16 mode)
+void Echo_Rechts_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Echo_rechts_INTCFG & (uint32)(~(uint32)position);
-    Echo_rechts_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Echo_Rechts_INTCFG & (uint32)(~(uint32)position);
+    Echo_Rechts_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Echo_rechts_ClearInterrupt
+* Function Name: Echo_Rechts_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void Echo_rechts_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Echo_rechts_SUT.c usage_Echo_rechts_ClearInterrupt
+*  \snippet Echo_Rechts_SUT.c usage_Echo_Rechts_ClearInterrupt
 *******************************************************************************/
-uint8 Echo_rechts_ClearInterrupt(void)
+uint8 Echo_Rechts_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Echo_rechts_INTSTAT & Echo_rechts_MASK);
-	Echo_rechts_INTSTAT = maskedStatus;
-    return maskedStatus >> Echo_rechts_SHIFT;
+	uint8 maskedStatus = (uint8)(Echo_Rechts_INTSTAT & Echo_Rechts_MASK);
+	Echo_Rechts_INTSTAT = maskedStatus;
+    return maskedStatus >> Echo_Rechts_SHIFT;
 }
 
 

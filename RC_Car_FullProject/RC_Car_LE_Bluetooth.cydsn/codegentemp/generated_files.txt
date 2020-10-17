@@ -26,10 +26,10 @@
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UART_SPI_UART_PVT.h" value="HEADER;;;;;UART" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UART_PVT.h" value="HEADER;;;;;UART" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UART_BOOT.h" value="HEADER;;;;;UART" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_rechts.c" value="SOURCE_C;CortexM0;;;;Echo_rechts" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_rechts.h" value="HEADER;;;;;Echo_rechts" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_rechts_aliases.h" value="HEADER;;;;;Echo_rechts" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_rechts_PM.c" value="SOURCE_C;CortexM0;;;;Echo_rechts" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_L.c" value="SOURCE_C;CortexM0;;;;Echo_L" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_L.h" value="HEADER;;;;;Echo_L" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_L_aliases.h" value="HEADER;;;;;Echo_L" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_L_PM.c" value="SOURCE_C;CortexM0;;;;Echo_L" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Links.c" value="SOURCE_C;CortexM0;;;;UltraSoon_Links" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Links.h" value="HEADER;;;;;UltraSoon_Links" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Links_PM.c" value="SOURCE_C;CortexM0;;;;UltraSoon_Links" />
@@ -39,23 +39,20 @@
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Trigger_Midden.h" value="HEADER;;;;;Trigger_Midden" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Trigger_Midden_aliases.h" value="HEADER;;;;;Trigger_Midden" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Trigger_Midden_PM.c" value="SOURCE_C;CortexM0;;;;Trigger_Midden" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\PWM.c" value="SOURCE_C;CortexM0;;;;PWM" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\PWM.h" value="HEADER;;;;;PWM" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\PWM_PM.c" value="SOURCE_C;CortexM0;;;;PWM" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Midden.c" value="SOURCE_C;CortexM0;;;;UltraSoon_Midden" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Midden.h" value="HEADER;;;;;UltraSoon_Midden" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Midden_PM.c" value="SOURCE_C;CortexM0;;;;UltraSoon_Midden" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_Links.c" value="SOURCE_C;CortexM0;;;;Echo_Links" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_Links.h" value="HEADER;;;;;Echo_Links" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_Links_aliases.h" value="HEADER;;;;;Echo_Links" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_Links_PM.c" value="SOURCE_C;CortexM0;;;;Echo_Links" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_R.c" value="SOURCE_C;CortexM0;;;;Echo_R" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_R.h" value="HEADER;;;;;Echo_R" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_R_aliases.h" value="HEADER;;;;;Echo_R" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_R_PM.c" value="SOURCE_C;CortexM0;;;;Echo_R" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Rechts.c" value="SOURCE_C;CortexM0;;;;UltraSoon_Rechts" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Rechts.h" value="HEADER;;;;;UltraSoon_Rechts" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UltraSoon_Rechts_PM.c" value="SOURCE_C;CortexM0;;;;UltraSoon_Rechts" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_Midden.c" value="SOURCE_C;CortexM0;;;;Echo_Midden" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_Midden.h" value="HEADER;;;;;Echo_Midden" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_Midden_aliases.h" value="HEADER;;;;;Echo_Midden" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_Midden_PM.c" value="SOURCE_C;CortexM0;;;;Echo_Midden" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_M.c" value="SOURCE_C;CortexM0;;;;Echo_M" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_M.h" value="HEADER;;;;;Echo_M" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_M_aliases.h" value="HEADER;;;;;Echo_M" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Echo_M_PM.c" value="SOURCE_C;CortexM0;;;;Echo_M" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM0;;;;Clock_1" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Trigger_Rechts.c" value="SOURCE_C;CortexM0;;;;Trigger_Rechts" />
@@ -86,6 +83,53 @@
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\BLE_eventHandler.h" value="HEADER;;;;;BLE" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\BLE_custom.h" value="HEADER;;;;;BLE" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\BLE_custom.c" value="SOURCE_C;CortexM0;;;;BLE" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\PWM.c" value="SOURCE_C;CortexM0;;;;PWM" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\PWM.h" value="HEADER;;;;;PWM" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\PWM_PM.c" value="SOURCE_C;CortexM0;;;;PWM" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Groen.c" value="SOURCE_C;CortexM0;;;;T_Motor_R_Groen" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Groen.h" value="HEADER;;;;;T_Motor_R_Groen" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Groen_aliases.h" value="HEADER;;;;;T_Motor_R_Groen" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Groen_PM.c" value="SOURCE_C;CortexM0;;;;T_Motor_R_Groen" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Geel.c" value="SOURCE_C;CortexM0;;;;T_Motor_R_Geel" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Geel.h" value="HEADER;;;;;T_Motor_R_Geel" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Geel_aliases.h" value="HEADER;;;;;T_Motor_R_Geel" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Geel_PM.c" value="SOURCE_C;CortexM0;;;;T_Motor_R_Geel" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Rood.c" value="SOURCE_C;CortexM0;;;;T_Motor_R_Rood" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Rood.h" value="HEADER;;;;;T_Motor_R_Rood" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Rood_aliases.h" value="HEADER;;;;;T_Motor_R_Rood" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_R_Rood_PM.c" value="SOURCE_C;CortexM0;;;;T_Motor_R_Rood" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Groen.c" value="SOURCE_C;CortexM0;;;;T_Motor_L_Groen" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Groen.h" value="HEADER;;;;;T_Motor_L_Groen" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Groen_aliases.h" value="HEADER;;;;;T_Motor_L_Groen" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Groen_PM.c" value="SOURCE_C;CortexM0;;;;T_Motor_L_Groen" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Geel.c" value="SOURCE_C;CortexM0;;;;T_Motor_L_Geel" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Geel.h" value="HEADER;;;;;T_Motor_L_Geel" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Geel_aliases.h" value="HEADER;;;;;T_Motor_L_Geel" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Geel_PM.c" value="SOURCE_C;CortexM0;;;;T_Motor_L_Geel" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Rood.c" value="SOURCE_C;CortexM0;;;;T_Motor_L_Rood" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Rood.h" value="HEADER;;;;;T_Motor_L_Rood" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Rood_aliases.h" value="HEADER;;;;;T_Motor_L_Rood" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\T_Motor_L_Rood_PM.c" value="SOURCE_C;CortexM0;;;;T_Motor_L_Rood" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Rechts.c" value="SOURCE_C;CortexM0;;;;Motor_Rechts" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Rechts.h" value="HEADER;;;;;Motor_Rechts" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Rechts_PM.c" value="SOURCE_C;CortexM0;;;;Motor_Rechts" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Links.c" value="SOURCE_C;CortexM0;;;;Motor_Links" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Links.h" value="HEADER;;;;;Motor_Links" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Links_PM.c" value="SOURCE_C;CortexM0;;;;Motor_Links" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Start_Switch.c" value="SOURCE_C;CortexM0;;;;Start_Switch" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Start_Switch.h" value="HEADER;;;;;Start_Switch" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Start_Switch_aliases.h" value="HEADER;;;;;Start_Switch" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Start_Switch_PM.c" value="SOURCE_C;CortexM0;;;;Start_Switch" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motors.c" value="SOURCE_C;CortexM0;;;;Motors" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motors.h" value="HEADER;;;;;Motors" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_L.c" value="SOURCE_C;CortexM0;;;;To_Motor_L" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_L.h" value="HEADER;;;;;To_Motor_L" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_L_aliases.h" value="HEADER;;;;;To_Motor_L" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_L_PM.c" value="SOURCE_C;CortexM0;;;;To_Motor_L" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_R.c" value="SOURCE_C;CortexM0;;;;To_Motor_R" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_R.h" value="HEADER;;;;;To_Motor_R" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_R_aliases.h" value="HEADER;;;;;To_Motor_R" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_R_PM.c" value="SOURCE_C;CortexM0;;;;To_Motor_R" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UART_SCBCLK.c" value="SOURCE_C;CortexM0;;;;UART_SCBCLK" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UART_SCBCLK.h" value="HEADER;;;;;UART_SCBCLK" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UART_tx.c" value="SOURCE_C;CortexM0;;;;UART_tx" />
@@ -98,8 +142,6 @@
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\UART_rx_PM.c" value="SOURCE_C;CortexM0;;;;UART_rx" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\BLE_bless_isr.c" value="SOURCE_C;CortexM0;;;;BLE_bless_isr" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\BLE_bless_isr.h" value="HEADER;;;;;BLE_bless_isr" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM0;;;;Em_EEPROM_Dynamic" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\cm0gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Cm0RealView.scat" value="LINKER_SCRIPT;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;cy_boot" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Cm0Start.c" value="SOURCE_C;CortexM0;;;;cy_boot" />
@@ -125,6 +167,8 @@
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\CyBootAsmGnu.s" value="SOURCE_ASM;CortexM0,CortexM0p,CortexM3,CortexM4,CortexM7;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\CyLFClk.c" value="SOURCE_C;CortexM0;;;;cy_lfclk" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\CyLFClk.h" value="HEADER;;;;;cy_lfclk" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM0;;;;Em_EEPROM_Dynamic" />
+  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\project.h" value="OTHER;;;;;" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\cycodeshareimport.ld" value="OTHER;;;;;" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\cycodeshareexport.ld" value="OTHER;;;;;" />

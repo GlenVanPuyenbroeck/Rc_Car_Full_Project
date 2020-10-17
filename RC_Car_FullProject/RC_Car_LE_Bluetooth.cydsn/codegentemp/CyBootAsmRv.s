@@ -1,6 +1,6 @@
 ;-------------------------------------------------------------------------------
 ; \file CyBootAsmRv.s
-; \version 5.80
+; \version 5.70
 ;
 ;  \brief Assembly routines for RealView.
 ;

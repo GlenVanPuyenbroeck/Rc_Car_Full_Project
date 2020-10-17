@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Echo_rechts.c  
+* File Name: Echo_Rechts.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Echo_rechts.h"
+#include "Echo_Rechts.h"
 
-static Echo_rechts_BACKUP_STRUCT  Echo_rechts_backup = {0u, 0u, 0u};
+static Echo_Rechts_BACKUP_STRUCT  Echo_Rechts_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: Echo_rechts_Sleep
+* Function Name: Echo_Rechts_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static Echo_rechts_BACKUP_STRUCT  Echo_rechts_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet Echo_rechts_SUT.c usage_Echo_rechts_Sleep_Wakeup
+*  \snippet Echo_Rechts_SUT.c usage_Echo_Rechts_Sleep_Wakeup
 *******************************************************************************/
-void Echo_rechts_Sleep(void)
+void Echo_Rechts_Sleep(void)
 {
-    #if defined(Echo_rechts__PC)
-        Echo_rechts_backup.pcState = Echo_rechts_PC;
+    #if defined(Echo_Rechts__PC)
+        Echo_Rechts_backup.pcState = Echo_Rechts_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            Echo_rechts_backup.usbState = Echo_rechts_CR1_REG;
-            Echo_rechts_USB_POWER_REG |= Echo_rechts_USBIO_ENTER_SLEEP;
-            Echo_rechts_CR1_REG &= Echo_rechts_USBIO_CR1_OFF;
+            Echo_Rechts_backup.usbState = Echo_Rechts_CR1_REG;
+            Echo_Rechts_USB_POWER_REG |= Echo_Rechts_USBIO_ENTER_SLEEP;
+            Echo_Rechts_CR1_REG &= Echo_Rechts_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Echo_rechts__SIO)
-        Echo_rechts_backup.sioState = Echo_rechts_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Echo_Rechts__SIO)
+        Echo_Rechts_backup.sioState = Echo_Rechts_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        Echo_rechts_SIO_REG &= (uint32)(~Echo_rechts_SIO_LPM_MASK);
+        Echo_Rechts_SIO_REG &= (uint32)(~Echo_Rechts_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: Echo_rechts_Wakeup
+* Function Name: Echo_Rechts_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void Echo_rechts_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to Echo_rechts_Sleep() for an example usage.
+*  Refer to Echo_Rechts_Sleep() for an example usage.
 *******************************************************************************/
-void Echo_rechts_Wakeup(void)
+void Echo_Rechts_Wakeup(void)
 {
-    #if defined(Echo_rechts__PC)
-        Echo_rechts_PC = Echo_rechts_backup.pcState;
+    #if defined(Echo_Rechts__PC)
+        Echo_Rechts_PC = Echo_Rechts_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            Echo_rechts_USB_POWER_REG &= Echo_rechts_USBIO_EXIT_SLEEP_PH1;
-            Echo_rechts_CR1_REG = Echo_rechts_backup.usbState;
-            Echo_rechts_USB_POWER_REG &= Echo_rechts_USBIO_EXIT_SLEEP_PH2;
+            Echo_Rechts_USB_POWER_REG &= Echo_Rechts_USBIO_EXIT_SLEEP_PH1;
+            Echo_Rechts_CR1_REG = Echo_Rechts_backup.usbState;
+            Echo_Rechts_USB_POWER_REG &= Echo_Rechts_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Echo_rechts__SIO)
-        Echo_rechts_SIO_REG = Echo_rechts_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Echo_Rechts__SIO)
+        Echo_Rechts_SIO_REG = Echo_Rechts_backup.sioState;
     #endif
 }
 

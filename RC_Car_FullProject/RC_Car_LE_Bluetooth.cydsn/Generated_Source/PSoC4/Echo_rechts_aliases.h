@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Echo_rechts.h  
+* File Name: Echo_Rechts.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Echo_rechts_ALIASES_H) /* Pins Echo_rechts_ALIASES_H */
-#define CY_PINS_Echo_rechts_ALIASES_H
+#if !defined(CY_PINS_Echo_Rechts_ALIASES_H) /* Pins Echo_Rechts_ALIASES_H */
+#define CY_PINS_Echo_Rechts_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Echo_rechts_0			(Echo_rechts__0__PC)
-#define Echo_rechts_0_PS		(Echo_rechts__0__PS)
-#define Echo_rechts_0_PC		(Echo_rechts__0__PC)
-#define Echo_rechts_0_DR		(Echo_rechts__0__DR)
-#define Echo_rechts_0_SHIFT	(Echo_rechts__0__SHIFT)
-#define Echo_rechts_0_INTR	((uint16)((uint16)0x0003u << (Echo_rechts__0__SHIFT*2u)))
+#define Echo_Rechts_0			(Echo_Rechts__0__PC)
+#define Echo_Rechts_0_PS		(Echo_Rechts__0__PS)
+#define Echo_Rechts_0_PC		(Echo_Rechts__0__PC)
+#define Echo_Rechts_0_DR		(Echo_Rechts__0__DR)
+#define Echo_Rechts_0_SHIFT	(Echo_Rechts__0__SHIFT)
+#define Echo_Rechts_0_INTR	((uint16)((uint16)0x0003u << (Echo_Rechts__0__SHIFT*2u)))
 
-#define Echo_rechts_INTR_ALL	 ((uint16)(Echo_rechts_0_INTR))
+#define Echo_Rechts_INTR_ALL	 ((uint16)(Echo_Rechts_0_INTR))
 
 
-#endif /* End Pins Echo_rechts_ALIASES_H */
+#endif /* End Pins Echo_Rechts_ALIASES_H */
 
 
 /* [] END OF FILE */
