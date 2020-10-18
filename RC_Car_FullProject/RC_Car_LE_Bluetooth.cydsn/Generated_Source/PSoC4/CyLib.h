@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CyLib.h
-* \version 5.70
+* \version 5.81
 *
 * \brief Provides a system API for the clocking, and interrupts.
 *
@@ -9,7 +9,7 @@
 *
 ********************************************************************************
 * \copyright
-* Copyright 2008-2018, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2020, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -744,11 +744,9 @@ extern uint32 CySysTickInitVar;
     #define CY_SYS_CLK_WCO_CONFIG_DPLL_LF_PGAIN             (( uint32 )(( uint32 ) 2u << CY_SYS_CLK_WCO_CONFIG_DPLL_LF_PGAIN_SHIFT))
 
     #define CY_SYS_CLK_WCO_CONFIG_DPLL_LF_LIMIT_MAX         ((uint32) 0xFFu)
+    #define CY_SYS_CLK_WCO_CONFIG_DPLL_LF_LIMIT_STEP        ((uint32) 16u)
     #define CY_SYS_CLK_WCO_IMO_TIMEOUT_MS                   ((uint32) 20u)
-
-    #define CY_SYS_CLK_IMO_FREQ_WCO_DPLL_SAFE_POINT         (26u)
-    #define CY_SYS_CLK_IMO_FREQ_WCO_DPLL_TABLE_SIZE         (23u)
-    #define CY_SYS_CLK_IMO_FREQ_WCO_DPLL_TABLE_OFFSET       (26u)
+    #define CY_SYS_CLK_WCO_DPLL_TIMEOUT_MS                  ((uint32) 1u)
 
 #endif /* (CY_IP_IMO_TRIMMABLE_BY_WCO) */
 
@@ -1130,6 +1128,9 @@ extern uint32 CySysTickInitVar;
     
     #define CY_SFLASH_S1_TESTPGM_REV_REG        (*(reg8 *) CYSFLASH_S1_testpgm_rev)
     #define CY_SFLASH_S1_TESTPGM_REV_PTR        ( (reg8 *) CYSFLASH_S1_testpgm_rev)
+
+    #define CY_SFLASH_CRI_TESTPGM_REV_REG       (*(reg8 *) CYSFLASH_CRI_testpgm_rev)
+    #define CY_SFLASH_CRI_TESTPGM_REV_PTR       ( (reg8 *) CYSFLASH_CRI_testpgm_rev)
 
     #define CY_SFLASH_IMO_MAXF0_REG             (*(reg8 *) CYREG_SFLASH_IMO_MAXF0)
     #define CY_SFLASH_IMO_MAXF0_PTR             ( (reg8 *) CYREG_SFLASH_IMO_MAXF0)

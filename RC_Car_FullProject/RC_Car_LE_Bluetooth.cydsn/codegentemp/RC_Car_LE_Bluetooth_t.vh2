@@ -1,5 +1,5 @@
 -- Project:   C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\RC_Car_LE_Bluetooth.cyprj
--- Generated: 10/17/2020 17:15:32
+-- Generated: 10/18/2020 20:58:39
 -- PSoC Creator  4.2
 
 ENTITY RC_Car_LE_Bluetooth IS
@@ -56,6 +56,7 @@ ARCHITECTURE __DEFAULT__ OF RC_Car_LE_Bluetooth IS
     ATTRIBUTE global_signal OF Net_1030_digital : SIGNAL IS true;
     SIGNAL Net_1040 : bit;
     ATTRIBUTE placement_force OF Net_1040 : SIGNAL IS "U(1,1,A)0";
+    SIGNAL Net_1050 : bit;
     SIGNAL Net_44 : bit;
     SIGNAL Net_446_digital : bit;
     ATTRIBUTE udbclken_assigned OF Net_446_digital : SIGNAL IS "True";
@@ -78,7 +79,6 @@ ARCHITECTURE __DEFAULT__ OF RC_Car_LE_Bluetooth IS
     ATTRIBUTE global_signal OF Net_73_ff9 : SIGNAL IS true;
     SIGNAL Net_83 : bit;
     SIGNAL Net_85 : bit;
-    SIGNAL Net_855 : bit;
     SIGNAL Net_86 : bit;
     SIGNAL Net_87 : bit;
     SIGNAL Net_88 : bit;
@@ -2365,7 +2365,7 @@ BEGIN
             cy_registers => "")
         PORT MAP(
             interrupt => \BLE:Net_15\,
-            rfctrl_extpa_en => Net_855);
+            rfctrl_extpa_en => Net_1050);
 
     \BLE:bless_isr\:interrupt
         GENERIC MAP(

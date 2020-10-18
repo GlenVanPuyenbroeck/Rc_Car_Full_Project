@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 1
 
 
    1              		.syntax unified
@@ -30,14 +30,14 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
   27              		.file 1 "Generated_Source\\PSoC4\\BLE_custom.c"
    1:Generated_Source\PSoC4/BLE_custom.c **** /***************************************************************************//**
    2:Generated_Source\PSoC4/BLE_custom.c **** * \file CYBLE_custom.c
-   3:Generated_Source\PSoC4/BLE_custom.c **** * \version 3.50
+   3:Generated_Source\PSoC4/BLE_custom.c **** * \version 3.66
    4:Generated_Source\PSoC4/BLE_custom.c **** * 
    5:Generated_Source\PSoC4/BLE_custom.c **** * \brief
    6:Generated_Source\PSoC4/BLE_custom.c **** *  Contains the source code for the Custom Service.
    7:Generated_Source\PSoC4/BLE_custom.c **** * 
    8:Generated_Source\PSoC4/BLE_custom.c **** ********************************************************************************
    9:Generated_Source\PSoC4/BLE_custom.c **** * \copyright
-  10:Generated_Source\PSoC4/BLE_custom.c **** * Copyright 2014-2018, Cypress Semiconductor Corporation.  All rights reserved.
+  10:Generated_Source\PSoC4/BLE_custom.c **** * Copyright 2014-2020, Cypress Semiconductor Corporation.  All rights reserved.
   11:Generated_Source\PSoC4/BLE_custom.c **** * You may use this file only in accordance with the license, terms, conditions,
   12:Generated_Source\PSoC4/BLE_custom.c **** * disclaimers, and limitations in the end user license agreement accompanying
   13:Generated_Source\PSoC4/BLE_custom.c **** * the software package with which this file was provided.
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
   28:Generated_Source\PSoC4/BLE_custom.c ****     /* Sensoren service */
   29:Generated_Source\PSoC4/BLE_custom.c ****     {
   30:Generated_Source\PSoC4/BLE_custom.c ****         0x000Cu, /* Handle of the Sensoren service */ 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 2
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 2
 
 
   31:Generated_Source\PSoC4/BLE_custom.c ****         {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
   85:Generated_Source\PSoC4/BLE_custom.c ****                 {
   86:Generated_Source\PSoC4/BLE_custom.c ****                     0x001Cu, /* Handle of the Custom Descriptor descriptor */ 
   87:Generated_Source\PSoC4/BLE_custom.c ****                 }, 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 3
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 3
 
 
   88:Generated_Source\PSoC4/BLE_custom.c ****             },
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  137:Generated_Source\PSoC4/BLE_custom.c ****             {
  138:Generated_Source\PSoC4/BLE_custom.c ****                 cyBle_customCServ[locServIndex].customServChar[locCharIndex].
  139:Generated_Source\PSoC4/BLE_custom.c ****                     customServCharHandle = 0u;
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 4
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 4
 
 
  140:Generated_Source\PSoC4/BLE_custom.c ****                 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
   73 0010 0C       		.byte	0xc
   74 0011 4D030000 		.4byte	.LASF95
   75 0015 A3080000 		.4byte	.LASF96
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 5
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 5
 
 
   76 0019 00000000 		.4byte	.Ldebug_ranges0+0
@@ -287,7 +287,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  119 006b 04       		.uleb128 0x4
  120 006c A3070000 		.4byte	.LASF86
  121 0070 02       		.byte	0x2
- 122 0071 E501     		.2byte	0x1e5
+ 122 0071 E701     		.2byte	0x1e7
  123 0073 3A000000 		.4byte	0x3a
  124 0077 02       		.uleb128 0x2
  125 0078 04       		.byte	0x4
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  130 0080 04       		.byte	0x4
  131 0081 47080000 		.4byte	.LASF10
  132 0085 02       		.uleb128 0x2
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 6
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 6
 
 
  133 0086 01       		.byte	0x1
@@ -316,7 +316,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  145 009b 01       		.byte	0x1
  146 009c 2C000000 		.4byte	0x2c
  147 00a0 05       		.byte	0x5
- 148 00a1 3201     		.2byte	0x132
+ 148 00a1 3501     		.2byte	0x135
  149 00a3 58020000 		.4byte	0x258
  150 00a7 06       		.uleb128 0x6
  151 00a8 AF020000 		.4byte	.LASF14
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  187 00f0 C1000000 		.4byte	.LASF26
  188 00f4 25       		.byte	0x25
  189 00f5 06       		.uleb128 0x6
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 7
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 7
 
 
  190 00f6 07040000 		.4byte	.LASF27
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  244 0162 57000000 		.4byte	.LASF45
  245 0166 40       		.byte	0x40
  246 0167 06       		.uleb128 0x6
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 8
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 8
 
 
  247 0168 05060000 		.4byte	.LASF46
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  301 01d4 C7030000 		.4byte	.LASF64
  302 01d8 53       		.byte	0x53
  303 01d9 06       		.uleb128 0x6
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 9
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 9
 
 
  304 01da 8E020000 		.4byte	.LASF65
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  358 0246 090B0000 		.4byte	.LASF83
  359 024a FC       		.byte	0xfc
  360 024b 06       		.uleb128 0x6
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 10
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 10
 
 
  361 024c E6060000 		.4byte	.LASF84
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  415 02b9 04       		.byte	0x4
  416 02ba 69       		.byte	0x69
  417 02bb C1020000 		.4byte	0x2c1
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 11
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 11
 
 
  418 02bf 02       		.byte	0x2
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  472 000a 0E       		.uleb128 0xe
  473 000b 55       		.uleb128 0x55
  474 000c 17       		.uleb128 0x17
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 12
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 12
 
 
  475 000d 11       		.uleb128 0x11
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  529 0043 00       		.byte	0
  530 0044 00       		.byte	0
  531 0045 06       		.uleb128 0x6
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 13
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 13
 
 
  532 0046 28       		.uleb128 0x28
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  586 007c 0B       		.uleb128 0xb
  587 007d 16       		.uleb128 0x16
  588 007e 00       		.byte	0
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 14
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 14
 
 
  589 007f 03       		.uleb128 0x3
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  643 00b6 18       		.uleb128 0x18
  644 00b7 00       		.byte	0
  645 00b8 00       		.byte	0
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 15
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 15
 
 
  646 00b9 00       		.byte	0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  677      505F4445 
  677      56494345 
  678              	.LASF35:
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 16
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 16
 
 
  679 0093 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  698              	.LASF15:
  699 0168 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
  699      455F4556 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 17
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 17
 
 
  699      545F5354 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  716      53545F49 
  716      4E56414C 
  717              	.LASF73:
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 18
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 18
 
 
  718 02c6 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  737              	.LASF64:
  738 03c7 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
  738      455F4556 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 19
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 19
 
 
  738      545F4741 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  757              	.LASF70:
  758 04f0 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
  758      455F4556 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 20
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 20
 
 
  758      545F4C32 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  778 05f8 756E7369 		.ascii	"unsigned int\000"
  778      676E6564 
  778      20696E74 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 21
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 21
 
 
  778      00
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  796      434F5252 
  797              	.LASF31:
  798 06fe 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 22
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 22
 
 
  798      455F4556 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  818      455F4556 
  818      545F5045 
  818      4E44494E 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 23
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 23
 
 
  818      475F464C 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  838 093f 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
  838      455F4556 
  838      545F4C32 
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 24
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 24
 
 
  838      4341505F 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 1
  856      52454144 
  857              	.LASF67:
  858 0a7a 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
-ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc5jrJBR.s 			page 25
+ARM GAS  C:\Users\11800025\AppData\Local\Temp\cc6gFOyA.s 			page 25
 
 
  858      455F4556 

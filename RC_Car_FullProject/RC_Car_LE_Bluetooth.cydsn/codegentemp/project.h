@@ -83,6 +83,7 @@
 #include "UART_rx.h"
 #include "UART_rx_aliases.h"
 #include "BLE_bless_isr.h"
+#include "cy_em_eeprom.h"
 #include "core_cm0_psoc4.h"
 #include "CyFlash.h"
 #include "CyLib.h"
@@ -90,7 +91,6 @@
 #include "cytypes.h"
 #include "cypins.h"
 #include "CyLFClk.h"
-#include "cy_em_eeprom.h"
 
 /*[]*/
 
