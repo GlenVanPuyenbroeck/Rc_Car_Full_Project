@@ -1,6 +1,6 @@
-C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\RC_Car_LE_Bluetooth.cyprj|b97b4f6c-de28-46a1-8088-006c2999b479
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b0ee6c4f-a20c-464d-807f-61397a4ce203
-C:\Users\11800025\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|4b553a2b-70ab-492a-ad08-6124fac8edc0
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|b66c22ee-9c31-452b-83a7-9eb845c40c3a
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|323224af-c0cb-440d-8958-89211c3caa03
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|ce69bde2-7ee3-4aec-b2fd-5d3117461879
+C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\RC_Car_LE_Bluetooth.cyprj|996d449e-2dc4-45c3-b17d-c075515ad876
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|6baa6efb-0c5c-4153-aff6-622c05540a3e
+C:\Users\11800025\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|5689aea3-bee8-425d-afe5-95e1fd0b2597
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|4b9a9382-6761-45a9-ae10-19f3f83ad2ee
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b9b29bda-52aa-429b-8ab1-0f46a6dec898
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3e94f439-941a-4777-96b6-903504236c57

@@ -24,7 +24,7 @@
 ***************************************/
 
 /* Maximum supported Custom Services */
-#define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x02u)
+#define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x03u)
 #define CYBLE_CUSTOMC_SERVICE_COUNT                  (0x00u)
 #define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x03u)
 #define CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x01u)
@@ -43,6 +43,12 @@
 #define CYBLE_MOTOREN_MOTOR_LINKS_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
 #define CYBLE_MOTOREN_MOTOR_RECHTS_CHAR_INDEX   (0x01u) /* Index of Motor Rechts characteristic */
 #define CYBLE_MOTOREN_MOTOR_RECHTS_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+
+#define CYBLE_START_AND_CONTROL_SERVICE_INDEX   (0x02u) /* Index of Start_And_Control service in the cyBle_customs array */
+#define CYBLE_START_AND_CONTROL_START_CHAR_INDEX   (0x00u) /* Index of Start characteristic */
+#define CYBLE_START_AND_CONTROL_START_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
+#define CYBLE_START_AND_CONTROL_CONTROL_FLAG_CHAR_INDEX   (0x01u) /* Index of Control_Flag characteristic */
+#define CYBLE_START_AND_CONTROL_CONTROL_FLAG_CUSTOM_DESCRIPTOR_DESC_INDEX   (0x00u) /* Index of Custom Descriptor descriptor */
 
 
 #define CYBLE_SENSOREN_SERVICE_HANDLE   (0x000Cu) /* Handle of Sensoren service */
@@ -63,6 +69,14 @@
 #define CYBLE_MOTOREN_MOTOR_RECHTS_DECL_HANDLE   (0x001Au) /* Handle of Motor Rechts characteristic declaration */
 #define CYBLE_MOTOREN_MOTOR_RECHTS_CHAR_HANDLE   (0x001Bu) /* Handle of Motor Rechts characteristic */
 #define CYBLE_MOTOREN_MOTOR_RECHTS_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x001Cu) /* Handle of Custom Descriptor descriptor */
+
+#define CYBLE_START_AND_CONTROL_SERVICE_HANDLE   (0x001Du) /* Handle of Start_And_Control service */
+#define CYBLE_START_AND_CONTROL_START_DECL_HANDLE   (0x001Eu) /* Handle of Start characteristic declaration */
+#define CYBLE_START_AND_CONTROL_START_CHAR_HANDLE   (0x001Fu) /* Handle of Start characteristic */
+#define CYBLE_START_AND_CONTROL_START_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0020u) /* Handle of Custom Descriptor descriptor */
+#define CYBLE_START_AND_CONTROL_CONTROL_FLAG_DECL_HANDLE   (0x0021u) /* Handle of Control_Flag characteristic declaration */
+#define CYBLE_START_AND_CONTROL_CONTROL_FLAG_CHAR_HANDLE   (0x0022u) /* Handle of Control_Flag characteristic */
+#define CYBLE_START_AND_CONTROL_CONTROL_FLAG_CUSTOM_DESCRIPTOR_DESC_HANDLE   (0x0023u) /* Handle of Custom Descriptor descriptor */
 
 
 

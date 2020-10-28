@@ -20,7 +20,7 @@
 void StackEventHandler( uint32 eventCode, void *eventParam )
 {
     CYBLE_GATTS_WRITE_REQ_PARAM_T *wrReqParam;
- 
+  
     updateCharacteristic();
     
     switch( eventCode )
@@ -69,29 +69,34 @@ void StackEventHandler( uint32 eventCode, void *eventParam )
 			
 			/* Extract the write value from the event parameter */
              wrReqParam = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;
-           // wrLinks = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;
+           
             
-            if( CYBLE_MOTOREN_MOTOR_LINKS_CHAR_HANDLE  == wrReqParam->handleValPair.attrHandle)
-            {  
-                M_Links = wrReqParam->handleValPair.value.val[0]; 
-                Motor_Links_WritePeriod(M_Links);
+            if(CYBLE_MOTOREN_MOTOR_LINKS_CHAR_HANDLE  ==  wrReqParam->handleValPair.attrHandle)
+            {     
+                periodMotorL = wrReqParam->handleValPair.value.val[0];    
+                Motor_Links_WritePeriod(periodMotorL);
+            }
             
-                /* Set flag so that application can start sending notifications.*/
-               /* started = 1; */
-			}      
 			
-			/* Check if the returned handle is matching to Random Data Client custom configuration*/
             if( CYBLE_MOTOREN_MOTOR_RECHTS_CHAR_HANDLE  == wrReqParam->handleValPair.attrHandle)
             {  
-                M_Rechts = wrReqParam->handleValPair.value.val[0];  
-                Motor_Rechts_WritePeriod(M_Rechts);
-                /* Set flag so that application can start sending notifications.*/
-               /* started = 1; */
+                periodMotorR = wrReqParam->handleValPair.value.val[0];    
+                Motor_Links_WritePeriod(periodMotorR); 
 			}
+            
+            if(CYBLE_START_AND_CONTROL_CONTROL_FLAG_CHAR_HANDLE == wrReqParam->handleValPair.attrHandle)
+            {
+                control_flag = wrReqParam->handleValPair.value.val[0];   
+            }
+            
+            if(CYBLE_START_AND_CONTROL_START_CHAR_HANDLE == wrReqParam->handleValPair.attrHandle)
+            {
+                start_flag = wrReqParam->handleValPair.value.val[0];   
+            }
         
            
             CyBle_GattsWriteRsp(connectionHandle);
-            break; 
+        break; 
 
         /* default catch-all case */
         case CYBLE_EVT_STACK_BUSY_STATUS:
@@ -99,8 +104,9 @@ void StackEventHandler( uint32 eventCode, void *eventParam )
             
         default:
         break;
-    }
-  }
+    }    
+}
+  
 
 void updateCharacteristic()
 {
@@ -108,10 +114,12 @@ void updateCharacteristic()
     value = a_links;
     value2 =a_midden;
     value3 =a_rechts;
+    value4 = 0;
     
     CYBLE_GATT_HANDLE_VALUE_PAIR_T Sensor_links; 
     CYBLE_GATT_HANDLE_VALUE_PAIR_T Sensor_midden; 
     CYBLE_GATT_HANDLE_VALUE_PAIR_T Sensor_rechts; 
+    CYBLE_GATT_HANDLE_VALUE_PAIR_T control;
 
     Sensor_links.attrHandle = CYBLE_SENSOREN_SENSOR_LINKS_CHAR_HANDLE;
     Sensor_links.value.val = (uint8*)&value;
@@ -125,13 +133,18 @@ void updateCharacteristic()
     Sensor_rechts.value.val = (uint8*)&value3;
     Sensor_rechts.value.len = 1;    
     
+        if(control_to_zero == 1)
+        {
+            control.attrHandle = CYBLE_START_AND_CONTROL_CONTROL_FLAG_CHAR_HANDLE;
+            control.value.val = (uint8*)&value4;
+            control.value.len = 1; 
+        }
+    
     CyBle_GattsWriteAttributeValue(&Sensor_links,0, &connectionHandle, CYBLE_GATT_DB_LOCALLY_INITIATED);
     CyBle_GattsWriteAttributeValue(&Sensor_midden,0, &connectionHandle, CYBLE_GATT_DB_LOCALLY_INITIATED);
     CyBle_GattsWriteAttributeValue(&Sensor_rechts,0, &connectionHandle, CYBLE_GATT_DB_LOCALLY_INITIATED);
-    
-    
-    //CyBle_GattsReadAttributeValue(&CCCDHandle, &connectionHandle, CYBLE_GATT_DB_LOCALLY_INITIATED);
-
+    CyBle_GattsWriteAttributeValue(&control,0, &connectionHandle, CYBLE_GATT_DB_LOCALLY_INITIATED);
+   
 }
 
 /* [] END OF FILE */

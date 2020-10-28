@@ -636,9 +636,6 @@ void cyfitter_cfg(void)
 		CY_SET_REG32((void *)(CYDEV_UDB_PA1_BASE), 0x00990000u);
 		CY_SET_REG32((void *)(CYREG_UDB_PA1_CFG8), 0x03C00000u);
 
-		/* UDB_PA_2 Starting address: CYDEV_UDB_PA2_BASE */
-		CY_SET_REG32((void *)(CYDEV_UDB_PA2_BASE), 0x00990000u);
-
 		/* UDB_PA_3 Starting address: CYDEV_UDB_PA3_BASE */
 		CY_SET_REG32((void *)(CYDEV_UDB_PA3_BASE), 0x00990000u);
 		CY_SET_REG32((void *)(CYREG_UDB_PA3_CFG8), 0x003F0000u);
@@ -666,10 +663,6 @@ void cyfitter_cfg(void)
 	/* IOPINS0_1 Starting address: CYDEV_GPIO_PRT1_BASE */
 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x000000FFu);
 	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC), 0x00496C92u);
-
-	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
-	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x00000080u);
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC), 0x00400000u);
 
 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x00000007u);

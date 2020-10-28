@@ -23,7 +23,7 @@
 */
 /* This array contains attribute handles for the defined Custom Services and their characteristics and descriptors.
    The array index definitions are located in the CYBLE_custom.h file. */
-const CYBLE_CUSTOMS_T cyBle_customs[0x02u] = {
+const CYBLE_CUSTOMS_T cyBle_customs[0x03u] = {
 
     /* Sensoren service */
     {
@@ -84,6 +84,41 @@ const CYBLE_CUSTOMS_T cyBle_customs[0x02u] = {
                 /* Array of Descriptors handles */
                 {
                     0x001Cu, /* Handle of the Custom Descriptor descriptor */ 
+                }, 
+            },
+            {
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                
+                /* Array of Descriptors handles */
+                {
+                    CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                }, 
+            },
+        }, 
+    },
+
+    /* Start_And_Control service */
+    {
+        0x001Du, /* Handle of the Start_And_Control service */ 
+        {
+
+            /* Start characteristic */
+            {
+                0x001Fu, /* Handle of the Start characteristic */ 
+                
+                /* Array of Descriptors handles */
+                {
+                    0x0020u, /* Handle of the Custom Descriptor descriptor */ 
+                }, 
+            },
+
+            /* Control_Flag characteristic */
+            {
+                0x0022u, /* Handle of the Control_Flag characteristic */ 
+                
+                /* Array of Descriptors handles */
+                {
+                    0x0023u, /* Handle of the Custom Descriptor descriptor */ 
                 }, 
             },
             {

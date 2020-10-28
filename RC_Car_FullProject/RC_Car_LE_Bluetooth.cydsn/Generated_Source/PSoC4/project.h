@@ -70,8 +70,6 @@
 #include "T_Motor_L_Rood_aliases.h"
 #include "Motor_Rechts.h"
 #include "Motor_Links.h"
-#include "Start_Switch.h"
-#include "Start_Switch_aliases.h"
 #include "Motors.h"
 #include "To_Motor_L.h"
 #include "To_Motor_L_aliases.h"

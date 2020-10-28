@@ -116,10 +116,6 @@
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Links.c" value="SOURCE_C;CortexM0;;;;Motor_Links" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Links.h" value="HEADER;;;;;Motor_Links" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motor_Links_PM.c" value="SOURCE_C;CortexM0;;;;Motor_Links" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Start_Switch.c" value="SOURCE_C;CortexM0;;;;Start_Switch" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Start_Switch.h" value="HEADER;;;;;Start_Switch" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Start_Switch_aliases.h" value="HEADER;;;;;Start_Switch" />
-  <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Start_Switch_PM.c" value="SOURCE_C;CortexM0;;;;Start_Switch" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motors.c" value="SOURCE_C;CortexM0;;;;Motors" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\Motors.h" value="HEADER;;;;;Motors" />
   <file name="C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\codegentemp\To_Motor_L.c" value="SOURCE_C;CortexM0;;;;To_Motor_L" />

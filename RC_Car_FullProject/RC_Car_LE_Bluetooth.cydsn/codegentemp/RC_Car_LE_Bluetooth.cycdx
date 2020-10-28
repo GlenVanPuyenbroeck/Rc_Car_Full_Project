@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
+  <block name="T_Motor_L_Geel" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="T_Motor_L_Rood" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Motor_Rechts" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_capture_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -52,6 +53,14 @@
       </field>
     </register>
   </block>
+  <block name="T_Motor_L_Groen" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="T_Motor_R_Groen" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="T_Motor_R_Geel" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="T_Motor_R_Rood" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_lfclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="To_Motor_R" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Motor_Links" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_capture_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VMux_capture" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -103,18 +112,8 @@
       </field>
     </register>
   </block>
-  <block name="T_Motor_L_Geel" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="T_Motor_R_Geel" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="T_Motor_R_Rood" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="T_Motor_L_Groen" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_lfclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="To_Motor_R" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Start_Switch" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Motors" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="To_Motor_L" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="T_Motor_R_Groen" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Trigger_Midden" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="UltraSoon_Midden" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VMux_count" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />

@@ -1,4 +1,4 @@
---------------- Rebuild Started: 10/18/2020 20:58:20 Project: RC_Car_LE_Bluetooth, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Rebuild Started: 10/28/2020 14:17:21 Project: RC_Car_LE_Bluetooth, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\main.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\BLE.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\Control.o"
@@ -73,9 +73,8 @@ Deleting file ".\CortexM0\ARM_GCC_541\Debug\To_Motor_L_PM.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\To_Motor_R.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\To_Motor_R_PM.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\Motors.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\Start_Switch.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\Start_Switch_PM.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.hex"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.elf"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.map"
 Deleting file ".\RC_Car_LE_Bluetooth.cycdx"
 Deleting file ".\RC_Car_LE_Bluetooth.svd"
@@ -100,36 +99,46 @@ API Generation...
 Dependency Generation...
 Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
+In file included from main.c:4:0:
+BLE.c: In function 'updateCharacteristic':
+BLE.c:124:36: warning: variable 'control' set but not used [-Wunused-but-set-variable]
+     CYBLE_GATT_HANDLE_VALUE_PAIR_T control;
+                                    ^
 In file included from BLE.c:17:0,
                  from main.c:4:
-BLE.h:34:14: warning: 'M_L' defined but not used [-Wunused-variable]
- static uint8 M_L = 0;
+main.c: At top level:
+BLE.h:40:14: warning: 'var1' defined but not used [-Wunused-variable]
+ static uint8 var1 = 0;
               ^
-BLE.h:35:14: warning: 'M_R' defined but not used [-Wunused-variable]
- static uint8 M_R = 0; 
+BLE.h:41:14: warning: 'var2' defined but not used [-Wunused-variable]
+ static uint8 var2 = 0;
+              ^
+BLE.h:42:14: warning: 'var3' defined but not used [-Wunused-variable]
+ static uint8 var3 = 0;
+              ^
+BLE.h:55:14: warning: 'B_Flag' defined but not used [-Wunused-variable]
+ static uint8 B_Flag;
               ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/BLE.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c BLE.c -o .\CortexM0\ARM_GCC_541\Debug\BLE.o
+BLE.c: In function 'updateCharacteristic':
+BLE.c:124:36: warning: variable 'control' set but not used [-Wunused-but-set-variable]
+     CYBLE_GATT_HANDLE_VALUE_PAIR_T control;
+                                    ^
 In file included from BLE.c:17:0:
-BLE.h:34:14: warning: 'M_L' defined but not used [-Wunused-variable]
- static uint8 M_L = 0;
+BLE.c: At top level:
+BLE.h:40:14: warning: 'var1' defined but not used [-Wunused-variable]
+ static uint8 var1 = 0;
               ^
-BLE.h:35:14: warning: 'M_R' defined but not used [-Wunused-variable]
- static uint8 M_R = 0; 
+BLE.h:41:14: warning: 'var2' defined but not used [-Wunused-variable]
+ static uint8 var2 = 0;
+              ^
+BLE.h:42:14: warning: 'var3' defined but not used [-Wunused-variable]
+ static uint8 var3 = 0;
+              ^
+BLE.h:55:14: warning: 'B_Flag' defined but not used [-Wunused-variable]
+ static uint8 B_Flag;
               ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Control.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Control.c -o .\CortexM0\ARM_GCC_541\Debug\Control.o
-In file included from Control.c:13:0:
-BLE.h:31:14: warning: 'M_Links' defined but not used [-Wunused-variable]
- static uint8 M_Links = 0;
-              ^
-BLE.h:32:14: warning: 'M_Rechts' defined but not used [-Wunused-variable]
- static uint8 M_Rechts = 0;
-              ^
-BLE.h:34:14: warning: 'M_L' defined but not used [-Wunused-variable]
- static uint8 M_L = 0;
-              ^
-BLE.h:35:14: warning: 'M_R' defined but not used [-Wunused-variable]
- static uint8 M_R = 0; 
-              ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/UART.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\UART.c -o .\CortexM0\ARM_GCC_541\Debug\UART.o
@@ -201,22 +210,15 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/To_Motor_R.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\To_Motor_R.c -o .\CortexM0\ARM_GCC_541\Debug\To_Motor_R.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/To_Motor_R_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\To_Motor_R_PM.c -o .\CortexM0\ARM_GCC_541\Debug\To_Motor_R_PM.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Motors.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Motors.c -o .\CortexM0\ARM_GCC_541\Debug\Motors.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Start_Switch.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Start_Switch.c -o .\CortexM0\ARM_GCC_541\Debug\Start_Switch.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Start_Switch_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Start_Switch_PM.c -o .\CortexM0\ARM_GCC_541\Debug\Start_Switch_PM.o
 arm-none-eabi-as.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=.\CortexM0\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC4\CyBootAsmGnu.s
-arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a .\CortexM0\ARM_GCC_541\Debug\UART.o .\CortexM0\ARM_GCC_541\Debug\UART_SPI_UART.o .\CortexM0\ARM_GCC_541\Debug\UART_SPI_UART_INT.o .\CortexM0\ARM_GCC_541\Debug\UART_PM.o .\CortexM0\ARM_GCC_541\Debug\UART_UART.o .\CortexM0\ARM_GCC_541\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_541\Debug\UART_UART_BOOT.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Rechts.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Rechts_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Midden.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Midden_PM.o .\CortexM0\ARM_GCC_541\Debug\PWM.o .\CortexM0\ARM_GCC_541\Debug\PWM_PM.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Midden.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Midden_PM.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Links.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Links_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Rechts.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Rechts_PM.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Links.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Links_PM.o .\CortexM0\ARM_GCC_541\Debug\UART_SCBCLK.o .\CortexM0\ARM_GCC_541\Debug\UART_tx.o .\CortexM0\ARM_GCC_541\Debug\UART_tx_PM.o .\CortexM0\ARM_GCC_541\Debug\UART_rx.o .\CortexM0\ARM_GCC_541\Debug\UART_rx_PM.o .\CortexM0\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\BLE.o .\CortexM0\ARM_GCC_541\Debug\BLE_gatt.o .\CortexM0\ARM_GCC_541\Debug\BLE_eventHandler.o .\CortexM0\ARM_GCC_541\Debug\BLE_HAL_INT.o .\CortexM0\ARM_GCC_541\Debug\BLE_HAL_PVT.o .\CortexM0\ARM_GCC_541\Debug\BLE_custom.o .\CortexM0\ARM_GCC_541\Debug\BLE_bless_isr.o .\CortexM0\ARM_GCC_541\Debug\Motor_Links.o .\CortexM0\ARM_GCC_541\Debug\Motor_Links_PM.o .\CortexM0\ARM_GCC_541\Debug\Motor_Rechts.o .\CortexM0\ARM_GCC_541\Debug\Motor_Rechts_PM.o .\CortexM0\ARM_GCC_541\Debug\Echo_R.o .\CortexM0\ARM_GCC_541\Debug\Echo_R_PM.o .\CortexM0\ARM_GCC_541\Debug\Echo_L.o .\CortexM0\ARM_GCC_541\Debug\Echo_L_PM.o .\CortexM0\ARM_GCC_541\Debug\Echo_M.o .\CortexM0\ARM_GCC_541\Debug\Echo_M_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Groen.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Groen_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Geel.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Geel_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Rood.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Rood_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Groen.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Groen_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Geel.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Geel_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Rood.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Rood_PM.o .\CortexM0\ARM_GCC_541\Debug\To_Motor_L.o .\CortexM0\ARM_GCC_541\Debug\To_Motor_L_PM.o .\CortexM0\ARM_GCC_541\Debug\To_Motor_R.o .\CortexM0\ARM_GCC_541\Debug\To_Motor_R_PM.o .\CortexM0\ARM_GCC_541\Debug\Motors.o .\CortexM0\ARM_GCC_541\Debug\Start_Switch.o .\CortexM0\ARM_GCC_541\Debug\Start_Switch_PM.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a .\CortexM0\ARM_GCC_541\Debug\UART.o .\CortexM0\ARM_GCC_541\Debug\UART_SPI_UART.o .\CortexM0\ARM_GCC_541\Debug\UART_SPI_UART_INT.o .\CortexM0\ARM_GCC_541\Debug\UART_PM.o .\CortexM0\ARM_GCC_541\Debug\UART_UART.o .\CortexM0\ARM_GCC_541\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_541\Debug\UART_UART_BOOT.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Rechts.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Rechts_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Midden.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Midden_PM.o .\CortexM0\ARM_GCC_541\Debug\PWM.o .\CortexM0\ARM_GCC_541\Debug\PWM_PM.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Midden.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Midden_PM.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Links.o .\CortexM0\ARM_GCC_541\Debug\UltraSoon_Links_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Rechts.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Rechts_PM.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Links.o .\CortexM0\ARM_GCC_541\Debug\Trigger_Links_PM.o .\CortexM0\ARM_GCC_541\Debug\UART_SCBCLK.o .\CortexM0\ARM_GCC_541\Debug\UART_tx.o .\CortexM0\ARM_GCC_541\Debug\UART_tx_PM.o .\CortexM0\ARM_GCC_541\Debug\UART_rx.o .\CortexM0\ARM_GCC_541\Debug\UART_rx_PM.o .\CortexM0\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\BLE.o .\CortexM0\ARM_GCC_541\Debug\BLE_gatt.o .\CortexM0\ARM_GCC_541\Debug\BLE_eventHandler.o .\CortexM0\ARM_GCC_541\Debug\BLE_HAL_INT.o .\CortexM0\ARM_GCC_541\Debug\BLE_HAL_PVT.o .\CortexM0\ARM_GCC_541\Debug\BLE_custom.o .\CortexM0\ARM_GCC_541\Debug\BLE_bless_isr.o .\CortexM0\ARM_GCC_541\Debug\Motor_Links.o .\CortexM0\ARM_GCC_541\Debug\Motor_Links_PM.o .\CortexM0\ARM_GCC_541\Debug\Motor_Rechts.o .\CortexM0\ARM_GCC_541\Debug\Motor_Rechts_PM.o .\CortexM0\ARM_GCC_541\Debug\Echo_R.o .\CortexM0\ARM_GCC_541\Debug\Echo_R_PM.o .\CortexM0\ARM_GCC_541\Debug\Echo_L.o .\CortexM0\ARM_GCC_541\Debug\Echo_L_PM.o .\CortexM0\ARM_GCC_541\Debug\Echo_M.o .\CortexM0\ARM_GCC_541\Debug\Echo_M_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Groen.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Groen_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Geel.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Geel_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Rood.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_R_Rood_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Groen.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Groen_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Geel.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Geel_PM.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Rood.o .\CortexM0\ARM_GCC_541\Debug\T_Motor_L_Rood_PM.o .\CortexM0\ARM_GCC_541\Debug\To_Motor_L.o .\CortexM0\ARM_GCC_541\Debug\To_Motor_L_PM.o .\CortexM0\ARM_GCC_541\Debug\To_Motor_R.o .\CortexM0\ARM_GCC_541\Debug\To_Motor_R_PM.o .\CortexM0\ARM_GCC_541\Debug\Motors.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.elf .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\BLE.o .\CortexM0\ARM_GCC_541\Debug\Control.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a "..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\BLE_v3_66\Library\gccCyBLEStack_BLE_SOC_PERIPHERAL.a" -mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/RC_Car_LE_Bluetooth.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
-.\CortexM0\ARM_GCC_541\Debug\Control.o:(.bss+0x0): multiple definition of `started'
-.\CortexM0\ARM_GCC_541\Debug\main.o:(.bss+0x6): first defined here
-.\CortexM0\ARM_GCC_541\Debug\Control.o:(.data+0x0): multiple definition of `number'
-.\CortexM0\ARM_GCC_541\Debug\main.o:(.data+0x0): first defined here
-.\CortexM0\ARM_GCC_541\Debug\Control.o:(.bss+0x1): multiple definition of `busyStatus'
-.\CortexM0\ARM_GCC_541\Debug\main.o:(.bss+0x5): first defined here
-.\CortexM0\ARM_GCC_541\Debug\Control.o:(.bss+0x2): multiple definition of `restartAdvertisement'
-.\CortexM0\ARM_GCC_541\Debug\main.o:(.bss+0x3): first defined here
-.\CortexM0\ARM_GCC_541\Debug\Control.o:(.bss+0x3): multiple definition of `deviceConnected'
-.\CortexM0\ARM_GCC_541\Debug\main.o:(.bss+0x4): first defined here
-collect2.exe: error: ld returned 1 exit status
-The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
---------------- Rebuild Failed: 10/18/2020 20:59:29 ---------------
+cyelftool.exe -C C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.elf --flash_row_size 128 --flash_size 131072 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S C:\Users\11800025\Documents\GitHub\Rc_Car_Full_Project\RC_Car_FullProject\RC_Car_LE_Bluetooth.cydsn\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.elf
+Flash used: 84784 of 131072 bytes (64,7%).
+SRAM used: 12624 of 16384 bytes (77,1%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 10/28/2020 14:19:24 ---------------

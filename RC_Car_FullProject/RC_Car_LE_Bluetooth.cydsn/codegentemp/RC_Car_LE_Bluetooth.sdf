@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2020-10-18T18:58:39Z")
+ (DATE "2020-10-28T16:12:16Z")
  (DESIGN "RC_Car_LE_Bluetooth")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -146,7 +146,6 @@
     (INTERCONNECT T_Motor_L_Groen\(0\)_PAD T_Motor_L_Groen\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT T_Motor_L_Geel\(0\)_PAD T_Motor_L_Geel\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT T_Motor_L_Rood\(0\)_PAD T_Motor_L_Rood\(0\).pad_in (0.000:0.000:0.000))
-    (INTERCONNECT Start_Switch\(0\)_PAD Start_Switch\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT To_Motor_L\(0\).pad_out To_Motor_L\(0\)_PAD (0.000:0.000:0.000))
     (INTERCONNECT To_Motor_L\(0\)_PAD To_Motor_L\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT To_Motor_R\(0\).pad_out To_Motor_R\(0\)_PAD (0.000:0.000:0.000))

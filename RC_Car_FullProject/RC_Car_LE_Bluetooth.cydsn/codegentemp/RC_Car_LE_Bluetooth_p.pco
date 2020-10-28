@@ -31,7 +31,6 @@ set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
 set_location "\UltraSoon_Links:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 0
 set_location "\UltraSoon_Midden:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 1
 set_location "ClockBlock" m0s8clockblockcell -1 -1 0
-set_io "Start_Switch(0)" iocell 2 7
 set_location "\BLE:cy_m0s8_ble\" p4blecell -1 -1 0
 set_io "Trigger_Midden(0)" iocell 3 1
 set_io "\UART:tx(0)\" iocell 0 5

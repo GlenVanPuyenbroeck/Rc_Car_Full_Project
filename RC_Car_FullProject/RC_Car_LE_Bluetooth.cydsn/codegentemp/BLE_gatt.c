@@ -108,7 +108,7 @@ CYBLE_STATE_T cyBle_state;
     0x000Bu,    /* Handle of the Client Characteristic Configuration descriptor */
 };
     
-    static uint8 cyBle_attValues[0x6Eu] = {
+    static uint8 cyBle_attValues[0x22u] = {
     /* Device Name */
     (uint8)'R', (uint8)'C', (uint8)'_', (uint8)'C', (uint8)'a', (uint8)'r',
 
@@ -125,36 +125,43 @@ CYBLE_STATE_T cyBle_state;
     0x00u,
 
     /* Custom Descriptor */
-    0x00u, 0xFBu, 0x34u, 0x9Bu, 0x5Fu, 0x80u, 0x00u, 0x00u, 0x80u, 0x00u, 0x10u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
     0x00u,
 
     /* Sensor Midden */
     0x00u,
 
     /* Custom Descriptor */
-    0x00u, 0x23u, 0x39u, 0x6Fu, 0x9Du, 0x7Cu, 0xE7u, 0x3Bu, 0x9Cu, 0x7Au, 0x40u, 0x82u, 0x90u, 0x72u, 0xD3u, 0xF3u,
-    0x12u,
+    0x00u,
 
     /* Sensor Rechts */
     0x00u,
 
     /* Custom Descriptor */
-    0x00u, 0x6Eu, 0x5Du, 0x9Bu, 0x11u, 0x25u, 0x67u, 0x9Au, 0xBCu, 0xCDu, 0x48u, 0xDDu, 0x8Eu, 0xC1u, 0xE7u, 0x01u,
-    0xA7u,
+    0x00u,
 
     /* Motor Links */
     0x00u,
 
     /* Custom Descriptor */
-    0x00u, 0x06u, 0x7Du, 0x9Fu, 0x08u, 0xC7u, 0x7Bu, 0x3Bu, 0xA7u, 0x58u, 0x4Du, 0x3Cu, 0xD3u, 0xB1u, 0x70u, 0xBAu,
-    0x15u,
+    0x00u,
 
     /* Motor Rechts */
     0x00u,
 
     /* Custom Descriptor */
-    0x00u, 0x94u, 0xF6u, 0xC9u, 0x9Du, 0x97u, 0x46u, 0xAFu, 0x92u, 0xE1u, 0x48u, 0xEAu, 0x1Du, 0x1Fu, 0x77u, 0x63u,
-    0x6Bu,
+    0x00u,
+
+    /* Start */
+    0x00u,
+
+    /* Custom Descriptor */
+    0x00u,
+
+    /* Control_Flag */
+    0x00u,
+
+    /* Custom Descriptor */
+    0x00u,
 
 };
 #if(CYBLE_GATT_DB_CCCD_COUNT != 0u)
@@ -174,18 +181,22 @@ CYBLE_GATTS_ATT_GEN_VAL_LEN_T cyBle_attValuesLen[CYBLE_GATT_DB_ATT_VAL_COUNT] = 
     { 0x0002u, (void *)&cyBle_attValuesCCCD[0] }, /* Client Characteristic Configuration */
     { 0x0001u, (void *)&cyBle_attValues[20] }, /* Sensor Links */
     { 0x0001u, (void *)&cyBle_attValues[21] }, /* Custom Descriptor */
-    { 0x0001u, (void *)&cyBle_attValues[38] }, /* Sensor Midden */
-    { 0x0001u, (void *)&cyBle_attValues[39] }, /* Custom Descriptor */
-    { 0x0001u, (void *)&cyBle_attValues[56] }, /* Sensor Rechts */
-    { 0x0001u, (void *)&cyBle_attValues[57] }, /* Custom Descriptor */
+    { 0x0001u, (void *)&cyBle_attValues[22] }, /* Sensor Midden */
+    { 0x0001u, (void *)&cyBle_attValues[23] }, /* Custom Descriptor */
+    { 0x0001u, (void *)&cyBle_attValues[24] }, /* Sensor Rechts */
+    { 0x0001u, (void *)&cyBle_attValues[25] }, /* Custom Descriptor */
     { 0x0010u, (void *)&cyBle_attUuid128[0] }, /* Motoren UUID */
-    { 0x0001u, (void *)&cyBle_attValues[74] }, /* Motor Links */
-    { 0x0001u, (void *)&cyBle_attValues[75] }, /* Custom Descriptor */
-    { 0x0001u, (void *)&cyBle_attValues[92] }, /* Motor Rechts */
-    { 0x0001u, (void *)&cyBle_attValues[93] }, /* Custom Descriptor */
+    { 0x0001u, (void *)&cyBle_attValues[26] }, /* Motor Links */
+    { 0x0001u, (void *)&cyBle_attValues[27] }, /* Custom Descriptor */
+    { 0x0001u, (void *)&cyBle_attValues[28] }, /* Motor Rechts */
+    { 0x0001u, (void *)&cyBle_attValues[29] }, /* Custom Descriptor */
+    { 0x0001u, (void *)&cyBle_attValues[30] }, /* Start */
+    { 0x0001u, (void *)&cyBle_attValues[31] }, /* Custom Descriptor */
+    { 0x0001u, (void *)&cyBle_attValues[32] }, /* Control_Flag */
+    { 0x0001u, (void *)&cyBle_attValues[33] }, /* Custom Descriptor */
 };
 
-const CYBLE_GATTS_DB_T cyBle_gattDB[0x1Cu] = {
+const CYBLE_GATTS_DB_T cyBle_gattDB[0x23u] = {
     { 0x0001u, 0x2800u /* Primary service                     */, 0x00000001u /*        */, 0x0007u, {{0x1800u, NULL}}                           },
     { 0x0002u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd     */, 0x0003u, {{0x2A00u, NULL}}                           },
     { 0x0003u, 0x2A00u /* Device Name                         */, 0x01020001u /* rd     */, 0x0003u, {{0x0006u, (void *)&cyBle_attValuesLen[0]}} },
@@ -200,20 +211,27 @@ const CYBLE_GATTS_DB_T cyBle_gattDB[0x1Cu] = {
     { 0x000Cu, 0x2800u /* Primary service                     */, 0x00000001u /*        */, 0x0015u, {{0xB73Au, NULL}}                           },
     { 0x000Du, 0x2803u /* Characteristic                      */, 0x00020001u /* rd     */, 0x000Fu, {{0xAB11u, NULL}}                           },
     { 0x000Eu, 0xAB11u /* Sensor Links                        */, 0x01020001u /* rd     */, 0x000Fu, {{0x0001u, (void *)&cyBle_attValuesLen[5]}} },
-    { 0x000Fu, 0x0000u /* Custom Descriptor                   */, 0x09000001u /*        */, 0x000Fu, {{0x0001u, (void *)&cyBle_attValuesLen[6]}} },
+    { 0x000Fu, 0x0000u /* Custom Descriptor                   */, 0x01000001u /*        */, 0x000Fu, {{0x0001u, (void *)&cyBle_attValuesLen[6]}} },
     { 0x0010u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd     */, 0x0012u, {{0x101Bu, NULL}}                           },
     { 0x0011u, 0x101Bu /* Sensor Midden                       */, 0x01020001u /* rd     */, 0x0012u, {{0x0001u, (void *)&cyBle_attValuesLen[7]}} },
-    { 0x0012u, 0xD372u /* Custom Descriptor                   */, 0x09000001u /*        */, 0x0012u, {{0x0001u, (void *)&cyBle_attValuesLen[8]}} },
+    { 0x0012u, 0xD372u /* Custom Descriptor                   */, 0x01000001u /*        */, 0x0012u, {{0x0001u, (void *)&cyBle_attValuesLen[8]}} },
     { 0x0013u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd     */, 0x0015u, {{0xF961u, NULL}}                           },
     { 0x0014u, 0xF961u /* Sensor Rechts                       */, 0x01020001u /* rd     */, 0x0015u, {{0x0001u, (void *)&cyBle_attValuesLen[9]}} },
-    { 0x0015u, 0xE7C1u /* Custom Descriptor                   */, 0x09000001u /*        */, 0x0015u, {{0x0001u, (void *)&cyBle_attValuesLen[10]}} },
+    { 0x0015u, 0xE7C1u /* Custom Descriptor                   */, 0x01000001u /*        */, 0x0015u, {{0x0001u, (void *)&cyBle_attValuesLen[10]}} },
     { 0x0016u, 0x2800u /* Primary service                     */, 0x08000001u /*        */, 0x001Cu, {{0x0010u, (void *)&cyBle_attValuesLen[11]}} },
     { 0x0017u, 0x2803u /* Characteristic                      */, 0x00080001u /* wr     */, 0x0019u, {{0x7997u, NULL}}                           },
     { 0x0018u, 0x7997u /* Motor Links                         */, 0x01080100u /* wr     */, 0x0019u, {{0x0001u, (void *)&cyBle_attValuesLen[12]}} },
-    { 0x0019u, 0x70B1u /* Custom Descriptor                   */, 0x09000100u /*        */, 0x0019u, {{0x0001u, (void *)&cyBle_attValuesLen[13]}} },
+    { 0x0019u, 0x70B1u /* Custom Descriptor                   */, 0x01000100u /*        */, 0x0019u, {{0x0001u, (void *)&cyBle_attValuesLen[13]}} },
     { 0x001Au, 0x2803u /* Characteristic                      */, 0x00080001u /* wr     */, 0x001Cu, {{0xDAFBu, NULL}}                           },
     { 0x001Bu, 0xDAFBu /* Motor Rechts                        */, 0x01080100u /* wr     */, 0x001Cu, {{0x0001u, (void *)&cyBle_attValuesLen[14]}} },
-    { 0x001Cu, 0x771Fu /* Custom Descriptor                   */, 0x09000100u /*        */, 0x001Cu, {{0x0001u, (void *)&cyBle_attValuesLen[15]}} },
+    { 0x001Cu, 0x771Fu /* Custom Descriptor                   */, 0x01000100u /*        */, 0x001Cu, {{0x0001u, (void *)&cyBle_attValuesLen[15]}} },
+    { 0x001Du, 0x2800u /* Primary service                     */, 0x00000001u /*        */, 0x0023u, {{0xD7B4u, NULL}}                           },
+    { 0x001Eu, 0x2803u /* Characteristic                      */, 0x000A0001u /* rd,wr  */, 0x0020u, {{0x60D1u, NULL}}                           },
+    { 0x001Fu, 0x60D1u /* Start                               */, 0x010A0101u /* rd,wr  */, 0x0020u, {{0x0001u, (void *)&cyBle_attValuesLen[16]}} },
+    { 0x0020u, 0x1325u /* Custom Descriptor                   */, 0x01000001u /*        */, 0x0020u, {{0x0001u, (void *)&cyBle_attValuesLen[17]}} },
+    { 0x0021u, 0x2803u /* Characteristic                      */, 0x000A0001u /* rd,wr  */, 0x0023u, {{0xBDE1u, NULL}}                           },
+    { 0x0022u, 0xBDE1u /* Control_Flag                        */, 0x010A0101u /* rd,wr  */, 0x0023u, {{0x0001u, (void *)&cyBle_attValuesLen[18]}} },
+    { 0x0023u, 0xFE51u /* Custom Descriptor                   */, 0x01000001u /*        */, 0x0023u, {{0x0001u, (void *)&cyBle_attValuesLen[19]}} },
 };
 
 
