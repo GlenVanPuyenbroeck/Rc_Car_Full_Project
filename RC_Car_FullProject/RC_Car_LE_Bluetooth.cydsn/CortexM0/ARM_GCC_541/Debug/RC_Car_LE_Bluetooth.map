@@ -287,7 +287,6 @@ Allocating common symbols
 Common symbol       size              file
 
 DANGER              0x1               .\CortexM0\ARM_GCC_541\Debug\main.o
-BLUETOOTH           0x1               .\CortexM0\ARM_GCC_541\Debug\main.o
 GO                  0x1               .\CortexM0\ARM_GCC_541\Debug\main.o
 cyBle_pendingFlashWrite
                     0x1               .\CortexM0\ARM_GCC_541\Debug\BLE.o
@@ -321,7 +320,7 @@ Discarded input sections
  .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
  .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
  .text          0x00000000        0x0 .\CortexM0\ARM_GCC_541\Debug\main.o
- .data          0x00000000        0x1 .\CortexM0\ARM_GCC_541\Debug\main.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_541\Debug\main.o
  .text          0x00000000        0x0 .\CortexM0\ARM_GCC_541\Debug\BLE.o
  .text.CyBle_ChangeAdLocalName
                 0x00000000       0x78 .\CortexM0\ARM_GCC_541\Debug\BLE.o
@@ -2201,16 +2200,16 @@ END GROUP
  .text.StackEventHandler
                 0x000003a0       0xc8 .\CortexM0\ARM_GCC_541\Debug\main.o
                 0x000003a0                StackEventHandler
- .text.print    0x00000468       0xac .\CortexM0\ARM_GCC_541\Debug\main.o
-                0x00000468                print
- .text.switchToString
-                0x00000514       0x54 .\CortexM0\ARM_GCC_541\Debug\main.o
-                0x00000514                switchToString
  .text.getDistance
-                0x00000568       0x1c .\CortexM0\ARM_GCC_541\Debug\main.o
-                0x00000568                getDistance
- .text.decide   0x00000584      0x294 .\CortexM0\ARM_GCC_541\Debug\main.o
-                0x00000584                decide
+                0x00000468       0x1c .\CortexM0\ARM_GCC_541\Debug\main.o
+                0x00000468                getDistance
+ .text.switchToString
+                0x00000484       0x54 .\CortexM0\ARM_GCC_541\Debug\main.o
+                0x00000484                switchToString
+ .text.decide   0x000004d8      0x294 .\CortexM0\ARM_GCC_541\Debug\main.o
+                0x000004d8                decide
+ .text.print    0x0000076c       0xac .\CortexM0\ARM_GCC_541\Debug\main.o
+                0x0000076c                print
  .text.testLEDleft
                 0x00000818       0x54 .\CortexM0\ARM_GCC_541\Debug\main.o
                 0x00000818                testLEDleft
@@ -8993,7 +8992,7 @@ i.CyBle_BleSSInterruptHandler
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
  .bss           0x20001670       0x1c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
- .bss           0x2000168c       0x12 .\CortexM0\ARM_GCC_541\Debug\main.o
+ .bss           0x2000168c       0x11 .\CortexM0\ARM_GCC_541\Debug\main.o
                 0x2000168d                a_links
                 0x2000168f                a_midden
                 0x20001691                a_rechts
@@ -9005,11 +9004,11 @@ i.CyBle_BleSSInterruptHandler
                 0x20001698                control_flag
                 0x20001699                start_flag
                 0x2000169a                busyStatus
-                0x2000169b                whatToDo
+                0x2000169b                PROGRAM
                 0x2000169c                started
-                0x2000169d                PROGRAM
- .bss           0x2000169e        0x2 .\CortexM0\ARM_GCC_541\Debug\BLE.o
-                0x2000169e                cyBle_initVar
+ .bss           0x2000169d        0x2 .\CortexM0\ARM_GCC_541\Debug\BLE.o
+                0x2000169d                cyBle_initVar
+ *fill*         0x2000169f        0x1 
  .bss           0x200016a0        0x4 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART.o)
                 0x200016a0                UART_initVar
                 0x200016a2                UART_IntrTxMask
@@ -9099,8 +9098,7 @@ i.CyBle_BleSSInterruptHandler
  *fill*         0x20002827        0x1 
  COMMON         0x20002828       0x19 .\CortexM0\ARM_GCC_541\Debug\main.o
                 0x20002828                DANGER
-                0x20002829                BLUETOOTH
-                0x2000282a                GO
+                0x20002829                GO
                 0x2000282c                motor_links
                 0x20002830                motor_rechts
                 0x20002834                connectionHandle
@@ -9262,39 +9260,39 @@ i.CyBle_BleSSInterruptHandler
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xb485
+.debug_info     0x00000000     0xb436
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xf8b .\CortexM0\ARM_GCC_541\Debug\main.o
- .debug_info    0x00000f8b     0x10a2 .\CortexM0\ARM_GCC_541\Debug\BLE.o
- .debug_info    0x0000202d      0x450 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_info    0x0000247d       0xf8 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
- .debug_info    0x00002575      0x3a2 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
- .debug_info    0x00002917      0x23a .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART.o)
- .debug_info    0x00002b51      0x220 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART_SPI_UART.o)
- .debug_info    0x00002d71      0x3b5 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART_UART.o)
- .debug_info    0x00003126      0x8e2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Rechts.o)
- .debug_info    0x00003a08      0x350 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(PWM.o)
- .debug_info    0x00003d58      0x8e2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Midden.o)
- .debug_info    0x0000463a      0x8e2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Links.o)
- .debug_info    0x00004f1c      0xbd0 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyLib.o)
- .debug_info    0x00005aec     0x1071 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyLFClk.o)
- .debug_info    0x00006b5d     0x119e .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_gatt.o)
- .debug_info    0x00007cfb      0xfce .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_eventHandler.o)
- .debug_info    0x00008cc9      0x319 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_custom.o)
- .debug_info    0x00008fe2      0x334 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(Motor_Links.o)
- .debug_info    0x00009316      0x334 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(Motor_Rechts.o)
- .debug_info    0x0000964a      0x19b .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Groen.o)
- .debug_info    0x000097e5      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Geel.o)
- .debug_info    0x00009982      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Rood.o)
- .debug_info    0x00009b1f      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Groen.o)
- .debug_info    0x00009cbc      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Geel.o)
- .debug_info    0x00009e59      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Rood.o)
- .debug_info    0x00009ff6       0xb2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyBootAsmGnu.o)
- .debug_info    0x0000a0a8      0x2e8 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(cyPm.o)
- .debug_info    0x0000a390      0x91b .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_HAL_PVT.o)
- .debug_info    0x0000acab      0x305 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_bless_isr.o)
- .debug_info    0x0000afb0      0x41c .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyFlash.o)
- .debug_info    0x0000b3cc       0xb9 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_HAL_INT.o)
+ .debug_info    0x00000000      0xf3c .\CortexM0\ARM_GCC_541\Debug\main.o
+ .debug_info    0x00000f3c     0x10a2 .\CortexM0\ARM_GCC_541\Debug\BLE.o
+ .debug_info    0x00001fde      0x450 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x0000242e       0xf8 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00002526      0x3a2 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_info    0x000028c8      0x23a .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART.o)
+ .debug_info    0x00002b02      0x220 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART_SPI_UART.o)
+ .debug_info    0x00002d22      0x3b5 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART_UART.o)
+ .debug_info    0x000030d7      0x8e2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Rechts.o)
+ .debug_info    0x000039b9      0x350 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(PWM.o)
+ .debug_info    0x00003d09      0x8e2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Midden.o)
+ .debug_info    0x000045eb      0x8e2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Links.o)
+ .debug_info    0x00004ecd      0xbd0 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyLib.o)
+ .debug_info    0x00005a9d     0x1071 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyLFClk.o)
+ .debug_info    0x00006b0e     0x119e .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_gatt.o)
+ .debug_info    0x00007cac      0xfce .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_eventHandler.o)
+ .debug_info    0x00008c7a      0x319 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_custom.o)
+ .debug_info    0x00008f93      0x334 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(Motor_Links.o)
+ .debug_info    0x000092c7      0x334 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(Motor_Rechts.o)
+ .debug_info    0x000095fb      0x19b .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Groen.o)
+ .debug_info    0x00009796      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Geel.o)
+ .debug_info    0x00009933      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Rood.o)
+ .debug_info    0x00009ad0      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Groen.o)
+ .debug_info    0x00009c6d      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Geel.o)
+ .debug_info    0x00009e0a      0x19d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Rood.o)
+ .debug_info    0x00009fa7       0xb2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyBootAsmGnu.o)
+ .debug_info    0x0000a059      0x2e8 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(cyPm.o)
+ .debug_info    0x0000a341      0x91b .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_HAL_PVT.o)
+ .debug_info    0x0000ac5c      0x305 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_bless_isr.o)
+ .debug_info    0x0000af61      0x41c .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyFlash.o)
+ .debug_info    0x0000b37d       0xb9 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_HAL_INT.o)
 
 .debug_abbrev   0x00000000     0x27af
  *(.debug_abbrev)
@@ -10927,67 +10925,67 @@ i.CyBle_BleSSInterruptHandler
  .debug_frame   0x0001c160       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
  .debug_frame   0x0001c180       0x48 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-utoa.o)
 
-.debug_str      0x00000000     0x8d7e
+.debug_str      0x00000000     0x8d58
  *(.debug_str)
- .debug_str     0x00000000     0x10ac .\CortexM0\ARM_GCC_541\Debug\main.o
-                               0x112c (size before relaxing)
- .debug_str     0x000010ac      0xdad .\CortexM0\ARM_GCC_541\Debug\BLE.o
+ .debug_str     0x00000000     0x107f .\CortexM0\ARM_GCC_541\Debug\main.o
+                               0x10f6 (size before relaxing)
+ .debug_str     0x0000107f      0xdad .\CortexM0\ARM_GCC_541\Debug\BLE.o
                                0x1963 (size before relaxing)
- .debug_str     0x00001e59      0x169 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_str     0x00001e2c      0x169 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
                                 0x34a (size before relaxing)
- .debug_str     0x00001fc2       0x63 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
+ .debug_str     0x00001f95       0x63 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
                                 0x1ea (size before relaxing)
- .debug_str     0x00002025      0x13a .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_str     0x00001ff8      0x13a .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
                                 0x323 (size before relaxing)
- .debug_str     0x0000215f       0xf7 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART.o)
+ .debug_str     0x00002132       0xf7 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART.o)
                                 0x2b9 (size before relaxing)
- .debug_str     0x00002256      0x11d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART_SPI_UART.o)
+ .debug_str     0x00002229      0x11d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART_SPI_UART.o)
                                 0x2f0 (size before relaxing)
- .debug_str     0x00002373      0x16f .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART_UART.o)
+ .debug_str     0x00002346      0x16f .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UART_UART.o)
                                 0x3ea (size before relaxing)
- .debug_str     0x000024e2      0x5aa .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Rechts.o)
+ .debug_str     0x000024b5      0x5aa .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Rechts.o)
                                 0x7a1 (size before relaxing)
- .debug_str     0x00002a8c      0x15d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(PWM.o)
+ .debug_str     0x00002a5f      0x15d .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(PWM.o)
                                 0x35a (size before relaxing)
- .debug_str     0x00002be9      0x4c1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Midden.o)
+ .debug_str     0x00002bbc      0x4c1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Midden.o)
                                 0x7a1 (size before relaxing)
- .debug_str     0x000030aa      0x499 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Links.o)
+ .debug_str     0x0000307d      0x499 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(UltraSoon_Links.o)
                                 0x777 (size before relaxing)
- .debug_str     0x00003543      0x4ca .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyLib.o)
+ .debug_str     0x00003516      0x4d1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyLib.o)
                                 0x75d (size before relaxing)
- .debug_str     0x00003a0d      0x6ee .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyLFClk.o)
+ .debug_str     0x000039e7      0x6ee .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyLFClk.o)
                                 0x95a (size before relaxing)
- .debug_str     0x000040fb     0x2ee4 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_gatt.o)
+ .debug_str     0x000040d5     0x2ee4 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_gatt.o)
                                0x40ff (size before relaxing)
- .debug_str     0x00006fdf      0xc7b .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_eventHandler.o)
+ .debug_str     0x00006fb9      0xc7b .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_eventHandler.o)
                                0x251f (size before relaxing)
- .debug_str     0x00007c5a       0x9f .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_custom.o)
+ .debug_str     0x00007c34       0x9f .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_custom.o)
                                 0xb44 (size before relaxing)
- .debug_str     0x00007cf9      0x196 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(Motor_Links.o)
+ .debug_str     0x00007cd3      0x196 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(Motor_Links.o)
                                 0x3e5 (size before relaxing)
- .debug_str     0x00007e8f      0x1a6 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(Motor_Rechts.o)
+ .debug_str     0x00007e69      0x1a6 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(Motor_Rechts.o)
                                 0x3f8 (size before relaxing)
- .debug_str     0x00008035       0xdb .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Groen.o)
+ .debug_str     0x0000800f       0xdb .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Groen.o)
                                 0x29e (size before relaxing)
- .debug_str     0x00008110       0xb1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Geel.o)
+ .debug_str     0x000080ea       0xb1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Geel.o)
                                 0x297 (size before relaxing)
- .debug_str     0x000081c1       0xb1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Rood.o)
+ .debug_str     0x0000819b       0xb1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_R_Rood.o)
                                 0x297 (size before relaxing)
- .debug_str     0x00008272       0xb7 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Groen.o)
+ .debug_str     0x0000824c       0xb7 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Groen.o)
                                 0x29e (size before relaxing)
- .debug_str     0x00008329       0xb1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Geel.o)
+ .debug_str     0x00008303       0xb1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Geel.o)
                                 0x297 (size before relaxing)
- .debug_str     0x000083da       0xb1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Rood.o)
+ .debug_str     0x000083b4       0xb1 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(T_Motor_L_Rood.o)
                                 0x297 (size before relaxing)
- .debug_str     0x0000848b       0xd5 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(cyPm.o)
+ .debug_str     0x00008465       0xd5 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(cyPm.o)
                                 0x2f5 (size before relaxing)
- .debug_str     0x00008560      0x5b3 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_HAL_PVT.o)
+ .debug_str     0x0000853a      0x5b3 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_HAL_PVT.o)
                                 0xbd6 (size before relaxing)
- .debug_str     0x00008b13       0xf2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_bless_isr.o)
+ .debug_str     0x00008aed       0xf2 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_bless_isr.o)
                                 0x37c (size before relaxing)
- .debug_str     0x00008c05      0x122 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyFlash.o)
+ .debug_str     0x00008bdf      0x122 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(CyFlash.o)
                                 0x34f (size before relaxing)
- .debug_str     0x00008d27       0x57 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_HAL_INT.o)
+ .debug_str     0x00008d01       0x57 .\CortexM0\ARM_GCC_541\Debug\RC_Car_LE_Bluetooth.a(BLE_HAL_INT.o)
                                 0x1f4 (size before relaxing)
 
 .debug_loc      0x00000000     0x41ba

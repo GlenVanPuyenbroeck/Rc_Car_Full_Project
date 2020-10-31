@@ -3,24 +3,22 @@
 #include <stdlib.h>
 #include "BLE.c"
 
-
 void getDistance();
-void switchToString();
+void decide( uint8 var1, uint8 var2 , uint8 var3);
 void print();
-void MaxAndMin();
-void Move(uint8);
-
+void switchToString();
 void testLEDleft();
 void testLEDright();
 
 
-void getDistance();
-void switchToString();
-void print();
-void MaxAndMin();
+enum APP{DISTANCE , DECIDE ,TESTLEDLEFT , TESTLEDRIGHT, TOSTRING , PRINT , BLE};
+enum Control{ NOTHING ,FORWARD, SLOW_DOWN , TOLEFT, TORIGHT, STOP}; 
+enum motorStopControl{SHUTDOWN, SHUTDOWN_RIGHT , SHUTDOWN_LEFT};
 
+enum APP PROGRAM = DISTANCE;
+enum Control GO;
+enum motorStopControl DANGER;
 
- 
 void StackEventHandler( uint32 eventCode, void *eventParam );
 
 int main(void)  
@@ -44,10 +42,12 @@ int main(void)
     
     for(;;)
     {
+        /*Can also be set in a enum with a case statement*/
+        
         getDistance();
+        switchToString(); 
         decide(a_links, a_midden , a_rechts);
-        print();
-        switchToString();  
+        print(); 
         testLEDleft();
         testLEDright();
         
@@ -63,39 +63,19 @@ int main(void)
 }  
 
 
-void print()
+void getDistance()
 {
-        UART_UartPutString(" Afstand links = "); 
-        UART_UartPutString(afstand_links);
-        UART_UartPutString(" cm ");  
-        
-        UART_UartPutChar('\t');
-        
-        UART_UartPutString(" Afstand midden = "); 
-        UART_UartPutString(afstand_midden);
-        UART_UartPutString(" cm ");  
-        
-        UART_UartPutChar('\t');
-        
-        UART_UartPutString(" Afstand rechts = "); 
-        UART_UartPutString(afstand_rechts);
-        UART_UartPutString(" cm ");   
-        
-        UART_UartPutChar('\t');
-        
-        UART_UartPutString(" Period Motor rechts = "); 
-        UART_UartPutString(motor_rechts);
-       
-        UART_UartPutChar('\t');
-        
-        UART_UartPutString(" Period Motor links = "); 
-        UART_UartPutString(motor_links);
-        
-        UART_UartPutCRLF(0u);
-        UART_UartPutCRLF(0u);
-        
-        CyDelay(500);
+        a_links  = UltraSoon_Links_ReadCompare(); 
+        a_midden = UltraSoon_Midden_ReadCompare();  
+        a_rechts = UltraSoon_Rechts_ReadCompare();
 }
+
+/*
+* Function getDistance
+* Get the distance of the ultrasonic range sensors and it is put in variabels
+* parameters =  a_links = left sensor , a_midden = middle sensor , a_rechts = right sensor
+* return = void
+*/
 
 void switchToString()
 {
@@ -107,12 +87,13 @@ void switchToString()
         itoa(Motor_Rechts_ReadPeriod(),motor_links,10);  
 }
 
-void getDistance()
-{
-        a_links  = UltraSoon_Links_ReadCompare(); 
-        a_midden = UltraSoon_Midden_ReadCompare();  
-        a_rechts = UltraSoon_Rechts_ReadCompare();
-}
+/*
+* Function switchToString
+* The variables of the getDistancefuction are now switch into a string for printing use in putty
+* This also for the period of the motors
+* parameters = multiple char arrays[1]
+* return = void 
+*/
 
 void decide( uint8 links, uint8 midden , uint8 rechts)
 {
@@ -165,12 +146,12 @@ void decide( uint8 links, uint8 midden , uint8 rechts)
         
  
        
-        case FORWARD: 
+        case FORWARD: // safe zone , no collision can occur
         
     
-        if(start_flag == 1)
+        if(start_flag == 1) // start bluetooth command recieved 
         {
-                if(control_flag == 0)
+                if(control_flag == 0) // if bluetooth command not active
                 {
                      
                         if(periodMotorL < 255 && periodMotorR < 255)
@@ -329,6 +310,53 @@ void decide( uint8 links, uint8 midden , uint8 rechts)
     }  	
 }
 
+/*
+* Function decide( uint8 links, uint8 midden , uint8 rechts)
+* basic AI algoritme function = it decides what the motors should do if the distance variates of the ultrasonic range sensors
+* parameters = captured distances of the ultrasonic range sensors  (links , midden , rechts)
+* return = void 
+*/
+
+void print()
+{
+        UART_UartPutString(" Afstand links = "); 
+        UART_UartPutString(afstand_links);
+        UART_UartPutString(" cm ");  
+        
+        UART_UartPutChar('\t');
+        
+        UART_UartPutString(" Afstand midden = "); 
+        UART_UartPutString(afstand_midden);
+        UART_UartPutString(" cm ");  
+        
+        UART_UartPutChar('\t');
+        
+        UART_UartPutString(" Afstand rechts = "); 
+        UART_UartPutString(afstand_rechts);
+        UART_UartPutString(" cm ");   
+        
+        UART_UartPutChar('\t');
+        
+        UART_UartPutString(" Period Motor rechts = "); 
+        UART_UartPutString(motor_rechts);
+       
+        UART_UartPutChar('\t');
+        
+        UART_UartPutString(" Period Motor links = "); 
+        UART_UartPutString(motor_links);
+        
+        UART_UartPutCRLF(0u);
+        UART_UartPutCRLF(0u);
+        
+        CyDelay(500);
+}
+
+/*
+* Function print()
+* print distance in UART
+* parameters = char strings to print (afstand_links , afstand_midden , afstand_rechts , motor_rechts , motor_links) 
+* return = void 
+*/
 
 void testLEDleft()
 {
@@ -353,6 +381,12 @@ void testLEDleft()
             }
 }
 
+/*
+* Function testLEDleft
+* For visual testing , if period varies of the left motor different lights are lit
+* parameters = periodMotorL
+* return = void 
+*/
 
 void testLEDright()
 {
@@ -375,5 +409,13 @@ void testLEDright()
                 T_Motor_L_Rood_Write(0);
             }    
 }
+
+/*
+* Function testLEDright
+* For visual testing , if period varies of the right motor different lights are lit
+* parameters = periodMotorR
+* return = void 
+*/
+
 
 
